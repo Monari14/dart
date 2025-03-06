@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Projeto em Dart</title>
-  <link rel="stylesheet" href="style.css"> <!-- Arquivo CSS (opcional) -->
-</head>
-<body>
-  <h1>Bem-vindo ao meu Projeto!</h1>
-  
-  <!-- Aqui pode estar o conteúdo interativo gerado pelo Dart -->
-  <div id="content"></div>
-  
-  <!-- Script Dart compilado -->
-  <script defer src="main.dart.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Projeto Pokémon</title>
+    <script defer src="main.dart.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Olá, seja bem-vindo ao Mundo Pokémon!</h1>
+    
+    <div class="form-container">
+      <label for="a">Tipo de Pokémon:</label>
+      <select name="pokemon-type" id="pokemon-type">
+        <option value="1">Normal</option>
+        <option value="2">Luta</option>
+        <option value="3">Voador</option>
+        <option value="4">Venenoso</option>
+        <option value="5">Terra</option>
+        <option value="6">Rocha</option>
+        <option value="7">Inseto</option>
+        <option value="8">Fantasma</option>
+        <option value="9">Aço</option>
+        <option value="10">Fogo</option>
+        <option value="11">Água</option>
+        <option value="12">Planta</option>
+        <option value="13">Elétrico</option>
+        <option value="14">Psíquico</option>
+        <option value="15">Gelo</option>
+        <option value="16">Dragão</option>
+        <option value="17">Sombrio</option>
+        <option value="18">Fada</option>
+        <option value="19">Estelar</option>
+      </select>
+      
+      <button id="submitBtn">Enviar</button>
+    </div>
+    
+    <div id="result">
+      <p id="greeting"></p>
+    </div>
+    
+    <h1 id="type"></h1>
+    <h1 id="text"></h1>
+
+    <div class="container">
+      <div class="type-box normal">Normal</div>
+      <div class="type-box fighting">Fighting</div>
+      <div class="type-box flying">Flying</div>
+      <div class="type-box poison">Poison</div>
+      <div class="type-box ground">Ground</div>
+      <div class="type-box rock">Rock</div>
+      <div class="type-box bug">Bug</div>
+      <div class="type-box ghost">Ghost</div>
+      <div class="type-box steel">Steel</div>
+      <div class="type-box fire">Fire</div>
+      <div class="type-box water">Water</div>
+      <div class="type-box grass">Grass</div>
+      <div class="type-box electric">Electric</div>
+      <div class="type-box psychic">Psychic</div>
+      <div class="type-box ice">Ice</div>
+      <div class="type-box dragon">Dragon</div>
+      <div class="type-box dark">Dark</div>
+      <div class="type-box fairy">Fairy</div>
+    </div>
+
+  </body>
 </html>
