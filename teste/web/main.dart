@@ -1,17 +1,25 @@
 import 'dart:html';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 
-void main() async {
-  // Faz a requisição para a API
-  var response = await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/ditto'));
+void main() {
+  // Criando uma barra de navegação simples
+  var nav = DivElement();
+  var homeLink = AnchorElement(href: '#home')..text = 'Página Inicial';
+  var aboutLink = AnchorElement(href: '#about')..text = 'Sobre';
 
-  if (response.statusCode == 200) {
-    // Converte a resposta em um Map
-    var data = jsonDecode(response.body);
-    //printa no h1 que o id é output
-    querySelector('#output')!.text = 'Pegando valor do json da api: ${data['name']}'; // o name é como ta no json
-  } else {
-    querySelector('#output')!.text = 'Erro ao carregar dados';
-  }
+  nav..append(homeLink)..append(aboutLink);
+  document.body?.append(nav);
+
+  // Exibir conteúdo dependendo do link clicado
+  homeLink.onClick.listen((event) {
+    event.preventDefault();
+    querySelector('#content')!.text = 'Bem-vindo à Página Inicial!';
+  });
+
+  aboutLink.onClick.listen((event) {
+    event.preventDefault();
+    querySelector('#content')!.text = 'Esta é a página sobre nós!';
+  });
+
+  // Div para exibir o conteúdo
+  document.body?.append(DivElement()..id = 'content');
 }
