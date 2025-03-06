@@ -404,6 +404,9 @@
         return J.UnknownJavaScriptObject.prototype;
       return receiver;
     },
+    set$_innerHtml$x(receiver, value) {
+      return J.getInterceptor$x(receiver).set$_innerHtml(receiver, value);
+    },
     set$text$x(receiver, value) {
       return J.getInterceptor$x(receiver).set$text(receiver, value);
     },
@@ -428,6 +431,9 @@
     get$offset$z(receiver) {
       return J.getInterceptor$z(receiver).get$offset(receiver);
     },
+    get$onClick$x(receiver) {
+      return J.getInterceptor$x(receiver).get$onClick(receiver);
+    },
     get$runtimeType$(receiver) {
       return J.getInterceptor$(receiver).get$runtimeType(receiver);
     },
@@ -451,6 +457,9 @@
     $indexSet$ax(receiver, a0, a1) {
       return J.getInterceptor$ax(receiver).$indexSet(receiver, a0, a1);
     },
+    _clearChildren$0$x(receiver) {
+      return J.getInterceptor$x(receiver)._clearChildren$0(receiver);
+    },
     _removeEventListener$3$x(receiver, a0, a1, a2) {
       return J.getInterceptor$x(receiver)._removeEventListener$3(receiver, a0, a1, a2);
     },
@@ -472,14 +481,17 @@
     forEach$1$ax(receiver, a0) {
       return J.getInterceptor$ax(receiver).forEach$1(receiver, a0);
     },
-    join$1$ax(receiver, a0) {
-      return J.getInterceptor$ax(receiver).join$1(receiver, a0);
-    },
     map$1$1$ax(receiver, a0, $T1) {
       return J.getInterceptor$ax(receiver).map$1$1(receiver, a0, $T1);
     },
     matchAsPrefix$2$s(receiver, a0, a1) {
       return J.getInterceptor$s(receiver).matchAsPrefix$2(receiver, a0, a1);
+    },
+    remove$0$x(receiver) {
+      return J.getInterceptor$x(receiver).remove$0(receiver);
+    },
+    setInnerHtml$2$treeSanitizer$x(receiver, a0, a1) {
+      return J.getInterceptor$x(receiver).setInnerHtml$2$treeSanitizer(receiver, a0, a1);
     },
     skip$1$ax(receiver, a0) {
       return J.getInterceptor$ax(receiver).skip$1(receiver, a0);
@@ -866,7 +878,7 @@
       _.__internal$_iterable = t0;
       _.__internal$_length = t1;
       _.__internal$_index = 0;
-      _.__internal$_current = null;
+      _._current = null;
       _.$ti = t2;
     },
     MappedIterable: function MappedIterable(t0, t1, t2) {
@@ -881,7 +893,7 @@
     },
     MappedIterator: function MappedIterator(t0, t1, t2) {
       var _ = this;
-      _.__internal$_current = null;
+      _._current = null;
       _._iterator = t0;
       _._f = t1;
       _.$ti = t2;
@@ -911,7 +923,7 @@
       _._iterator = t0;
       _._f = t1;
       _._currentExpansion = t2;
-      _.__internal$_current = null;
+      _._current = null;
       _.$ti = t3;
     },
     SkipIterable: function SkipIterable(t0, t1, t2) {
@@ -6223,9 +6235,11 @@
     },
     AreaElement: function AreaElement() {
     },
+    BaseElement: function BaseElement() {
+    },
     Blob: function Blob() {
     },
-    ButtonElement: function ButtonElement() {
+    BodyElement: function BodyElement() {
     },
     CharacterData: function CharacterData() {
     },
@@ -6247,7 +6261,11 @@
     },
     DataTransferItemList: function DataTransferItemList() {
     },
+    Document: function Document() {
+    },
     DomException: function DomException() {
+    },
+    DomImplementation: function DomImplementation() {
     },
     DomRectList: function DomRectList() {
     },
@@ -6256,6 +6274,10 @@
     DomStringList: function DomStringList() {
     },
     DomTokenList: function DomTokenList() {
+    },
+    _FrozenElementList: function _FrozenElementList(t0, t1) {
+      this._nodeList = t0;
+      this.$ti = t1;
     },
     Element: function Element() {
     },
@@ -6280,6 +6302,8 @@
     History: function History() {
     },
     HtmlCollection: function HtmlCollection() {
+    },
+    HtmlDocument: function HtmlDocument() {
     },
     Location: function Location() {
     },
@@ -6332,6 +6356,8 @@
       this.keys = t0;
     },
     StyleSheet: function StyleSheet() {
+    },
+    TemplateElement: function TemplateElement() {
     },
     TextTrack: function TextTrack() {
     },
@@ -6401,8 +6427,10 @@
       _._array = t0;
       _._html$_length = t1;
       _._position = -1;
-      _._current = null;
+      _._html$_current = null;
       _.$ti = t2;
+    },
+    _TrustedHtmlTreeSanitizer: function _TrustedHtmlTreeSanitizer() {
     },
     _CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase: function _CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase() {
     },
@@ -6531,6 +6559,8 @@
     PointList: function PointList() {
     },
     StringList: function StringList() {
+    },
+    SvgElement: function SvgElement() {
     },
     Transform: function Transform() {
     },
@@ -7403,28 +7433,144 @@
       _._lastMatchPosition = _._lastMatch = null;
     },
     main() {
-      var t1 = type$._ElementEventStreamImpl_MouseEvent;
-      A._EventStreamSubscription$(type$.ButtonElement._as(document.querySelector("#submitBtn")), "click", t1._eval$1("~(1)?")._as(new A.main_closure()), false, t1._precomputed1);
+      var typeBoxes, t3, t4, t5,
+        t1 = type$.Element,
+        t2 = document;
+      t2.toString;
+      A.checkTypeBound(t1, t1, "T", "querySelectorAll");
+      t2 = t2.querySelectorAll(".type-box");
+      t2.toString;
+      t1 = type$._FrozenElementList_Element;
+      typeBoxes = new A._FrozenElementList(t2, t1);
+      for (t2 = new A.ListIterator(typeBoxes, typeBoxes.get$length(0), t1._eval$1("ListIterator<ListBase.E>")), t1 = t1._eval$1("ListBase.E"); t2.moveNext$0();) {
+        t3 = t2._current;
+        if (t3 == null)
+          t3 = t1._as(t3);
+        t4 = J.get$onClick$x(t3);
+        t5 = t4.$ti;
+        A._EventStreamSubscription$(t4._target, t4._eventType, t5._eval$1("~(1)?")._as(new A.main_closure(t3)), false, t5._precomputed1);
+      }
     },
-    main_closure: function main_closure() {
+    buscarTipoPokemon(tipoEscolhido) {
+      return A.buscarTipoPokemon$body(tipoEscolhido);
     },
-    main__closure: function main__closure(t0) {
+    buscarTipoPokemon$body(tipoEscolhido) {
+      var $async$goto = 0,
+        $async$completer = A._makeAsyncAwaitCompleter(type$.void),
+        $async$handler = 1, $async$errorStack = [], response, data, doubleDamageFrom, doubleDamageTo, halfDamageFrom, halfDamageTo, noDamageFrom, noDamageTo, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, exception, $async$exception;
+      var $async$buscarTipoPokemon = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
+        if ($async$errorCode === 1) {
+          $async$errorStack.push($async$result);
+          $async$goto = $async$handler;
+        }
+        while (true)
+          switch ($async$goto) {
+            case 0:
+              // Function start
+              $async$handler = 3;
+              $async$goto = 6;
+              return A._asyncAwait(A.get(A.Uri_parse("https://pokeapi.co/api/v2/type/" + tipoEscolhido)), $async$buscarTipoPokemon);
+            case 6:
+              // returning from await.
+              response = $async$result;
+              if (response.statusCode === 200) {
+                t1 = response;
+                data = B.C_JsonCodec.decode$2$reviver(0, A.encodingForCharset(A._contentTypeForHeaders(t1.headers).parameters._collection$_map.$index(0, "charset")).decode$1(0, t1.bodyBytes), null);
+                t1 = type$.JSArray_String;
+                doubleDamageFrom = A._setArrayType([], t1);
+                doubleDamageTo = A._setArrayType([], t1);
+                halfDamageFrom = A._setArrayType([], t1);
+                halfDamageTo = A._setArrayType([], t1);
+                noDamageFrom = A._setArrayType([], t1);
+                noDamageTo = A._setArrayType([], t1);
+                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "double_damage_from"), new A.buscarTipoPokemon_closure(doubleDamageFrom));
+                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "double_damage_to"), new A.buscarTipoPokemon_closure0(doubleDamageTo));
+                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "half_damage_from"), new A.buscarTipoPokemon_closure1(halfDamageFrom));
+                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "half_damage_to"), new A.buscarTipoPokemon_closure2(halfDamageTo));
+                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "no_damage_from"), new A.buscarTipoPokemon_closure3(noDamageFrom));
+                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "no_damage_to"), new A.buscarTipoPokemon_closure4(noDamageTo));
+                t1 = document.querySelector("#output");
+                t1.toString;
+                t2 = doubleDamageFrom;
+                t3 = A._arrayInstanceType(t2);
+                t4 = doubleDamageTo;
+                t5 = A._arrayInstanceType(t4);
+                t6 = halfDamageFrom;
+                t7 = A._arrayInstanceType(t6);
+                t8 = halfDamageTo;
+                t9 = A._arrayInstanceType(t8);
+                t10 = noDamageFrom;
+                t11 = A._arrayInstanceType(t10);
+                t12 = noDamageTo;
+                t13 = A._arrayInstanceType(t12);
+                J.setInnerHtml$2$treeSanitizer$x(t1, '        <div class="damage-container">\n        <h1>Tipo escolhido: ' + A.S(J.$index$asx(data, "name")) + '</h1>\n          <div>\n            <h2>Toma x2 de:</h2>\n            <div class="damage-types">' + new A.MappedListIterable(t2, t3._eval$1("String(1)")._as(new A.buscarTipoPokemon_closure5()), t3._eval$1("MappedListIterable<1,String>")).join$1(0, "") + '</div>\n          </div>\n          <div>\n            <h2>Da x2 em:</h2>\n            <div class="damage-types">' + new A.MappedListIterable(t4, t5._eval$1("String(1)")._as(new A.buscarTipoPokemon_closure6()), t5._eval$1("MappedListIterable<1,String>")).join$1(0, "") + '</div>\n          </div>\n          <div>\n            <h2>Toma neutro de:</h2>\n            <div class="damage-types">' + new A.MappedListIterable(t6, t7._eval$1("String(1)")._as(new A.buscarTipoPokemon_closure7()), t7._eval$1("MappedListIterable<1,String>")).join$1(0, "") + '</div>\n          </div>\n          <div>\n            <h2>Da neutro em:</h2>\n            <div class="damage-types">' + new A.MappedListIterable(t8, t9._eval$1("String(1)")._as(new A.buscarTipoPokemon_closure8()), t9._eval$1("MappedListIterable<1,String>")).join$1(0, "") + '</div>\n          </div>\n          <div>\n            <h2>N\xe3o toma dano de:</h2>\n            <div class="damage-types">' + new A.MappedListIterable(t10, t11._eval$1("String(1)")._as(new A.buscarTipoPokemon_closure9()), t11._eval$1("MappedListIterable<1,String>")).join$1(0, "") + '</div>\n          </div>\n          <div>\n            <h2>N\xe3o da dano em:</h2>\n            <div class="damage-types">' + new A.MappedListIterable(t12, t13._eval$1("String(1)")._as(new A.buscarTipoPokemon_closure10()), t13._eval$1("MappedListIterable<1,String>")).join$1(0, "") + "</div>\n          </div>\n        </div>\n      ", B.C__TrustedHtmlTreeSanitizer);
+              } else {
+                t1 = document.querySelector("#output");
+                t1.toString;
+                J.setInnerHtml$2$treeSanitizer$x(t1, '        <div class="damage-container">\n        </div>\n      ', B.C__TrustedHtmlTreeSanitizer);
+              }
+              $async$handler = 1;
+              // goto after finally
+              $async$goto = 5;
+              break;
+            case 3:
+              // catch
+              $async$handler = 2;
+              $async$exception = $async$errorStack.pop();
+              t1 = document.querySelector("#output");
+              t1.toString;
+              J.set$text$x(t1, "Erro ao buscar dados da api");
+              // goto after finally
+              $async$goto = 5;
+              break;
+            case 2:
+              // uncaught
+              // goto rethrow
+              $async$goto = 1;
+              break;
+            case 5:
+              // after finally
+              // implicit return
+              return A._asyncReturn(null, $async$completer);
+            case 1:
+              // rethrow
+              return A._asyncRethrow($async$errorStack.at(-1), $async$completer);
+          }
+      });
+      return A._asyncStartSync($async$buscarTipoPokemon, $async$completer);
+    },
+    main_closure: function main_closure(t0) {
+      this.box = t0;
+    },
+    buscarTipoPokemon_closure: function buscarTipoPokemon_closure(t0) {
       this.doubleDamageFrom = t0;
     },
-    main__closure0: function main__closure0(t0) {
+    buscarTipoPokemon_closure0: function buscarTipoPokemon_closure0(t0) {
       this.doubleDamageTo = t0;
     },
-    main__closure1: function main__closure1(t0) {
+    buscarTipoPokemon_closure1: function buscarTipoPokemon_closure1(t0) {
       this.halfDamageFrom = t0;
     },
-    main__closure2: function main__closure2(t0) {
+    buscarTipoPokemon_closure2: function buscarTipoPokemon_closure2(t0) {
       this.halfDamageTo = t0;
     },
-    main__closure3: function main__closure3(t0) {
+    buscarTipoPokemon_closure3: function buscarTipoPokemon_closure3(t0) {
       this.noDamageFrom = t0;
     },
-    main__closure4: function main__closure4(t0) {
+    buscarTipoPokemon_closure4: function buscarTipoPokemon_closure4(t0) {
       this.noDamageTo = t0;
+    },
+    buscarTipoPokemon_closure5: function buscarTipoPokemon_closure5() {
+    },
+    buscarTipoPokemon_closure6: function buscarTipoPokemon_closure6() {
+    },
+    buscarTipoPokemon_closure7: function buscarTipoPokemon_closure7() {
+    },
+    buscarTipoPokemon_closure8: function buscarTipoPokemon_closure8() {
+    },
+    buscarTipoPokemon_closure9: function buscarTipoPokemon_closure9() {
+    },
+    buscarTipoPokemon_closure10: function buscarTipoPokemon_closure10() {
     },
     max(a, b, $T) {
       A.checkTypeBound($T, type$.num, "T", "max");
@@ -7602,7 +7748,7 @@
         return true;
       firstValue = iter.get$first(0);
       for (t1 = A.SubListIterable$(iter, 1, null, iter.$ti._eval$1("ListIterable.E")), t2 = t1.$ti, t1 = new A.ListIterator(t1, t1.get$length(0), t2._eval$1("ListIterator<ListIterable.E>")), t2 = t2._eval$1("ListIterable.E"); t1.moveNext$0();) {
-        value = t1.__internal$_current;
+        value = t1._current;
         if (!J.$eq$(value == null ? t2._as(value) : value, firstValue))
           return false;
       }
@@ -7623,7 +7769,7 @@
     countCodeUnits(string, codeUnit) {
       var t1, t2, count, t3;
       for (t1 = new A.CodeUnits(string), t2 = type$.CodeUnits, t1 = new A.ListIterator(t1, t1.get$length(0), t2._eval$1("ListIterator<ListBase.E>")), t2 = t2._eval$1("ListBase.E"), count = 0; t1.moveNext$0();) {
-        t3 = t1.__internal$_current;
+        t3 = t1._current;
         if ((t3 == null ? t2._as(t3) : t3) === codeUnit)
           ++count;
       }
@@ -8305,7 +8451,7 @@
       t1._asyncComplete$1(null);
       return t1;
     },
-    $signature: 47
+    $signature: 37
   };
   A.SentinelValue.prototype = {};
   A.EfficientLengthIterable.prototype = {};
@@ -8455,7 +8601,7 @@
   };
   A.ListIterator.prototype = {
     get$current(_) {
-      var t1 = this.__internal$_current;
+      var t1 = this._current;
       return t1 == null ? this.$ti._precomputed1._as(t1) : t1;
     },
     moveNext$0() {
@@ -8467,15 +8613,15 @@
         throw A.wrapException(A.ConcurrentModificationError$(t1));
       t3 = _this.__internal$_index;
       if (t3 >= $length) {
-        _this.set$__internal$_current(null);
+        _this.set$_current(null);
         return false;
       }
-      _this.set$__internal$_current(t2.elementAt$1(t1, t3));
+      _this.set$_current(t2.elementAt$1(t1, t3));
       ++_this.__internal$_index;
       return true;
     },
-    set$__internal$_current(_current) {
-      this.__internal$_current = this.$ti._eval$1("1?")._as(_current);
+    set$_current(_current) {
+      this._current = this.$ti._eval$1("1?")._as(_current);
     },
     $isIterator: 1
   };
@@ -8493,18 +8639,18 @@
       var _this = this,
         t1 = _this._iterator;
       if (t1.moveNext$0()) {
-        _this.set$__internal$_current(_this._f.call$1(t1.get$current(t1)));
+        _this.set$_current(_this._f.call$1(t1.get$current(t1)));
         return true;
       }
-      _this.set$__internal$_current(null);
+      _this.set$_current(null);
       return false;
     },
     get$current(_) {
-      var t1 = this.__internal$_current;
+      var t1 = this._current;
       return t1 == null ? this.$ti._rest[1]._as(t1) : t1;
     },
-    set$__internal$_current(_current) {
-      this.__internal$_current = this.$ti._eval$1("2?")._as(_current);
+    set$_current(_current) {
+      this._current = this.$ti._eval$1("2?")._as(_current);
     },
     $isIterator: 1
   };
@@ -8546,7 +8692,7 @@
   };
   A.ExpandIterator.prototype = {
     get$current(_) {
-      var t1 = this.__internal$_current;
+      var t1 = this._current;
       return t1 == null ? this.$ti._rest[1]._as(t1) : t1;
     },
     moveNext$0() {
@@ -8554,7 +8700,7 @@
       if (_this._currentExpansion == null)
         return false;
       for (t1 = _this._iterator, t2 = _this._f; !_this._currentExpansion.moveNext$0();) {
-        _this.set$__internal$_current(null);
+        _this.set$_current(null);
         if (t1.moveNext$0()) {
           _this.set$_currentExpansion(null);
           _this.set$_currentExpansion(J.get$iterator$ax(t2.call$1(t1.get$current(t1))));
@@ -8562,14 +8708,14 @@
           return false;
       }
       t1 = _this._currentExpansion;
-      _this.set$__internal$_current(t1.get$current(t1));
+      _this.set$_current(t1.get$current(t1));
       return true;
     },
     set$_currentExpansion(_currentExpansion) {
       this._currentExpansion = this.$ti._eval$1("Iterator<2>?")._as(_currentExpansion);
     },
-    set$__internal$_current(_current) {
-      this.__internal$_current = this.$ti._eval$1("2?")._as(_current);
+    set$_current(_current) {
+      this._current = this.$ti._eval$1("2?")._as(_current);
     },
     $isIterator: 1
   };
@@ -8580,14 +8726,12 @@
       return new A.SkipIterable(this.__internal$_iterable, this._skipCount + count, A._instanceType(this)._eval$1("SkipIterable<1>"));
     },
     get$iterator(_) {
-      var t1 = this.__internal$_iterable;
-      return new A.SkipIterator(t1.get$iterator(t1), this._skipCount, A._instanceType(this)._eval$1("SkipIterator<1>"));
+      return new A.SkipIterator(J.get$iterator$ax(this.__internal$_iterable), this._skipCount, A._instanceType(this)._eval$1("SkipIterator<1>"));
     }
   };
   A.EfficientLengthSkipIterable.prototype = {
     get$length(_) {
-      var t1 = this.__internal$_iterable,
-        $length = t1.get$length(t1) - this._skipCount;
+      var $length = J.get$length$asx(this.__internal$_iterable) - this._skipCount;
       if ($length >= 0)
         return $length;
       return 0;
@@ -9212,13 +9356,13 @@
     call$2(o, tag) {
       return this.getUnknownTag(o, tag);
     },
-    $signature: 25
+    $signature: 48
   };
   A.initHooks_closure1.prototype = {
     call$1(tag) {
       return this.prototypeForTag(A._asString(tag));
     },
-    $signature: 20
+    $signature: 23
   };
   A.JSSyntaxRegExp.prototype = {
     toString$0(_) {
@@ -9633,7 +9777,7 @@
       t2 = this.span;
       t1.firstChild ? t1.removeChild(t2) : t1.appendChild(t2);
     },
-    $signature: 24
+    $signature: 35
   };
   A._AsyncRun__scheduleImmediateJsOverride_internalCallback.prototype = {
     call$0() {
@@ -9690,19 +9834,19 @@
     call$1(result) {
       return this.bodyFunction.call$2(0, result);
     },
-    $signature: 3
+    $signature: 4
   };
   A._awaitOnObject_closure0.prototype = {
     call$2(error, stackTrace) {
       this.bodyFunction.call$2(1, new A.ExceptionAndStackTrace(error, type$.StackTrace._as(stackTrace)));
     },
-    $signature: 48
+    $signature: 47
   };
   A._wrapJsFunctionForAsync_closure.prototype = {
     call$2(errorCode, result) {
       this.$protected(A._asInt(errorCode), result);
     },
-    $signature: 23
+    $signature: 49
   };
   A._asyncStarHelper_closure.prototype = {
     call$0() {
@@ -9779,7 +9923,7 @@
         return t1.cancelationFuture;
       }
     },
-    $signature: 35
+    $signature: 25
   };
   A._AsyncStarStreamController__closure.prototype = {
     call$0() {
@@ -10075,7 +10219,7 @@
     call$2(error, stackTrace) {
       this.$this._completeError$2(type$.Object._as(error), type$.StackTrace._as(stackTrace));
     },
-    $signature: 7
+    $signature: 8
   };
   A._Future__chainForeignFuture_closure1.prototype = {
     call$0() {
@@ -10154,7 +10298,7 @@
     call$2(e, s) {
       this.joinedResult._completeError$2(type$.Object._as(e), type$.StackTrace._as(s));
     },
-    $signature: 7
+    $signature: 8
   };
   A._Future__propagateToListeners_handleValueCallback.prototype = {
     call$0() {
@@ -10254,7 +10398,7 @@
   A.Stream_forEach__closure0.prototype = {
     call$1(__wc0_formal) {
     },
-    $signature: 26
+    $signature: 24
   };
   A.Stream_length_closure.prototype = {
     call$1(__wc0_formal) {
@@ -10518,7 +10662,7 @@
       t1._addError$2(type$.Object._as(e), type$.StackTrace._as(s));
       t1._close$0();
     },
-    $signature: 7
+    $signature: 8
   };
   A._AddStreamState_cancel_closure.prototype = {
     call$0() {
@@ -10891,7 +11035,7 @@
     call$2(error, stackTrace) {
       A._cancelAndError(this.subscription, this.future, error, type$.StackTrace._as(stackTrace));
     },
-    $signature: 4
+    $signature: 5
   };
   A._Zone.prototype = {$isZone: 1};
   A._rootHandleError_closure.prototype = {
@@ -11233,7 +11377,7 @@
     call$1(v) {
       return this.K._is(v);
     },
-    $signature: 37
+    $signature: 20
   };
   A.ListBase.prototype = {
     get$iterator(receiver) {
@@ -11477,7 +11621,7 @@
       }
       return null;
     },
-    $signature: 12
+    $signature: 14
   };
   A._Utf8Decoder__decoderNonfatal_closure.prototype = {
     call$0() {
@@ -11489,7 +11633,7 @@
       }
       return null;
     },
-    $signature: 12
+    $signature: 14
   };
   A.AsciiCodec.prototype = {
     decode$1(_, bytes) {
@@ -12777,8 +12921,9 @@
       return t1;
     }
   };
+  A.BaseElement.prototype = {$isBaseElement: 1};
   A.Blob.prototype = {};
-  A.ButtonElement.prototype = {$isButtonElement: 1};
+  A.BodyElement.prototype = {$isBodyElement: 1};
   A.CharacterData.prototype = {
     get$length(receiver) {
       return receiver.length;
@@ -12820,9 +12965,17 @@
       return t1;
     }
   };
+  A.Document.prototype = {};
   A.DomException.prototype = {
     toString$0(receiver) {
       var t1 = String(receiver);
+      t1.toString;
+      return t1;
+    }
+  };
+  A.DomImplementation.prototype = {
+    createHtmlDocument$1(receiver, title) {
+      var t1 = receiver.createHTMLDocument(title);
       t1.toString;
       return t1;
     }
@@ -12962,11 +13115,108 @@
       return t1;
     }
   };
+  A._FrozenElementList.prototype = {
+    get$length(_) {
+      return this._nodeList.length;
+    },
+    $index(_, index) {
+      var t1;
+      A._asInt(index);
+      t1 = this._nodeList;
+      if (!(index >= 0 && index < t1.length))
+        return A.ioore(t1, index);
+      return this.$ti._precomputed1._as(t1[index]);
+    },
+    $indexSet(_, index, value) {
+      this.$ti._precomputed1._as(value);
+      throw A.wrapException(A.UnsupportedError$("Cannot modify list"));
+    },
+    set$length(_, newLength) {
+      throw A.wrapException(A.UnsupportedError$("Cannot modify list"));
+    },
+    sort$1(_, compare) {
+      this.$ti._eval$1("int(1,1)?")._as(compare);
+      throw A.wrapException(A.UnsupportedError$("Cannot sort list"));
+    }
+  };
   A.Element.prototype = {
     toString$0(receiver) {
       var t1 = receiver.localName;
       t1.toString;
       return t1;
+    },
+    createFragment$3$treeSanitizer$validator(receiver, html, treeSanitizer, validator) {
+      var t1, t2, contextElement, fragment;
+      if ($.Element__parseDocument == null) {
+        t1 = document;
+        t2 = t1.implementation;
+        t2.toString;
+        t2 = B.DomImplementation_methods.createHtmlDocument$1(t2, "");
+        $.Element__parseDocument = t2;
+        t2 = t2.createRange();
+        t2.toString;
+        $.Element__parseRange = t2;
+        t2 = $.Element__parseDocument.createElement("base");
+        type$.BaseElement._as(t2);
+        t1 = t1.baseURI;
+        t1.toString;
+        t2.href = t1;
+        $.Element__parseDocument.head.appendChild(t2).toString;
+      }
+      t1 = $.Element__parseDocument;
+      if (t1.body == null) {
+        t2 = t1.createElement("body");
+        B.HtmlDocument_methods.set$body(t1, type$.BodyElement._as(t2));
+      }
+      t1 = $.Element__parseDocument;
+      if (type$.BodyElement._is(receiver)) {
+        t1 = t1.body;
+        t1.toString;
+        contextElement = t1;
+      } else {
+        t1.toString;
+        t2 = receiver.tagName;
+        t2.toString;
+        contextElement = t1.createElement(t2);
+        $.Element__parseDocument.body.appendChild(contextElement).toString;
+      }
+      t1 = "createContextualFragment" in window.Range.prototype;
+      t1.toString;
+      if (t1) {
+        t1 = receiver.tagName;
+        t1.toString;
+        t1 = !B.JSArray_methods.contains$1(B.List_tEi, t1);
+      } else
+        t1 = false;
+      if (t1) {
+        $.Element__parseRange.selectNodeContents(contextElement);
+        t1 = $.Element__parseRange;
+        t1 = t1.createContextualFragment(html);
+        t1.toString;
+        fragment = t1;
+      } else {
+        J.set$_innerHtml$x(contextElement, html);
+        t1 = $.Element__parseDocument.createDocumentFragment();
+        t1.toString;
+        for (; t2 = contextElement.firstChild, t2 != null;)
+          t1.appendChild(t2).toString;
+        fragment = t1;
+      }
+      if (contextElement !== $.Element__parseDocument.body)
+        J.remove$0$x(contextElement);
+      treeSanitizer.sanitizeTree$1(fragment);
+      document.adoptNode(fragment).toString;
+      return fragment;
+    },
+    setInnerHtml$2$treeSanitizer(receiver, html, treeSanitizer) {
+      this.set$text(receiver, null);
+      this.set$_innerHtml(receiver, html);
+    },
+    set$_innerHtml(receiver, value) {
+      receiver.innerHTML = value;
+    },
+    get$onClick(receiver) {
+      return new A._ElementEventStreamImpl(receiver, "click", false, type$._ElementEventStreamImpl_MouseEvent);
     },
     $isElement: 1
   };
@@ -13081,6 +13331,11 @@
     $isIterable: 1,
     $isList: 1
   };
+  A.HtmlDocument.prototype = {
+    set$body(receiver, value) {
+      receiver.body = value;
+    }
+  };
   A.Location.prototype = {
     toString$0(receiver) {
       var t1 = String(receiver);
@@ -13128,7 +13383,7 @@
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 5
+    $signature: 6
   };
   A.MidiOutputMap.prototype = {
     $index(receiver, key) {
@@ -13165,7 +13420,7 @@
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 5
+    $signature: 6
   };
   A.MimeType.prototype = {$isMimeType: 1};
   A.MimeTypeArray.prototype = {
@@ -13205,6 +13460,16 @@
   };
   A.MouseEvent.prototype = {$isMouseEvent: 1};
   A.Node.prototype = {
+    remove$0(receiver) {
+      var t1 = receiver.parentNode;
+      if (t1 != null)
+        t1.removeChild(receiver).toString;
+    },
+    _clearChildren$0(receiver) {
+      var t1;
+      for (; t1 = receiver.firstChild, t1 != null;)
+        receiver.removeChild(t1).toString;
+    },
     toString$0(receiver) {
       var value = receiver.nodeValue;
       return value == null ? this.super$Interceptor$toString(receiver) : value;
@@ -13325,13 +13590,12 @@
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 5
+    $signature: 6
   };
   A.SelectElement.prototype = {
     get$length(receiver) {
       return receiver.length;
-    },
-    $isSelectElement: 1
+    }
   };
   A.SourceBuffer.prototype = {$isSourceBuffer: 1};
   A.SourceBufferList.prototype = {
@@ -13443,9 +13707,20 @@
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 13
+    $signature: 15
   };
   A.StyleSheet.prototype = {$isStyleSheet: 1};
+  A.TemplateElement.prototype = {
+    setInnerHtml$2$treeSanitizer(receiver, html, treeSanitizer) {
+      var t1, fragment;
+      this.set$text(receiver, null);
+      t1 = receiver.content;
+      t1.toString;
+      J._clearChildren$0$x(t1);
+      fragment = this.createFragment$3$treeSanitizer$validator(receiver, html, treeSanitizer, null);
+      receiver.content.appendChild(fragment).toString;
+    }
+  };
   A.TextTrack.prototype = {$isTextTrack: 1};
   A.TextTrackCue.prototype = {$isTextTrackCue: 1};
   A.TextTrackCueList.prototype = {
@@ -13894,13 +14169,13 @@
     call$1(e) {
       return this.onData.call$1(type$.Event._as(e));
     },
-    $signature: 14
+    $signature: 13
   };
   A._EventStreamSubscription_onData_closure.prototype = {
     call$1(e) {
       return this.handleData.call$1(type$.Event._as(e));
     },
-    $signature: 14
+    $signature: 13
   };
   A.ImmutableListMixin.prototype = {
     get$iterator(receiver) {
@@ -13921,22 +14196,27 @@
         nextPosition = _this._position + 1,
         t1 = _this._html$_length;
       if (nextPosition < t1) {
-        _this.set$_current(J.$index$asx(_this._array, nextPosition));
+        _this.set$_html$_current(J.$index$asx(_this._array, nextPosition));
         _this._position = nextPosition;
         return true;
       }
-      _this.set$_current(null);
+      _this.set$_html$_current(null);
       _this._position = t1;
       return false;
     },
     get$current(_) {
-      var t1 = this._current;
+      var t1 = this._html$_current;
       return t1 == null ? this.$ti._precomputed1._as(t1) : t1;
     },
-    set$_current(_current) {
-      this._current = this.$ti._eval$1("1?")._as(_current);
+    set$_html$_current(_current) {
+      this._html$_current = this.$ti._eval$1("1?")._as(_current);
     },
     $isIterator: 1
+  };
+  A._TrustedHtmlTreeSanitizer.prototype = {
+    sanitizeTree$1(node) {
+    },
+    $isNodeTreeSanitizer: 1
   };
   A._CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase.prototype = {};
   A._DomRectList_JavaScriptObject_ListMixin.prototype = {};
@@ -14007,7 +14287,7 @@
     call$1(r) {
       return this.completer.complete$1(0, this.T._eval$1("0/?")._as(r));
     },
-    $signature: 3
+    $signature: 4
   };
   A.promiseToFuture_closure0.prototype = {
     call$1(e) {
@@ -14015,7 +14295,7 @@
         return this.completer.completeError$1(new A.NullRejectionException(e === undefined));
       return this.completer.completeError$1(e);
     },
-    $signature: 3
+    $signature: 4
   };
   A.NullRejectionException.prototype = {
     toString$0(_) {
@@ -14129,6 +14409,11 @@
     $isIterable: 1,
     $isList: 1
   };
+  A.SvgElement.prototype = {
+    get$onClick(receiver) {
+      return new A._ElementEventStreamImpl(receiver, "click", false, type$._ElementEventStreamImpl_MouseEvent);
+    }
+  };
   A.Transform.prototype = {$isTransform: 1};
   A.TransformList.prototype = {
     get$length(receiver) {
@@ -14211,7 +14496,7 @@
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 5
+    $signature: 6
   };
   A.AudioTrackList.prototype = {
     get$length(receiver) {
@@ -14633,13 +14918,13 @@
       } else
         t1._contents = t3 + value;
     },
-    $signature: 13
+    $signature: 15
   };
   A.MediaType_toString__closure.prototype = {
     call$1(match) {
       return "\\" + A.S(match.$index(0, 0));
     },
-    $signature: 15
+    $signature: 16
   };
   A.expectQuotedString_closure.prototype = {
     call$1(match) {
@@ -14647,7 +14932,7 @@
       t1.toString;
       return t1;
     },
-    $signature: 15
+    $signature: 16
   };
   A.Context.prototype = {
     absolute$1(_, part1) {
@@ -14873,13 +15158,13 @@
     call$1(part) {
       return A._asString(part) !== "";
     },
-    $signature: 16
+    $signature: 17
   };
   A.Context_split_closure.prototype = {
     call$1(part) {
       return A._asString(part).length !== 0;
     },
-    $signature: 16
+    $signature: 17
   };
   A._validateArgList_closure.prototype = {
     call$1(arg) {
@@ -15440,7 +15725,7 @@
           }
         }
         for (t5 = line.highlights, t6 = A._arrayInstanceType(t5)._eval$1("ReversedListIterable<1>"), t7 = new A.ReversedListIterable(t5, t6), t7 = new A.ListIterator(t7, t7.get$length(0), t6._eval$1("ListIterator<ListIterable.E>")), t6 = t6._eval$1("ListIterable.E"), t8 = line.number, t9 = line.text; t7.moveNext$0();) {
-          t10 = t7.__internal$_current;
+          t10 = t7._current;
           if (t10 == null)
             t10 = t6._as(t10);
           t11 = t10.span;
@@ -15618,7 +15903,7 @@
     _writeText$1(text) {
       var t1, t2, t3, t4;
       for (t1 = new A.CodeUnits(text), t2 = type$.CodeUnits, t1 = new A.ListIterator(t1, t1.get$length(0), t2._eval$1("ListIterator<ListBase.E>")), t3 = this._buffer, t2 = t2._eval$1("ListBase.E"); t1.moveNext$0();) {
-        t4 = t1.__internal$_current;
+        t4 = t1._current;
         if (t4 == null)
           t4 = t2._as(t4);
         if (t4 === 9) {
@@ -15652,7 +15937,7 @@
     _countTabs$1(text) {
       var t1, t2, count, t3;
       for (t1 = new A.CodeUnits(text), t2 = type$.CodeUnits, t1 = new A.ListIterator(t1, t1.get$length(0), t2._eval$1("ListIterator<ListBase.E>")), t2 = t2._eval$1("ListBase.E"), count = 0; t1.moveNext$0();) {
-        t3 = t1.__internal$_current;
+        t3 = t1._current;
         if ((t3 == null ? t2._as(t3) : t3) === 9)
           ++count;
       }
@@ -15661,7 +15946,7 @@
     _isOnlyWhitespace$1(text) {
       var t1, t2, t3;
       for (t1 = new A.CodeUnits(text), t2 = type$.CodeUnits, t1 = new A.ListIterator(t1, t1.get$length(0), t2._eval$1("ListIterator<ListBase.E>")), t2 = t2._eval$1("ListBase.E"); t1.moveNext$0();) {
-        t3 = t1.__internal$_current;
+        t3 = t1._current;
         if (t3 == null)
           t3 = t2._as(t3);
         if (t3 !== 32 && t3 !== 9)
@@ -15703,7 +15988,7 @@
       t1 = t1.get$end(t1);
       return t2 !== t1.get$line(t1);
     },
-    $signature: 8
+    $signature: 9
   };
   A.Highlighter$__closure0.prototype = {
     call$1(line) {
@@ -15755,7 +16040,7 @@
         B.JSArray_methods._removeWhere$2(activeHighlights, t4, true);
         oldHighlightLength = activeHighlights.length;
         for (t4 = t1.skip$1(highlightsForFile, highlightIndex), t5 = t4.$ti, t4 = new A.ListIterator(t4, t4.get$length(0), t5._eval$1("ListIterator<ListIterable.E>")), t6 = line.number, t5 = t5._eval$1("ListIterable.E"); t4.moveNext$0();) {
-          t7 = t4.__internal$_current;
+          t7 = t4._current;
           if (t7 == null)
             t7 = t5._as(t7);
           t8 = t7.span;
@@ -15777,14 +16062,14 @@
       t1 = t1.get$end(t1);
       return t1.get$line(t1) < this.line.number;
     },
-    $signature: 8
+    $signature: 9
   };
   A.Highlighter_highlight_closure.prototype = {
     call$1(highlight) {
       type$._Highlight._as(highlight);
       return true;
     },
-    $signature: 8
+    $signature: 9
   };
   A.Highlighter__writeFileStart_closure.prototype = {
     call$0() {
@@ -15890,7 +16175,7 @@
       t4 = t2._contents += t4;
       return t4.length - t3.length;
     },
-    $signature: 9
+    $signature: 10
   };
   A.Highlighter__writeIndicator_closure0.prototype = {
     call$0() {
@@ -15914,7 +16199,7 @@
       }
       return t2._contents.length - t3.length;
     },
-    $signature: 9
+    $signature: 10
   };
   A.Highlighter__writeSidebar_closure.prototype = {
     call$0() {
@@ -16220,133 +16505,93 @@
   };
   A.main_closure.prototype = {
     call$1($event) {
-      return this.$call$body$main_closure(type$.MouseEvent._as($event));
-    },
-    $call$body$main_closure($event) {
-      var $async$goto = 0,
-        $async$completer = A._makeAsyncAwaitCompleter(type$.void),
-        $async$returnValue, $async$handler = 2, $async$errorStack = [], response, data, doubleDamageFrom, doubleDamageTo, halfDamageFrom, halfDamageTo, noDamageFrom, noDamageTo, t2, exception, t1, tipoEscolhido0, tipoEscolhido, $async$exception;
-      var $async$call$1 = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
-        if ($async$errorCode === 1) {
-          $async$errorStack.push($async$result);
-          $async$goto = $async$handler;
-        }
-        while (true)
-          switch ($async$goto) {
-            case 0:
-              // Function start
-              t1 = document;
-              tipoEscolhido0 = type$.SelectElement._as(t1.querySelector("#pokemon-type")).value;
-              tipoEscolhido = tipoEscolhido0 == null ? "" : tipoEscolhido0;
-              if (J.get$length$asx(tipoEscolhido) === 0) {
-                t1 = t1.querySelector("#output");
-                t1.toString;
-                J.set$text$x(t1, "Selecione um tipo de Pok\xe9mon");
-                // goto return
-                $async$goto = 1;
-                break;
-              }
-              $async$handler = 4;
-              $async$goto = 7;
-              return A._asyncAwait(A.get(A.Uri_parse("https://pokeapi.co/api/v2/type/" + A.S(tipoEscolhido))), $async$call$1);
-            case 7:
-              // returning from await.
-              response = $async$result;
-              if (response.statusCode === 200) {
-                t2 = response;
-                data = B.C_JsonCodec.decode$2$reviver(0, A.encodingForCharset(A._contentTypeForHeaders(t2.headers).parameters._collection$_map.$index(0, "charset")).decode$1(0, t2.bodyBytes), null);
-                t2 = t1.querySelector("#type");
-                t2.toString;
-                J.set$text$x(t2, "Tipo escolhido: " + A.S(J.$index$asx(data, "name")));
-                t2 = type$.JSArray_String;
-                doubleDamageFrom = A._setArrayType([], t2);
-                doubleDamageTo = A._setArrayType([], t2);
-                halfDamageFrom = A._setArrayType([], t2);
-                halfDamageTo = A._setArrayType([], t2);
-                noDamageFrom = A._setArrayType([], t2);
-                noDamageTo = A._setArrayType([], t2);
-                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "double_damage_from"), new A.main__closure(doubleDamageFrom));
-                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "double_damage_to"), new A.main__closure0(doubleDamageTo));
-                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "half_damage_from"), new A.main__closure1(halfDamageFrom));
-                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "half_damage_to"), new A.main__closure2(halfDamageTo));
-                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "no_damage_from"), new A.main__closure3(noDamageFrom));
-                J.forEach$1$ax(J.$index$asx(J.$index$asx(data, "damage_relations"), "no_damage_to"), new A.main__closure4(noDamageTo));
-                t2 = t1.querySelector("#text");
-                t2.toString;
-                J.set$text$x(t2, "          double_damage_from: " + J.join$1$ax(doubleDamageFrom, ", ") + "\n          double_damage_to: " + J.join$1$ax(doubleDamageTo, ", ") + "\n          half_damage_from: " + J.join$1$ax(halfDamageFrom, ", ") + "\n          half_damage_to: " + J.join$1$ax(halfDamageTo, ", ") + "\n          no_damage_from: " + J.join$1$ax(noDamageFrom, ", ") + "\n          no_damage_to: " + J.join$1$ax(noDamageTo, ", ") + "\n        ");
-              } else {
-                t2 = t1.querySelector("#output");
-                t2.toString;
-                J.set$text$x(t2, "Erro ao carregar o tipo");
-              }
-              $async$handler = 2;
-              // goto after finally
-              $async$goto = 6;
-              break;
-            case 4:
-              // catch
-              $async$handler = 3;
-              $async$exception = $async$errorStack.pop();
-              t1 = t1.querySelector("#output");
-              t1.toString;
-              J.set$text$x(t1, "Erro ao buscar dados");
-              // goto after finally
-              $async$goto = 6;
-              break;
-            case 3:
-              // uncaught
-              // goto rethrow
-              $async$goto = 2;
-              break;
-            case 6:
-              // after finally
-            case 1:
-              // return
-              return A._asyncReturn($async$returnValue, $async$completer);
-            case 2:
-              // rethrow
-              return A._asyncRethrow($async$errorStack.at(-1), $async$completer);
-          }
-      });
-      return A._asyncStartSync($async$call$1, $async$completer);
+      var tipoEscolhido;
+      type$.MouseEvent._as($event);
+      tipoEscolhido = this.box.getAttribute("data-value");
+      if (tipoEscolhido == null)
+        tipoEscolhido = "";
+      if (tipoEscolhido.length !== 0)
+        A.buscarTipoPokemon(tipoEscolhido);
     },
     $signature: 46
   };
-  A.main__closure.prototype = {
+  A.buscarTipoPokemon_closure.prototype = {
     call$1(item) {
       B.JSArray_methods.add$1(this.doubleDamageFrom, A._asString(J.$index$asx(item, "name")));
     },
     $signature: 1
   };
-  A.main__closure0.prototype = {
+  A.buscarTipoPokemon_closure0.prototype = {
     call$1(item) {
       B.JSArray_methods.add$1(this.doubleDamageTo, A._asString(J.$index$asx(item, "name")));
     },
     $signature: 1
   };
-  A.main__closure1.prototype = {
+  A.buscarTipoPokemon_closure1.prototype = {
     call$1(item) {
       B.JSArray_methods.add$1(this.halfDamageFrom, A._asString(J.$index$asx(item, "name")));
     },
     $signature: 1
   };
-  A.main__closure2.prototype = {
+  A.buscarTipoPokemon_closure2.prototype = {
     call$1(item) {
       B.JSArray_methods.add$1(this.halfDamageTo, A._asString(J.$index$asx(item, "name")));
     },
     $signature: 1
   };
-  A.main__closure3.prototype = {
+  A.buscarTipoPokemon_closure3.prototype = {
     call$1(item) {
       B.JSArray_methods.add$1(this.noDamageFrom, A._asString(J.$index$asx(item, "name")));
     },
     $signature: 1
   };
-  A.main__closure4.prototype = {
+  A.buscarTipoPokemon_closure4.prototype = {
     call$1(item) {
       B.JSArray_methods.add$1(this.noDamageTo, A._asString(J.$index$asx(item, "name")));
     },
     $signature: 1
+  };
+  A.buscarTipoPokemon_closure5.prototype = {
+    call$1(t) {
+      A._asString(t);
+      return '<div class="type-box ' + t.toLowerCase() + '">' + t + "</div>";
+    },
+    $signature: 3
+  };
+  A.buscarTipoPokemon_closure6.prototype = {
+    call$1(t) {
+      A._asString(t);
+      return '<div class="type-box ' + t.toLowerCase() + '">' + t + "</div>";
+    },
+    $signature: 3
+  };
+  A.buscarTipoPokemon_closure7.prototype = {
+    call$1(t) {
+      A._asString(t);
+      return '<div class="type-box ' + t.toLowerCase() + '">' + t + "</div>";
+    },
+    $signature: 3
+  };
+  A.buscarTipoPokemon_closure8.prototype = {
+    call$1(t) {
+      A._asString(t);
+      return '<div class="type-box ' + t.toLowerCase() + '">' + t + "</div>";
+    },
+    $signature: 3
+  };
+  A.buscarTipoPokemon_closure9.prototype = {
+    call$1(t) {
+      A._asString(t);
+      return '<div class="type-box ' + t.toLowerCase() + '">' + t + "</div>";
+    },
+    $signature: 3
+  };
+  A.buscarTipoPokemon_closure10.prototype = {
+    call$1(t) {
+      A._asString(t);
+      return '<div class="type-box ' + t.toLowerCase() + '">' + t + "</div>";
+    },
+    $signature: 3
   };
   (function aliases() {
     var _ = J.Interceptor.prototype;
@@ -16374,33 +16619,33 @@
       _instance_0_u = hunkHelpers._instance_0u,
       _instance_0_i = hunkHelpers._instance_0i,
       _static = hunkHelpers.installStaticTearOff;
-    _static_2(J, "_interceptors_JSArray__compareAny$closure", "JSArray__compareAny", 18);
-    _static_1(A, "async__AsyncRun__scheduleImmediateJsOverride$closure", "_AsyncRun__scheduleImmediateJsOverride", 6);
-    _static_1(A, "async__AsyncRun__scheduleImmediateWithSetImmediate$closure", "_AsyncRun__scheduleImmediateWithSetImmediate", 6);
-    _static_1(A, "async__AsyncRun__scheduleImmediateWithTimer$closure", "_AsyncRun__scheduleImmediateWithTimer", 6);
+    _static_2(J, "_interceptors_JSArray__compareAny$closure", "JSArray__compareAny", 19);
+    _static_1(A, "async__AsyncRun__scheduleImmediateJsOverride$closure", "_AsyncRun__scheduleImmediateJsOverride", 7);
+    _static_1(A, "async__AsyncRun__scheduleImmediateWithSetImmediate$closure", "_AsyncRun__scheduleImmediateWithSetImmediate", 7);
+    _static_1(A, "async__AsyncRun__scheduleImmediateWithTimer$closure", "_AsyncRun__scheduleImmediateWithTimer", 7);
     _static_0(A, "async___startMicrotaskLoop$closure", "_startMicrotaskLoop", 0);
-    _static_1(A, "async___nullDataHandler$closure", "_nullDataHandler", 3);
-    _static_2(A, "async___nullErrorHandler$closure", "_nullErrorHandler", 4);
-    _instance(A._Completer.prototype, "get$completeError", 0, 1, null, ["call$2", "call$1"], ["completeError$2", "completeError$1"], 49, 0, 0);
-    _instance_2_u(A._Future.prototype, "get$_completeError", "_completeError$2", 4);
+    _static_1(A, "async___nullDataHandler$closure", "_nullDataHandler", 4);
+    _static_2(A, "async___nullErrorHandler$closure", "_nullErrorHandler", 5);
+    _instance(A._Completer.prototype, "get$completeError", 0, 1, null, ["call$2", "call$1"], ["completeError$2", "completeError$1"], 26, 0, 0);
+    _instance_2_u(A._Future.prototype, "get$_completeError", "_completeError$2", 5);
     var _;
-    _instance_1_i(_ = A._StreamController.prototype, "get$_add", "_add$1", 11);
-    _instance_2_u(_, "get$_addError", "_addError$2", 4);
+    _instance_1_i(_ = A._StreamController.prototype, "get$_add", "_add$1", 12);
+    _instance_2_u(_, "get$_addError", "_addError$2", 5);
     _instance_0_u(_, "get$_close", "_close$0", 0);
     _instance_0_u(_ = A._ControllerSubscription.prototype, "get$_onPause", "_onPause$0", 0);
     _instance_0_u(_, "get$_onResume", "_onResume$0", 0);
     _instance_0_u(_ = A._BufferingStreamSubscription.prototype, "get$_onPause", "_onPause$0", 0);
     _instance_0_u(_, "get$_onResume", "_onResume$0", 0);
     _instance_0_u(A._DoneStreamSubscription.prototype, "get$_onMicrotask", "_onMicrotask$0", 0);
-    _static_2(A, "collection___defaultEquals$closure", "_defaultEquals", 19);
-    _static_1(A, "collection___defaultHashCode$closure", "_defaultHashCode", 10);
-    _static_2(A, "collection_ListBase__compareAny$closure", "ListBase__compareAny", 18);
-    _instance_1_i(_ = A._ByteCallbackSink.prototype, "get$add", "add$1", 11);
+    _static_2(A, "collection___defaultEquals$closure", "_defaultEquals", 11);
+    _static_1(A, "collection___defaultHashCode$closure", "_defaultHashCode", 18);
+    _static_2(A, "collection_ListBase__compareAny$closure", "ListBase__compareAny", 19);
+    _instance_1_i(_ = A._ByteCallbackSink.prototype, "get$add", "add$1", 12);
     _instance_0_i(_, "get$close", "close$0", 0);
-    _static_1(A, "core__identityHashCode$closure", "identityHashCode", 10);
-    _static_2(A, "core__identical$closure", "identical", 19);
-    _static_1(A, "core_Uri_decodeComponent$closure", "Uri_decodeComponent", 17);
-    _static_1(A, "case_insensitive_map_CaseInsensitiveMap__canonicalizer$closure", "CaseInsensitiveMap__canonicalizer", 17);
+    _static_1(A, "core__identityHashCode$closure", "identityHashCode", 18);
+    _static_2(A, "core__identical$closure", "identical", 11);
+    _static_1(A, "core_Uri_decodeComponent$closure", "Uri_decodeComponent", 3);
+    _static_1(A, "case_insensitive_map_CaseInsensitiveMap__canonicalizer$closure", "CaseInsensitiveMap__canonicalizer", 3);
     _static(A, "math__max$closure", 2, null, ["call$1$2", "call$2"], ["max", function(a, b) {
       return A.max(a, b, type$.num);
     }], 34, 0);
@@ -16410,16 +16655,16 @@
       _inherit = hunkHelpers.inherit,
       _inheritMany = hunkHelpers.inheritMany;
     _inherit(A.Object, null);
-    _inheritMany(A.Object, [A.JS_CONST, J.Interceptor, J.ArrayIterator, A.Error, A.ListBase, A.Closure, A.SentinelValue, A.Iterable, A.ListIterator, A.MappedIterator, A.WhereIterator, A.ExpandIterator, A.SkipIterator, A.EmptyIterator, A.WhereTypeIterator, A.FixedLengthListMixin, A.UnmodifiableListMixin, A.ConstantMap, A._KeysOrValuesOrElementsIterator, A.TypeErrorDecoder, A.NullThrownFromJavaScriptException, A.ExceptionAndStackTrace, A._StackTrace, A.MapBase, A.LinkedHashMapCell, A.LinkedHashMapKeyIterator, A.LinkedHashMapValueIterator, A.LinkedHashMapEntryIterator, A.JSSyntaxRegExp, A._MatchImplementation, A._AllMatchesIterator, A.StringMatch, A._StringAllMatchesIterator, A.Rti, A._FunctionParameters, A._Type, A._TimerImpl, A._AsyncAwaitCompleter, A._AsyncStarStreamController, A._IterationMarker, A.AsyncError, A._Completer, A._FutureListener, A._Future, A._AsyncCallbackEntry, A.Stream, A._StreamController, A._AsyncStreamControllerDispatch, A._BufferingStreamSubscription, A._AddStreamState, A._DelayedEvent, A._DelayedDone, A._PendingEvents, A._DoneStreamSubscription, A._StreamIterator, A._Zone, A._HashMapKeyIterator, A._UnmodifiableMapMixin, A.MapView, A.Codec, A.Converter, A.ByteConversionSink, A._Utf8Decoder, A.OutOfMemoryError, A.StackOverflowError, A._Exception, A.FormatException, A.MapEntry, A.Null, A._StringStackTrace, A.StringBuffer, A._Uri, A.UriData, A._SimpleUri, A.CssStyleDeclarationBase, A.EventStreamProvider, A._EventStreamSubscription, A.ImmutableListMixin, A.FixedSizeListIterator, A.NullRejectionException, A.CanonicalizedMap, A.BaseClient, A.BaseRequest, A.BaseResponse, A.ClientException, A.MediaType, A.Context, A.Style, A.ParsedPath, A.PathException, A.SourceFile, A.SourceLocationMixin, A.SourceSpanMixin, A.Highlighter, A._Highlight, A._Line, A.SourceLocation, A.SourceSpanException, A.StringScanner]);
+    _inheritMany(A.Object, [A.JS_CONST, J.Interceptor, J.ArrayIterator, A.Error, A.ListBase, A.Closure, A.SentinelValue, A.Iterable, A.ListIterator, A.MappedIterator, A.WhereIterator, A.ExpandIterator, A.SkipIterator, A.EmptyIterator, A.WhereTypeIterator, A.FixedLengthListMixin, A.UnmodifiableListMixin, A.ConstantMap, A._KeysOrValuesOrElementsIterator, A.TypeErrorDecoder, A.NullThrownFromJavaScriptException, A.ExceptionAndStackTrace, A._StackTrace, A.MapBase, A.LinkedHashMapCell, A.LinkedHashMapKeyIterator, A.LinkedHashMapValueIterator, A.LinkedHashMapEntryIterator, A.JSSyntaxRegExp, A._MatchImplementation, A._AllMatchesIterator, A.StringMatch, A._StringAllMatchesIterator, A.Rti, A._FunctionParameters, A._Type, A._TimerImpl, A._AsyncAwaitCompleter, A._AsyncStarStreamController, A._IterationMarker, A.AsyncError, A._Completer, A._FutureListener, A._Future, A._AsyncCallbackEntry, A.Stream, A._StreamController, A._AsyncStreamControllerDispatch, A._BufferingStreamSubscription, A._AddStreamState, A._DelayedEvent, A._DelayedDone, A._PendingEvents, A._DoneStreamSubscription, A._StreamIterator, A._Zone, A._HashMapKeyIterator, A._UnmodifiableMapMixin, A.MapView, A.Codec, A.Converter, A.ByteConversionSink, A._Utf8Decoder, A.OutOfMemoryError, A.StackOverflowError, A._Exception, A.FormatException, A.MapEntry, A.Null, A._StringStackTrace, A.StringBuffer, A._Uri, A.UriData, A._SimpleUri, A.CssStyleDeclarationBase, A.EventStreamProvider, A._EventStreamSubscription, A.ImmutableListMixin, A.FixedSizeListIterator, A._TrustedHtmlTreeSanitizer, A.NullRejectionException, A.CanonicalizedMap, A.BaseClient, A.BaseRequest, A.BaseResponse, A.ClientException, A.MediaType, A.Context, A.Style, A.ParsedPath, A.PathException, A.SourceFile, A.SourceLocationMixin, A.SourceSpanMixin, A.Highlighter, A._Highlight, A._Line, A.SourceLocation, A.SourceSpanException, A.StringScanner]);
     _inheritMany(J.Interceptor, [J.JSBool, J.JSNull, J.JavaScriptObject, J.JavaScriptBigInt, J.JavaScriptSymbol, J.JSNumber, J.JSString]);
-    _inheritMany(J.JavaScriptObject, [J.LegacyJavaScriptObject, J.JSArray, A.NativeByteBuffer, A.NativeTypedData, A.EventTarget, A.AccessibleNodeList, A.Blob, A.CssTransformComponent, A.CssRule, A._CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase, A.CssStyleValue, A.DataTransferItemList, A.DomException, A._DomRectList_JavaScriptObject_ListMixin, A.DomRectReadOnly, A._DomStringList_JavaScriptObject_ListMixin, A.DomTokenList, A.Event, A._FileList_JavaScriptObject_ListMixin, A.FontFace, A.Gamepad, A.History, A._HtmlCollection_JavaScriptObject_ListMixin, A.Location, A.MediaList, A._MidiInputMap_JavaScriptObject_MapMixin, A._MidiOutputMap_JavaScriptObject_MapMixin, A.MimeType, A._MimeTypeArray_JavaScriptObject_ListMixin, A._NodeList_JavaScriptObject_ListMixin, A.Plugin, A._PluginArray_JavaScriptObject_ListMixin, A._RtcStatsReport_JavaScriptObject_MapMixin, A.SpeechGrammar, A._SpeechGrammarList_JavaScriptObject_ListMixin, A.SpeechRecognitionResult, A._Storage_JavaScriptObject_MapMixin, A.StyleSheet, A._TextTrackCueList_JavaScriptObject_ListMixin, A.TimeRanges, A.Touch, A._TouchList_JavaScriptObject_ListMixin, A.TrackDefaultList, A.Url, A.__CssRuleList_JavaScriptObject_ListMixin, A.__GamepadList_JavaScriptObject_ListMixin, A.__NamedNodeMap_JavaScriptObject_ListMixin, A.__SpeechRecognitionResultList_JavaScriptObject_ListMixin, A.__StyleSheetList_JavaScriptObject_ListMixin, A.Length, A._LengthList_JavaScriptObject_ListMixin, A.Number, A._NumberList_JavaScriptObject_ListMixin, A.PointList, A._StringList_JavaScriptObject_ListMixin, A.Transform, A._TransformList_JavaScriptObject_ListMixin, A.AudioBuffer, A._AudioParamMap_JavaScriptObject_MapMixin]);
+    _inheritMany(J.JavaScriptObject, [J.LegacyJavaScriptObject, J.JSArray, A.NativeByteBuffer, A.NativeTypedData, A.EventTarget, A.AccessibleNodeList, A.Blob, A.CssTransformComponent, A.CssRule, A._CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase, A.CssStyleValue, A.DataTransferItemList, A.DomException, A.DomImplementation, A._DomRectList_JavaScriptObject_ListMixin, A.DomRectReadOnly, A._DomStringList_JavaScriptObject_ListMixin, A.DomTokenList, A.Event, A._FileList_JavaScriptObject_ListMixin, A.FontFace, A.Gamepad, A.History, A._HtmlCollection_JavaScriptObject_ListMixin, A.Location, A.MediaList, A._MidiInputMap_JavaScriptObject_MapMixin, A._MidiOutputMap_JavaScriptObject_MapMixin, A.MimeType, A._MimeTypeArray_JavaScriptObject_ListMixin, A._NodeList_JavaScriptObject_ListMixin, A.Plugin, A._PluginArray_JavaScriptObject_ListMixin, A._RtcStatsReport_JavaScriptObject_MapMixin, A.SpeechGrammar, A._SpeechGrammarList_JavaScriptObject_ListMixin, A.SpeechRecognitionResult, A._Storage_JavaScriptObject_MapMixin, A.StyleSheet, A._TextTrackCueList_JavaScriptObject_ListMixin, A.TimeRanges, A.Touch, A._TouchList_JavaScriptObject_ListMixin, A.TrackDefaultList, A.Url, A.__CssRuleList_JavaScriptObject_ListMixin, A.__GamepadList_JavaScriptObject_ListMixin, A.__NamedNodeMap_JavaScriptObject_ListMixin, A.__SpeechRecognitionResultList_JavaScriptObject_ListMixin, A.__StyleSheetList_JavaScriptObject_ListMixin, A.Length, A._LengthList_JavaScriptObject_ListMixin, A.Number, A._NumberList_JavaScriptObject_ListMixin, A.PointList, A._StringList_JavaScriptObject_ListMixin, A.Transform, A._TransformList_JavaScriptObject_ListMixin, A.AudioBuffer, A._AudioParamMap_JavaScriptObject_MapMixin]);
     _inheritMany(J.LegacyJavaScriptObject, [J.PlainJavaScriptObject, J.UnknownJavaScriptObject, J.JavaScriptFunction]);
     _inherit(J.JSUnmodifiableArray, J.JSArray);
     _inheritMany(J.JSNumber, [J.JSInt, J.JSNumNotInt]);
     _inheritMany(A.Error, [A.LateError, A.TypeError, A.JsNoSuchMethodError, A.UnknownJsTypeError, A._CyclicInitializationError, A.RuntimeError, A.AssertionError, A._Error, A.ArgumentError, A.UnsupportedError, A.UnimplementedError, A.StateError, A.ConcurrentModificationError]);
-    _inherit(A.UnmodifiableListBase, A.ListBase);
+    _inheritMany(A.ListBase, [A.UnmodifiableListBase, A._FrozenElementList]);
     _inherit(A.CodeUnits, A.UnmodifiableListBase);
-    _inheritMany(A.Closure, [A.Closure0Args, A.Instantiation, A.Closure2Args, A.TearOffClosure, A.initHooks_closure, A.initHooks_closure1, A._AsyncRun__initializeScheduleImmediate_internalCallback, A._AsyncRun__initializeScheduleImmediate_closure, A._awaitOnObject_closure, A._asyncStarHelper_closure0, A._Future__chainForeignFuture_closure, A._Future__propagateToListeners_handleWhenCompleteCallback_closure, A.Stream_forEach_closure0, A.Stream_forEach__closure0, A.Stream_length_closure, A._RootZone_bindUnaryCallbackGuarded_closure, A._LinkedCustomHashMap_closure, A._EventStreamSubscription_closure, A._EventStreamSubscription_onData_closure, A.jsify__convert, A.promiseToFuture_closure, A.promiseToFuture_closure0, A.CanonicalizedMap_keys_closure, A.get_closure, A.BaseRequest_closure0, A.BrowserClient_send_closure, A._readBody_closure, A._readBody_closure0, A.ByteStream_toBytes_closure, A.MediaType_toString__closure, A.expectQuotedString_closure, A.Context_joinAll_closure, A.Context_split_closure, A._validateArgList_closure, A.Highlighter$__closure, A.Highlighter$___closure, A.Highlighter$__closure0, A.Highlighter__collateLines_closure, A.Highlighter__collateLines_closure1, A.Highlighter__collateLines__closure, A.Highlighter_highlight_closure, A.main_closure, A.main__closure, A.main__closure0, A.main__closure1, A.main__closure2, A.main__closure3, A.main__closure4]);
+    _inheritMany(A.Closure, [A.Closure0Args, A.Instantiation, A.Closure2Args, A.TearOffClosure, A.initHooks_closure, A.initHooks_closure1, A._AsyncRun__initializeScheduleImmediate_internalCallback, A._AsyncRun__initializeScheduleImmediate_closure, A._awaitOnObject_closure, A._asyncStarHelper_closure0, A._Future__chainForeignFuture_closure, A._Future__propagateToListeners_handleWhenCompleteCallback_closure, A.Stream_forEach_closure0, A.Stream_forEach__closure0, A.Stream_length_closure, A._RootZone_bindUnaryCallbackGuarded_closure, A._LinkedCustomHashMap_closure, A._EventStreamSubscription_closure, A._EventStreamSubscription_onData_closure, A.jsify__convert, A.promiseToFuture_closure, A.promiseToFuture_closure0, A.CanonicalizedMap_keys_closure, A.get_closure, A.BaseRequest_closure0, A.BrowserClient_send_closure, A._readBody_closure, A._readBody_closure0, A.ByteStream_toBytes_closure, A.MediaType_toString__closure, A.expectQuotedString_closure, A.Context_joinAll_closure, A.Context_split_closure, A._validateArgList_closure, A.Highlighter$__closure, A.Highlighter$___closure, A.Highlighter$__closure0, A.Highlighter__collateLines_closure, A.Highlighter__collateLines_closure1, A.Highlighter__collateLines__closure, A.Highlighter_highlight_closure, A.main_closure, A.buscarTipoPokemon_closure, A.buscarTipoPokemon_closure0, A.buscarTipoPokemon_closure1, A.buscarTipoPokemon_closure2, A.buscarTipoPokemon_closure3, A.buscarTipoPokemon_closure4, A.buscarTipoPokemon_closure5, A.buscarTipoPokemon_closure6, A.buscarTipoPokemon_closure7, A.buscarTipoPokemon_closure8, A.buscarTipoPokemon_closure9, A.buscarTipoPokemon_closure10]);
     _inheritMany(A.Closure0Args, [A.nullFuture_closure, A._AsyncRun__scheduleImmediateJsOverride_internalCallback, A._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, A._TimerImpl_internalCallback, A._asyncStarHelper_closure, A._AsyncStarStreamController__resumeBody, A._AsyncStarStreamController__resumeBody_closure, A._AsyncStarStreamController_closure, A._AsyncStarStreamController_closure0, A._AsyncStarStreamController_closure1, A._AsyncStarStreamController__closure, A._Future__addListener_closure, A._Future__prependListeners_closure, A._Future__chainForeignFuture_closure1, A._Future__chainCoreFuture_closure, A._Future__asyncCompleteWithValue_closure, A._Future__asyncCompleteError_closure, A._Future__propagateToListeners_handleWhenCompleteCallback, A._Future__propagateToListeners_handleValueCallback, A._Future__propagateToListeners_handleError, A.Stream_forEach_closure, A.Stream_forEach__closure, A.Stream_length_closure0, A._StreamController__subscribe_closure, A._StreamController__recordCancel_complete, A._AddStreamState_cancel_closure, A._BufferingStreamSubscription__sendError_sendError, A._BufferingStreamSubscription__sendDone_sendDone, A._PendingEvents_schedule_closure, A._cancelAndError_closure, A._rootHandleError_closure, A._RootZone_bindCallbackGuarded_closure, A._Utf8Decoder__decoder_closure, A._Utf8Decoder__decoderNonfatal_closure, A.MediaType_MediaType$parse_closure, A.Highlighter_closure, A.Highlighter__writeFileStart_closure, A.Highlighter__writeMultilineHighlights_closure, A.Highlighter__writeMultilineHighlights_closure0, A.Highlighter__writeMultilineHighlights_closure1, A.Highlighter__writeMultilineHighlights_closure2, A.Highlighter__writeMultilineHighlights__closure, A.Highlighter__writeMultilineHighlights__closure0, A.Highlighter__writeHighlightedText_closure, A.Highlighter__writeIndicator_closure, A.Highlighter__writeIndicator_closure0, A.Highlighter__writeIndicator_closure1, A.Highlighter__writeSidebar_closure, A._Highlight_closure]);
     _inheritMany(A.Iterable, [A.EfficientLengthIterable, A.MappedIterable, A.WhereIterable, A.ExpandIterable, A.SkipIterable, A.WhereTypeIterable, A._KeysOrValues, A._AllMatchesIterable, A._StringAllMatchesIterable]);
     _inheritMany(A.EfficientLengthIterable, [A.ListIterable, A.EmptyIterable, A.LinkedHashMapKeysIterable, A.LinkedHashMapValuesIterable, A.LinkedHashMapEntriesIterable, A._HashMapKeyIterable]);
@@ -16462,9 +16707,9 @@
     _inheritMany(A.ArgumentError, [A.RangeError, A.IndexError]);
     _inherit(A._DataUri, A._Uri);
     _inheritMany(A.EventTarget, [A.Node, A.FileWriter, A.FontFaceSet, A.SourceBuffer, A._SourceBufferList_EventTarget_ListMixin, A.TextTrack, A.TextTrackCue, A._TextTrackList_EventTarget_ListMixin, A.VideoTrackList, A.AudioTrackList, A.BaseAudioContext]);
-    _inheritMany(A.Node, [A.Element, A.CharacterData]);
-    _inherit(A.HtmlElement, A.Element);
-    _inheritMany(A.HtmlElement, [A.AnchorElement, A.AreaElement, A.ButtonElement, A.FormElement, A.SelectElement]);
+    _inheritMany(A.Node, [A.Element, A.CharacterData, A.Document]);
+    _inheritMany(A.Element, [A.HtmlElement, A.SvgElement]);
+    _inheritMany(A.HtmlElement, [A.AnchorElement, A.AreaElement, A.BaseElement, A.BodyElement, A.FormElement, A.SelectElement, A.TemplateElement]);
     _inherit(A.CssPerspective, A.CssTransformComponent);
     _inherit(A.CssStyleDeclaration, A._CssStyleDeclaration_JavaScriptObject_CssStyleDeclarationBase);
     _inheritMany(A.CssStyleValue, [A.CssTransformValue, A.CssUnparsedValue]);
@@ -16477,6 +16722,7 @@
     _inherit(A.FileList, A._FileList_JavaScriptObject_ListMixin_ImmutableListMixin);
     _inherit(A._HtmlCollection_JavaScriptObject_ListMixin_ImmutableListMixin, A._HtmlCollection_JavaScriptObject_ListMixin);
     _inherit(A.HtmlCollection, A._HtmlCollection_JavaScriptObject_ListMixin_ImmutableListMixin);
+    _inherit(A.HtmlDocument, A.Document);
     _inherit(A.MidiInputMap, A._MidiInputMap_JavaScriptObject_MapMixin);
     _inherit(A.MidiOutputMap, A._MidiOutputMap_JavaScriptObject_MapMixin);
     _inherit(A._MimeTypeArray_JavaScriptObject_ListMixin_ImmutableListMixin, A._MimeTypeArray_JavaScriptObject_ListMixin);
@@ -16594,12 +16840,12 @@
     typeUniverse: {eC: new Map(), tR: {}, eT: {}, tPV: {}, sEA: []},
     mangledGlobalNames: {int: "int", double: "double", num: "num", String: "String", bool: "bool", Null: "Null", List: "List", Object: "Object", Map: "Map"},
     mangledNames: {},
-    types: ["~()", "Null(@)", "Null()", "~(@)", "~(Object,StackTrace)", "~(String,@)", "~(~())", "Null(Object,StackTrace)", "bool(_Highlight)", "int()", "int(Object?)", "~(Object?)", "@()", "~(String,String)", "~(Event)", "String(Match)", "bool(String)", "String(String)", "int(@,@)", "bool(Object?,Object?)", "@(String)", "~(String,int?)", "int(int,int)", "~(int,@)", "Null(~())", "@(@,String)", "Null(~)", "Future<Response>(Client0)", "bool(String,String)", "int(String)", "Null(String,String[Object?])", "bool(Object)", "~(List<int>)", "MediaType()", "0^(0^,0^)<num>", "_Future<@>?()", "String(String?)", "bool(Object?)", "int(_Line)", "@(@)", "Object(_Line)", "Object(_Highlight)", "int(_Highlight,_Highlight)", "List<_Line>(MapEntry<Object,List<_Highlight>>)", "~(Object?,Object?)", "SourceSpanWithContext()", "Future<~>(MouseEvent)", "Future<~>()", "Null(@,StackTrace)", "~(Object[StackTrace?])", "~(String,int)", "String?()", "Object?(Object?)"],
+    types: ["~()", "Null(@)", "Null()", "String(String)", "~(@)", "~(Object,StackTrace)", "~(String,@)", "~(~())", "Null(Object,StackTrace)", "bool(_Highlight)", "int()", "bool(Object?,Object?)", "~(Object?)", "~(Event)", "@()", "~(String,String)", "String(Match)", "bool(String)", "int(Object?)", "int(@,@)", "bool(Object?)", "~(String,int?)", "int(int,int)", "@(String)", "Null(~)", "_Future<@>?()", "~(Object[StackTrace?])", "Future<Response>(Client0)", "bool(String,String)", "int(String)", "Null(String,String[Object?])", "bool(Object)", "~(List<int>)", "MediaType()", "0^(0^,0^)<num>", "Null(~())", "String(String?)", "Future<~>()", "int(_Line)", "@(@)", "Object(_Line)", "Object(_Highlight)", "int(_Highlight,_Highlight)", "List<_Line>(MapEntry<Object,List<_Highlight>>)", "~(Object?,Object?)", "SourceSpanWithContext()", "~(MouseEvent)", "Null(@,StackTrace)", "@(@,String)", "~(int,@)", "~(String,int)", "String?()", "Object?(Object?)"],
     interceptorsByTag: null,
     leafTags: null,
     arrayRti: Symbol("$ti")
   };
-  A._Universe_addRules(init.typeUniverse, JSON.parse('{"PlainJavaScriptObject":"LegacyJavaScriptObject","UnknownJavaScriptObject":"LegacyJavaScriptObject","JavaScriptFunction":"LegacyJavaScriptObject","KeyframeEffect":"JavaScriptObject","KeyframeEffectReadOnly":"JavaScriptObject","AnimationEffectReadOnly":"JavaScriptObject","AbortPaymentEvent":"Event","ExtendableEvent":"Event","AudioContext":"BaseAudioContext","AbsoluteOrientationSensor":"EventTarget","OrientationSensor":"EventTarget","Sensor":"EventTarget","MathMLElement":"Element","AudioElement":"HtmlElement","MediaElement":"HtmlElement","HtmlDocument":"Node","Document":"Node","PointerEvent":"MouseEvent","VttCue":"TextTrackCue","CompositionEvent":"UIEvent","CDataSection":"CharacterData","Text":"CharacterData","HtmlFormControlsCollection":"HtmlCollection","CssCharsetRule":"CssRule","CssMatrixComponent":"CssTransformComponent","CssStyleSheet":"StyleSheet","CssurlImageValue":"CssStyleValue","CssImageValue":"CssStyleValue","CssResourceValue":"CssStyleValue","JSBool":{"bool":[],"TrustedGetRuntimeType":[]},"JSNull":{"Null":[],"TrustedGetRuntimeType":[]},"JavaScriptObject":{"JSObject":[]},"LegacyJavaScriptObject":{"JSObject":[]},"JSArray":{"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"JSUnmodifiableArray":{"JSArray":["1"],"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"ArrayIterator":{"Iterator":["1"]},"JSNumber":{"double":[],"num":[],"Comparable":["num"]},"JSInt":{"double":[],"int":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSNumNotInt":{"double":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSString":{"String":[],"Comparable":["String"],"Pattern":[],"TrustedGetRuntimeType":[]},"LateError":{"Error":[]},"CodeUnits":{"ListBase":["int"],"UnmodifiableListMixin":["int"],"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"],"ListBase.E":"int","UnmodifiableListMixin.E":"int"},"EfficientLengthIterable":{"Iterable":["1"]},"ListIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"SubListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1","ListIterable.E":"1"},"ListIterator":{"Iterator":["1"]},"MappedIterable":{"Iterable":["2"],"Iterable.E":"2"},"EfficientLengthMappedIterable":{"MappedIterable":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2"},"MappedIterator":{"Iterator":["2"]},"MappedListIterable":{"ListIterable":["2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2","ListIterable.E":"2"},"WhereIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereIterator":{"Iterator":["1"]},"ExpandIterable":{"Iterable":["2"],"Iterable.E":"2"},"ExpandIterator":{"Iterator":["2"]},"SkipIterable":{"Iterable":["1"],"Iterable.E":"1"},"EfficientLengthSkipIterable":{"SkipIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"SkipIterator":{"Iterator":["1"]},"EmptyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"EmptyIterator":{"Iterator":["1"]},"WhereTypeIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereTypeIterator":{"Iterator":["1"]},"UnmodifiableListBase":{"ListBase":["1"],"UnmodifiableListMixin":["1"],"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"ReversedListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1","ListIterable.E":"1"},"ConstantMap":{"Map":["1","2"]},"ConstantStringMap":{"ConstantMap":["1","2"],"Map":["1","2"]},"_KeysOrValues":{"Iterable":["1"],"Iterable.E":"1"},"_KeysOrValuesOrElementsIterator":{"Iterator":["1"]},"Instantiation":{"Closure":[],"Function":[]},"Instantiation1":{"Closure":[],"Function":[]},"NullError":{"TypeError":[],"Error":[]},"JsNoSuchMethodError":{"Error":[]},"UnknownJsTypeError":{"Error":[]},"NullThrownFromJavaScriptException":{"Exception":[]},"_StackTrace":{"StackTrace":[]},"Closure":{"Function":[]},"Closure0Args":{"Closure":[],"Function":[]},"Closure2Args":{"Closure":[],"Function":[]},"TearOffClosure":{"Closure":[],"Function":[]},"StaticClosure":{"Closure":[],"Function":[]},"BoundClosure":{"Closure":[],"Function":[]},"_CyclicInitializationError":{"Error":[]},"RuntimeError":{"Error":[]},"_AssertionError":{"Error":[]},"JsLinkedHashMap":{"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"LinkedHashMapKeysIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"LinkedHashMapKeyIterator":{"Iterator":["1"]},"LinkedHashMapValuesIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"LinkedHashMapValueIterator":{"Iterator":["1"]},"LinkedHashMapEntriesIterable":{"EfficientLengthIterable":["MapEntry<1,2>"],"Iterable":["MapEntry<1,2>"],"Iterable.E":"MapEntry<1,2>"},"LinkedHashMapEntryIterator":{"Iterator":["MapEntry<1,2>"]},"JsIdentityLinkedHashMap":{"JsLinkedHashMap":["1","2"],"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"JSSyntaxRegExp":{"RegExp":[],"Pattern":[]},"_MatchImplementation":{"RegExpMatch":[],"Match":[]},"_AllMatchesIterable":{"Iterable":["RegExpMatch"],"Iterable.E":"RegExpMatch"},"_AllMatchesIterator":{"Iterator":["RegExpMatch"]},"StringMatch":{"Match":[]},"_StringAllMatchesIterable":{"Iterable":["Match"],"Iterable.E":"Match"},"_StringAllMatchesIterator":{"Iterator":["Match"]},"NativeByteBuffer":{"JSObject":[],"ByteBuffer":[],"TrustedGetRuntimeType":[]},"NativeTypedData":{"JSObject":[]},"NativeByteData":{"ByteData":[],"JSObject":[],"TrustedGetRuntimeType":[]},"NativeTypedArray":{"JavaScriptIndexingBehavior":["1"],"JSObject":[]},"NativeTypedArrayOfDouble":{"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"Iterable":["double"],"FixedLengthListMixin":["double"]},"NativeTypedArrayOfInt":{"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"]},"NativeFloat32List":{"Float32List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double","FixedLengthListMixin.E":"double"},"NativeFloat64List":{"Float64List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double","FixedLengthListMixin.E":"double"},"NativeInt16List":{"NativeTypedArrayOfInt":[],"Int16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeInt32List":{"NativeTypedArrayOfInt":[],"Int32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeInt8List":{"NativeTypedArrayOfInt":[],"Int8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint16List":{"NativeTypedArrayOfInt":[],"Uint16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint32List":{"NativeTypedArrayOfInt":[],"Uint32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint8ClampedList":{"NativeTypedArrayOfInt":[],"Uint8ClampedList":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint8List":{"NativeTypedArrayOfInt":[],"Uint8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"_Error":{"Error":[]},"_TypeError":{"TypeError":[],"Error":[]},"_Future":{"Future":["1"]},"AsyncError":{"Error":[]},"_AsyncCompleter":{"_Completer":["1"]},"StreamView":{"Stream":["1"]},"_StreamController":{"StreamController":["1"],"_StreamControllerLifecycle":["1"],"_EventDispatch":["1"]},"_AsyncStreamController":{"_AsyncStreamControllerDispatch":["1"],"_StreamController":["1"],"StreamController":["1"],"_StreamControllerLifecycle":["1"],"_EventDispatch":["1"]},"_ControllerStream":{"_StreamImpl":["1"],"Stream":["1"],"Stream.T":"1"},"_ControllerSubscription":{"_BufferingStreamSubscription":["1"],"StreamSubscription":["1"],"_EventDispatch":["1"]},"_StreamControllerAddStreamState":{"_AddStreamState":["1"]},"_BufferingStreamSubscription":{"StreamSubscription":["1"],"_EventDispatch":["1"]},"_StreamImpl":{"Stream":["1"]},"_DelayedData":{"_DelayedEvent":["1"]},"_DelayedError":{"_DelayedEvent":["@"]},"_DelayedDone":{"_DelayedEvent":["@"]},"_DoneStreamSubscription":{"StreamSubscription":["1"]},"_EmptyStream":{"Stream":["1"],"Stream.T":"1"},"_Zone":{"Zone":[]},"_RootZone":{"_Zone":[],"Zone":[]},"_HashMap":{"MapBase":["1","2"],"Map":["1","2"]},"_IdentityHashMap":{"_HashMap":["1","2"],"MapBase":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"_HashMapKeyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"_HashMapKeyIterator":{"Iterator":["1"]},"_LinkedCustomHashMap":{"JsLinkedHashMap":["1","2"],"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"ListBase":{"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"MapBase":{"Map":["1","2"]},"MapView":{"Map":["1","2"]},"UnmodifiableMapView":{"_UnmodifiableMapView_MapView__UnmodifiableMapMixin":["1","2"],"MapView":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"Encoding":{"Codec":["String","List<int>"]},"_JsonMap":{"MapBase":["String","@"],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"_JsonMapKeyIterable":{"ListIterable":["String"],"EfficientLengthIterable":["String"],"Iterable":["String"],"Iterable.E":"String","ListIterable.E":"String"},"AsciiCodec":{"Encoding":[],"Codec":["String","List<int>"]},"Base64Codec":{"Codec":["List<int>","String"]},"JsonCodec":{"Codec":["Object?","String"]},"Latin1Codec":{"Encoding":[],"Codec":["String","List<int>"]},"Utf8Codec":{"Encoding":[],"Codec":["String","List<int>"]},"double":{"num":[],"Comparable":["num"]},"int":{"num":[],"Comparable":["num"]},"List":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"num":{"Comparable":["num"]},"RegExpMatch":{"Match":[]},"String":{"Comparable":["String"],"Pattern":[]},"AssertionError":{"Error":[]},"TypeError":{"Error":[]},"ArgumentError":{"Error":[]},"RangeError":{"Error":[]},"IndexError":{"Error":[]},"UnsupportedError":{"Error":[]},"UnimplementedError":{"Error":[]},"StateError":{"Error":[]},"ConcurrentModificationError":{"Error":[]},"OutOfMemoryError":{"Error":[]},"StackOverflowError":{"Error":[]},"_Exception":{"Exception":[]},"FormatException":{"Exception":[]},"_StringStackTrace":{"StackTrace":[]},"StringBuffer":{"StringSink":[]},"_Uri":{"Uri":[]},"_SimpleUri":{"Uri":[]},"_DataUri":{"Uri":[]},"CssRule":{"JSObject":[]},"Event":{"JSObject":[]},"File":{"JSObject":[]},"FontFace":{"JSObject":[]},"FontFaceSet":{"EventTarget":[],"JSObject":[]},"Gamepad":{"JSObject":[]},"MimeType":{"JSObject":[]},"MouseEvent":{"Event":[],"JSObject":[]},"Node":{"EventTarget":[],"JSObject":[]},"Plugin":{"JSObject":[]},"SourceBuffer":{"EventTarget":[],"JSObject":[]},"SpeechGrammar":{"JSObject":[]},"SpeechRecognitionResult":{"JSObject":[]},"StyleSheet":{"JSObject":[]},"TextTrack":{"EventTarget":[],"JSObject":[]},"TextTrackCue":{"EventTarget":[],"JSObject":[]},"Touch":{"JSObject":[]},"HtmlElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"AccessibleNodeList":{"JSObject":[]},"AnchorElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"AreaElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"Blob":{"JSObject":[]},"ButtonElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"CharacterData":{"Node":[],"EventTarget":[],"JSObject":[]},"CssPerspective":{"JSObject":[]},"CssStyleDeclaration":{"JSObject":[]},"CssStyleValue":{"JSObject":[]},"CssTransformComponent":{"JSObject":[]},"CssTransformValue":{"JSObject":[]},"CssUnparsedValue":{"JSObject":[]},"DataTransferItemList":{"JSObject":[]},"DomException":{"JSObject":[]},"DomRectList":{"ListBase":["Rectangle<num>"],"ImmutableListMixin":["Rectangle<num>"],"List":["Rectangle<num>"],"JavaScriptIndexingBehavior":["Rectangle<num>"],"EfficientLengthIterable":["Rectangle<num>"],"JSObject":[],"Iterable":["Rectangle<num>"],"ImmutableListMixin.E":"Rectangle<num>","ListBase.E":"Rectangle<num>"},"DomRectReadOnly":{"Rectangle":["num"],"JSObject":[]},"DomStringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"JavaScriptIndexingBehavior":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ImmutableListMixin.E":"String","ListBase.E":"String"},"DomTokenList":{"JSObject":[]},"Element":{"Node":[],"EventTarget":[],"JSObject":[]},"EventTarget":{"JSObject":[]},"FileList":{"ListBase":["File"],"ImmutableListMixin":["File"],"List":["File"],"JavaScriptIndexingBehavior":["File"],"EfficientLengthIterable":["File"],"JSObject":[],"Iterable":["File"],"ImmutableListMixin.E":"File","ListBase.E":"File"},"FileWriter":{"EventTarget":[],"JSObject":[]},"FormElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"History":{"JSObject":[]},"HtmlCollection":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"Location":{"JSObject":[]},"MediaList":{"JSObject":[]},"MidiInputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MidiOutputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MimeTypeArray":{"ListBase":["MimeType"],"ImmutableListMixin":["MimeType"],"List":["MimeType"],"JavaScriptIndexingBehavior":["MimeType"],"EfficientLengthIterable":["MimeType"],"JSObject":[],"Iterable":["MimeType"],"ImmutableListMixin.E":"MimeType","ListBase.E":"MimeType"},"NodeList":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"PluginArray":{"ListBase":["Plugin"],"ImmutableListMixin":["Plugin"],"List":["Plugin"],"JavaScriptIndexingBehavior":["Plugin"],"EfficientLengthIterable":["Plugin"],"JSObject":[],"Iterable":["Plugin"],"ImmutableListMixin.E":"Plugin","ListBase.E":"Plugin"},"RtcStatsReport":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"SelectElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"SourceBufferList":{"ListBase":["SourceBuffer"],"ImmutableListMixin":["SourceBuffer"],"List":["SourceBuffer"],"EventTarget":[],"JavaScriptIndexingBehavior":["SourceBuffer"],"EfficientLengthIterable":["SourceBuffer"],"JSObject":[],"Iterable":["SourceBuffer"],"ImmutableListMixin.E":"SourceBuffer","ListBase.E":"SourceBuffer"},"SpeechGrammarList":{"ListBase":["SpeechGrammar"],"ImmutableListMixin":["SpeechGrammar"],"List":["SpeechGrammar"],"JavaScriptIndexingBehavior":["SpeechGrammar"],"EfficientLengthIterable":["SpeechGrammar"],"JSObject":[],"Iterable":["SpeechGrammar"],"ImmutableListMixin.E":"SpeechGrammar","ListBase.E":"SpeechGrammar"},"Storage":{"MapBase":["String","String"],"JSObject":[],"Map":["String","String"],"MapBase.K":"String","MapBase.V":"String"},"TextTrackCueList":{"ListBase":["TextTrackCue"],"ImmutableListMixin":["TextTrackCue"],"List":["TextTrackCue"],"JavaScriptIndexingBehavior":["TextTrackCue"],"EfficientLengthIterable":["TextTrackCue"],"JSObject":[],"Iterable":["TextTrackCue"],"ImmutableListMixin.E":"TextTrackCue","ListBase.E":"TextTrackCue"},"TextTrackList":{"ListBase":["TextTrack"],"ImmutableListMixin":["TextTrack"],"List":["TextTrack"],"EventTarget":[],"JavaScriptIndexingBehavior":["TextTrack"],"EfficientLengthIterable":["TextTrack"],"JSObject":[],"Iterable":["TextTrack"],"ImmutableListMixin.E":"TextTrack","ListBase.E":"TextTrack"},"TimeRanges":{"JSObject":[]},"TouchList":{"ListBase":["Touch"],"ImmutableListMixin":["Touch"],"List":["Touch"],"JavaScriptIndexingBehavior":["Touch"],"EfficientLengthIterable":["Touch"],"JSObject":[],"Iterable":["Touch"],"ImmutableListMixin.E":"Touch","ListBase.E":"Touch"},"TrackDefaultList":{"JSObject":[]},"UIEvent":{"Event":[],"JSObject":[]},"Url":{"JSObject":[]},"VideoTrackList":{"EventTarget":[],"JSObject":[]},"_CssRuleList":{"ListBase":["CssRule"],"ImmutableListMixin":["CssRule"],"List":["CssRule"],"JavaScriptIndexingBehavior":["CssRule"],"EfficientLengthIterable":["CssRule"],"JSObject":[],"Iterable":["CssRule"],"ImmutableListMixin.E":"CssRule","ListBase.E":"CssRule"},"_DomRect":{"Rectangle":["num"],"JSObject":[]},"_GamepadList":{"ListBase":["Gamepad?"],"ImmutableListMixin":["Gamepad?"],"List":["Gamepad?"],"JavaScriptIndexingBehavior":["Gamepad?"],"EfficientLengthIterable":["Gamepad?"],"JSObject":[],"Iterable":["Gamepad?"],"ImmutableListMixin.E":"Gamepad?","ListBase.E":"Gamepad?"},"_NamedNodeMap":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ImmutableListMixin.E":"Node","ListBase.E":"Node"},"_SpeechRecognitionResultList":{"ListBase":["SpeechRecognitionResult"],"ImmutableListMixin":["SpeechRecognitionResult"],"List":["SpeechRecognitionResult"],"JavaScriptIndexingBehavior":["SpeechRecognitionResult"],"EfficientLengthIterable":["SpeechRecognitionResult"],"JSObject":[],"Iterable":["SpeechRecognitionResult"],"ImmutableListMixin.E":"SpeechRecognitionResult","ListBase.E":"SpeechRecognitionResult"},"_StyleSheetList":{"ListBase":["StyleSheet"],"ImmutableListMixin":["StyleSheet"],"List":["StyleSheet"],"JavaScriptIndexingBehavior":["StyleSheet"],"EfficientLengthIterable":["StyleSheet"],"JSObject":[],"Iterable":["StyleSheet"],"ImmutableListMixin.E":"StyleSheet","ListBase.E":"StyleSheet"},"_EventStream":{"Stream":["1"]},"_ElementEventStreamImpl":{"_EventStream":["1"],"Stream":["1"],"Stream.T":"1"},"_EventStreamSubscription":{"StreamSubscription":["1"]},"FixedSizeListIterator":{"Iterator":["1"]},"NullRejectionException":{"Exception":[]},"Length":{"JSObject":[]},"Number":{"JSObject":[]},"Transform":{"JSObject":[]},"LengthList":{"ListBase":["Length"],"ImmutableListMixin":["Length"],"List":["Length"],"EfficientLengthIterable":["Length"],"JSObject":[],"Iterable":["Length"],"ImmutableListMixin.E":"Length","ListBase.E":"Length"},"NumberList":{"ListBase":["Number"],"ImmutableListMixin":["Number"],"List":["Number"],"EfficientLengthIterable":["Number"],"JSObject":[],"Iterable":["Number"],"ImmutableListMixin.E":"Number","ListBase.E":"Number"},"PointList":{"JSObject":[]},"StringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ImmutableListMixin.E":"String","ListBase.E":"String"},"TransformList":{"ListBase":["Transform"],"ImmutableListMixin":["Transform"],"List":["Transform"],"EfficientLengthIterable":["Transform"],"JSObject":[],"Iterable":["Transform"],"ImmutableListMixin.E":"Transform","ListBase.E":"Transform"},"AudioBuffer":{"JSObject":[]},"AudioParamMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"AudioTrackList":{"EventTarget":[],"JSObject":[]},"BaseAudioContext":{"EventTarget":[],"JSObject":[]},"OfflineAudioContext":{"EventTarget":[],"JSObject":[]},"CanonicalizedMap":{"Map":["2","3"]},"BaseClient":{"Client0":[]},"BrowserClient":{"Client0":[]},"ByteStream":{"StreamView":["List<int>"],"Stream":["List<int>"],"Stream.T":"List<int>","StreamView.T":"List<int>"},"ClientException":{"Exception":[]},"Request":{"BaseRequest":[]},"StreamedResponseV2":{"StreamedResponse":[]},"CaseInsensitiveMap":{"CanonicalizedMap":["String","String","1"],"Map":["String","1"],"CanonicalizedMap.K":"String","CanonicalizedMap.V":"1","CanonicalizedMap.C":"String"},"PathException":{"Exception":[]},"PosixStyle":{"InternalStyle":[]},"UrlStyle":{"InternalStyle":[]},"WindowsStyle":{"InternalStyle":[]},"FileLocation":{"SourceLocation":[],"Comparable":["SourceLocation"]},"_FileSpan":{"SourceSpanWithContext":[],"SourceSpan":[],"Comparable":["SourceSpan"]},"SourceLocation":{"Comparable":["SourceLocation"]},"SourceLocationMixin":{"SourceLocation":[],"Comparable":["SourceLocation"]},"SourceSpan":{"Comparable":["SourceSpan"]},"SourceSpanBase":{"SourceSpan":[],"Comparable":["SourceSpan"]},"SourceSpanException":{"Exception":[]},"SourceSpanFormatException":{"FormatException":[],"Exception":[]},"SourceSpanMixin":{"SourceSpan":[],"Comparable":["SourceSpan"]},"SourceSpanWithContext":{"SourceSpan":[],"Comparable":["SourceSpan"]},"StringScannerException":{"FormatException":[],"Exception":[]},"Int8List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint8List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint8ClampedList":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Int16List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint16List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Int32List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint32List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Float32List":{"List":["double"],"EfficientLengthIterable":["double"],"Iterable":["double"]},"Float64List":{"List":["double"],"EfficientLengthIterable":["double"],"Iterable":["double"]}}'));
+  A._Universe_addRules(init.typeUniverse, JSON.parse('{"PlainJavaScriptObject":"LegacyJavaScriptObject","UnknownJavaScriptObject":"LegacyJavaScriptObject","JavaScriptFunction":"LegacyJavaScriptObject","KeyframeEffect":"JavaScriptObject","KeyframeEffectReadOnly":"JavaScriptObject","AnimationEffectReadOnly":"JavaScriptObject","AbortPaymentEvent":"Event","ExtendableEvent":"Event","AudioContext":"BaseAudioContext","AbsoluteOrientationSensor":"EventTarget","OrientationSensor":"EventTarget","Sensor":"EventTarget","AElement":"SvgElement","GraphicsElement":"SvgElement","AudioElement":"HtmlElement","MediaElement":"HtmlElement","ShadowRoot":"Node","DocumentFragment":"Node","XmlDocument":"Document","PointerEvent":"MouseEvent","VttCue":"TextTrackCue","CompositionEvent":"UIEvent","CDataSection":"CharacterData","Text":"CharacterData","MathMLElement":"Element","HtmlFormControlsCollection":"HtmlCollection","CssCharsetRule":"CssRule","CssMatrixComponent":"CssTransformComponent","CssStyleSheet":"StyleSheet","CssurlImageValue":"CssStyleValue","CssImageValue":"CssStyleValue","CssResourceValue":"CssStyleValue","JSBool":{"bool":[],"TrustedGetRuntimeType":[]},"JSNull":{"Null":[],"TrustedGetRuntimeType":[]},"JavaScriptObject":{"JSObject":[]},"LegacyJavaScriptObject":{"JSObject":[]},"JSArray":{"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"JSUnmodifiableArray":{"JSArray":["1"],"List":["1"],"EfficientLengthIterable":["1"],"JSObject":[],"Iterable":["1"]},"ArrayIterator":{"Iterator":["1"]},"JSNumber":{"double":[],"num":[],"Comparable":["num"]},"JSInt":{"double":[],"int":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSNumNotInt":{"double":[],"num":[],"Comparable":["num"],"TrustedGetRuntimeType":[]},"JSString":{"String":[],"Comparable":["String"],"Pattern":[],"TrustedGetRuntimeType":[]},"LateError":{"Error":[]},"CodeUnits":{"ListBase":["int"],"UnmodifiableListMixin":["int"],"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"],"ListBase.E":"int","UnmodifiableListMixin.E":"int"},"EfficientLengthIterable":{"Iterable":["1"]},"ListIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"SubListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"ListIterable.E":"1","Iterable.E":"1"},"ListIterator":{"Iterator":["1"]},"MappedIterable":{"Iterable":["2"],"Iterable.E":"2"},"EfficientLengthMappedIterable":{"MappedIterable":["1","2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"Iterable.E":"2"},"MappedIterator":{"Iterator":["2"]},"MappedListIterable":{"ListIterable":["2"],"EfficientLengthIterable":["2"],"Iterable":["2"],"ListIterable.E":"2","Iterable.E":"2"},"WhereIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereIterator":{"Iterator":["1"]},"ExpandIterable":{"Iterable":["2"],"Iterable.E":"2"},"ExpandIterator":{"Iterator":["2"]},"SkipIterable":{"Iterable":["1"],"Iterable.E":"1"},"EfficientLengthSkipIterable":{"SkipIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"SkipIterator":{"Iterator":["1"]},"EmptyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"EmptyIterator":{"Iterator":["1"]},"WhereTypeIterable":{"Iterable":["1"],"Iterable.E":"1"},"WhereTypeIterator":{"Iterator":["1"]},"UnmodifiableListBase":{"ListBase":["1"],"UnmodifiableListMixin":["1"],"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"ReversedListIterable":{"ListIterable":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"ListIterable.E":"1","Iterable.E":"1"},"ConstantMap":{"Map":["1","2"]},"ConstantStringMap":{"ConstantMap":["1","2"],"Map":["1","2"]},"_KeysOrValues":{"Iterable":["1"],"Iterable.E":"1"},"_KeysOrValuesOrElementsIterator":{"Iterator":["1"]},"Instantiation":{"Closure":[],"Function":[]},"Instantiation1":{"Closure":[],"Function":[]},"NullError":{"TypeError":[],"Error":[]},"JsNoSuchMethodError":{"Error":[]},"UnknownJsTypeError":{"Error":[]},"NullThrownFromJavaScriptException":{"Exception":[]},"_StackTrace":{"StackTrace":[]},"Closure":{"Function":[]},"Closure0Args":{"Closure":[],"Function":[]},"Closure2Args":{"Closure":[],"Function":[]},"TearOffClosure":{"Closure":[],"Function":[]},"StaticClosure":{"Closure":[],"Function":[]},"BoundClosure":{"Closure":[],"Function":[]},"_CyclicInitializationError":{"Error":[]},"RuntimeError":{"Error":[]},"_AssertionError":{"Error":[]},"JsLinkedHashMap":{"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"LinkedHashMapKeysIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"LinkedHashMapKeyIterator":{"Iterator":["1"]},"LinkedHashMapValuesIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"LinkedHashMapValueIterator":{"Iterator":["1"]},"LinkedHashMapEntriesIterable":{"EfficientLengthIterable":["MapEntry<1,2>"],"Iterable":["MapEntry<1,2>"],"Iterable.E":"MapEntry<1,2>"},"LinkedHashMapEntryIterator":{"Iterator":["MapEntry<1,2>"]},"JsIdentityLinkedHashMap":{"JsLinkedHashMap":["1","2"],"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"JSSyntaxRegExp":{"RegExp":[],"Pattern":[]},"_MatchImplementation":{"RegExpMatch":[],"Match":[]},"_AllMatchesIterable":{"Iterable":["RegExpMatch"],"Iterable.E":"RegExpMatch"},"_AllMatchesIterator":{"Iterator":["RegExpMatch"]},"StringMatch":{"Match":[]},"_StringAllMatchesIterable":{"Iterable":["Match"],"Iterable.E":"Match"},"_StringAllMatchesIterator":{"Iterator":["Match"]},"NativeByteBuffer":{"JSObject":[],"ByteBuffer":[],"TrustedGetRuntimeType":[]},"NativeTypedData":{"JSObject":[]},"NativeByteData":{"ByteData":[],"JSObject":[],"TrustedGetRuntimeType":[]},"NativeTypedArray":{"JavaScriptIndexingBehavior":["1"],"JSObject":[]},"NativeTypedArrayOfDouble":{"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"Iterable":["double"],"FixedLengthListMixin":["double"]},"NativeTypedArrayOfInt":{"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"]},"NativeFloat32List":{"Float32List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double","FixedLengthListMixin.E":"double"},"NativeFloat64List":{"Float64List":[],"ListBase":["double"],"NativeTypedArray":["double"],"List":["double"],"JavaScriptIndexingBehavior":["double"],"EfficientLengthIterable":["double"],"JSObject":[],"Iterable":["double"],"FixedLengthListMixin":["double"],"TrustedGetRuntimeType":[],"ListBase.E":"double","FixedLengthListMixin.E":"double"},"NativeInt16List":{"NativeTypedArrayOfInt":[],"Int16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeInt32List":{"NativeTypedArrayOfInt":[],"Int32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeInt8List":{"NativeTypedArrayOfInt":[],"Int8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint16List":{"NativeTypedArrayOfInt":[],"Uint16List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint32List":{"NativeTypedArrayOfInt":[],"Uint32List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint8ClampedList":{"NativeTypedArrayOfInt":[],"Uint8ClampedList":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"NativeUint8List":{"NativeTypedArrayOfInt":[],"Uint8List":[],"ListBase":["int"],"NativeTypedArray":["int"],"List":["int"],"JavaScriptIndexingBehavior":["int"],"EfficientLengthIterable":["int"],"JSObject":[],"Iterable":["int"],"FixedLengthListMixin":["int"],"TrustedGetRuntimeType":[],"ListBase.E":"int","FixedLengthListMixin.E":"int"},"_Error":{"Error":[]},"_TypeError":{"TypeError":[],"Error":[]},"_Future":{"Future":["1"]},"AsyncError":{"Error":[]},"_AsyncCompleter":{"_Completer":["1"]},"StreamView":{"Stream":["1"]},"_StreamController":{"StreamController":["1"],"_StreamControllerLifecycle":["1"],"_EventDispatch":["1"]},"_AsyncStreamController":{"_AsyncStreamControllerDispatch":["1"],"_StreamController":["1"],"StreamController":["1"],"_StreamControllerLifecycle":["1"],"_EventDispatch":["1"]},"_ControllerStream":{"_StreamImpl":["1"],"Stream":["1"],"Stream.T":"1"},"_ControllerSubscription":{"_BufferingStreamSubscription":["1"],"StreamSubscription":["1"],"_EventDispatch":["1"]},"_StreamControllerAddStreamState":{"_AddStreamState":["1"]},"_BufferingStreamSubscription":{"StreamSubscription":["1"],"_EventDispatch":["1"]},"_StreamImpl":{"Stream":["1"]},"_DelayedData":{"_DelayedEvent":["1"]},"_DelayedError":{"_DelayedEvent":["@"]},"_DelayedDone":{"_DelayedEvent":["@"]},"_DoneStreamSubscription":{"StreamSubscription":["1"]},"_EmptyStream":{"Stream":["1"],"Stream.T":"1"},"_Zone":{"Zone":[]},"_RootZone":{"_Zone":[],"Zone":[]},"_HashMap":{"MapBase":["1","2"],"Map":["1","2"]},"_IdentityHashMap":{"_HashMap":["1","2"],"MapBase":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"_HashMapKeyIterable":{"EfficientLengthIterable":["1"],"Iterable":["1"],"Iterable.E":"1"},"_HashMapKeyIterator":{"Iterator":["1"]},"_LinkedCustomHashMap":{"JsLinkedHashMap":["1","2"],"MapBase":["1","2"],"LinkedHashMap":["1","2"],"Map":["1","2"],"MapBase.K":"1","MapBase.V":"2"},"ListBase":{"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"]},"MapBase":{"Map":["1","2"]},"MapView":{"Map":["1","2"]},"UnmodifiableMapView":{"_UnmodifiableMapView_MapView__UnmodifiableMapMixin":["1","2"],"MapView":["1","2"],"_UnmodifiableMapMixin":["1","2"],"Map":["1","2"]},"Encoding":{"Codec":["String","List<int>"]},"_JsonMap":{"MapBase":["String","@"],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"_JsonMapKeyIterable":{"ListIterable":["String"],"EfficientLengthIterable":["String"],"Iterable":["String"],"ListIterable.E":"String","Iterable.E":"String"},"AsciiCodec":{"Encoding":[],"Codec":["String","List<int>"]},"Base64Codec":{"Codec":["List<int>","String"]},"JsonCodec":{"Codec":["Object?","String"]},"Latin1Codec":{"Encoding":[],"Codec":["String","List<int>"]},"Utf8Codec":{"Encoding":[],"Codec":["String","List<int>"]},"double":{"num":[],"Comparable":["num"]},"int":{"num":[],"Comparable":["num"]},"List":{"EfficientLengthIterable":["1"],"Iterable":["1"]},"num":{"Comparable":["num"]},"RegExpMatch":{"Match":[]},"String":{"Comparable":["String"],"Pattern":[]},"AssertionError":{"Error":[]},"TypeError":{"Error":[]},"ArgumentError":{"Error":[]},"RangeError":{"Error":[]},"IndexError":{"Error":[]},"UnsupportedError":{"Error":[]},"UnimplementedError":{"Error":[]},"StateError":{"Error":[]},"ConcurrentModificationError":{"Error":[]},"OutOfMemoryError":{"Error":[]},"StackOverflowError":{"Error":[]},"_Exception":{"Exception":[]},"FormatException":{"Exception":[]},"_StringStackTrace":{"StackTrace":[]},"StringBuffer":{"StringSink":[]},"_Uri":{"Uri":[]},"_SimpleUri":{"Uri":[]},"_DataUri":{"Uri":[]},"CssRule":{"JSObject":[]},"Element":{"Node":[],"EventTarget":[],"JSObject":[]},"Event":{"JSObject":[]},"File":{"JSObject":[]},"FontFace":{"JSObject":[]},"FontFaceSet":{"EventTarget":[],"JSObject":[]},"Gamepad":{"JSObject":[]},"MimeType":{"JSObject":[]},"MouseEvent":{"Event":[],"JSObject":[]},"Node":{"EventTarget":[],"JSObject":[]},"Plugin":{"JSObject":[]},"SourceBuffer":{"EventTarget":[],"JSObject":[]},"SpeechGrammar":{"JSObject":[]},"SpeechRecognitionResult":{"JSObject":[]},"StyleSheet":{"JSObject":[]},"TextTrack":{"EventTarget":[],"JSObject":[]},"TextTrackCue":{"EventTarget":[],"JSObject":[]},"Touch":{"JSObject":[]},"HtmlElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"AccessibleNodeList":{"JSObject":[]},"AnchorElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"AreaElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"BaseElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"Blob":{"JSObject":[]},"BodyElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"CharacterData":{"Node":[],"EventTarget":[],"JSObject":[]},"CssPerspective":{"JSObject":[]},"CssStyleDeclaration":{"JSObject":[]},"CssStyleValue":{"JSObject":[]},"CssTransformComponent":{"JSObject":[]},"CssTransformValue":{"JSObject":[]},"CssUnparsedValue":{"JSObject":[]},"DataTransferItemList":{"JSObject":[]},"Document":{"Node":[],"EventTarget":[],"JSObject":[]},"DomException":{"JSObject":[]},"DomImplementation":{"JSObject":[]},"DomRectList":{"ListBase":["Rectangle<num>"],"ImmutableListMixin":["Rectangle<num>"],"List":["Rectangle<num>"],"JavaScriptIndexingBehavior":["Rectangle<num>"],"EfficientLengthIterable":["Rectangle<num>"],"JSObject":[],"Iterable":["Rectangle<num>"],"ListBase.E":"Rectangle<num>","ImmutableListMixin.E":"Rectangle<num>"},"DomRectReadOnly":{"Rectangle":["num"],"JSObject":[]},"DomStringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"JavaScriptIndexingBehavior":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ListBase.E":"String","ImmutableListMixin.E":"String"},"DomTokenList":{"JSObject":[]},"_FrozenElementList":{"ListBase":["1"],"List":["1"],"EfficientLengthIterable":["1"],"Iterable":["1"],"ListBase.E":"1"},"EventTarget":{"JSObject":[]},"FileList":{"ListBase":["File"],"ImmutableListMixin":["File"],"List":["File"],"JavaScriptIndexingBehavior":["File"],"EfficientLengthIterable":["File"],"JSObject":[],"Iterable":["File"],"ListBase.E":"File","ImmutableListMixin.E":"File"},"FileWriter":{"EventTarget":[],"JSObject":[]},"FormElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"History":{"JSObject":[]},"HtmlCollection":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ListBase.E":"Node","ImmutableListMixin.E":"Node"},"HtmlDocument":{"Node":[],"EventTarget":[],"JSObject":[]},"Location":{"JSObject":[]},"MediaList":{"JSObject":[]},"MidiInputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MidiOutputMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"MimeTypeArray":{"ListBase":["MimeType"],"ImmutableListMixin":["MimeType"],"List":["MimeType"],"JavaScriptIndexingBehavior":["MimeType"],"EfficientLengthIterable":["MimeType"],"JSObject":[],"Iterable":["MimeType"],"ListBase.E":"MimeType","ImmutableListMixin.E":"MimeType"},"NodeList":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ListBase.E":"Node","ImmutableListMixin.E":"Node"},"PluginArray":{"ListBase":["Plugin"],"ImmutableListMixin":["Plugin"],"List":["Plugin"],"JavaScriptIndexingBehavior":["Plugin"],"EfficientLengthIterable":["Plugin"],"JSObject":[],"Iterable":["Plugin"],"ListBase.E":"Plugin","ImmutableListMixin.E":"Plugin"},"RtcStatsReport":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"SelectElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"SourceBufferList":{"ListBase":["SourceBuffer"],"ImmutableListMixin":["SourceBuffer"],"List":["SourceBuffer"],"EventTarget":[],"JavaScriptIndexingBehavior":["SourceBuffer"],"EfficientLengthIterable":["SourceBuffer"],"JSObject":[],"Iterable":["SourceBuffer"],"ListBase.E":"SourceBuffer","ImmutableListMixin.E":"SourceBuffer"},"SpeechGrammarList":{"ListBase":["SpeechGrammar"],"ImmutableListMixin":["SpeechGrammar"],"List":["SpeechGrammar"],"JavaScriptIndexingBehavior":["SpeechGrammar"],"EfficientLengthIterable":["SpeechGrammar"],"JSObject":[],"Iterable":["SpeechGrammar"],"ListBase.E":"SpeechGrammar","ImmutableListMixin.E":"SpeechGrammar"},"Storage":{"MapBase":["String","String"],"JSObject":[],"Map":["String","String"],"MapBase.K":"String","MapBase.V":"String"},"TemplateElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"TextTrackCueList":{"ListBase":["TextTrackCue"],"ImmutableListMixin":["TextTrackCue"],"List":["TextTrackCue"],"JavaScriptIndexingBehavior":["TextTrackCue"],"EfficientLengthIterable":["TextTrackCue"],"JSObject":[],"Iterable":["TextTrackCue"],"ListBase.E":"TextTrackCue","ImmutableListMixin.E":"TextTrackCue"},"TextTrackList":{"ListBase":["TextTrack"],"ImmutableListMixin":["TextTrack"],"List":["TextTrack"],"EventTarget":[],"JavaScriptIndexingBehavior":["TextTrack"],"EfficientLengthIterable":["TextTrack"],"JSObject":[],"Iterable":["TextTrack"],"ListBase.E":"TextTrack","ImmutableListMixin.E":"TextTrack"},"TimeRanges":{"JSObject":[]},"TouchList":{"ListBase":["Touch"],"ImmutableListMixin":["Touch"],"List":["Touch"],"JavaScriptIndexingBehavior":["Touch"],"EfficientLengthIterable":["Touch"],"JSObject":[],"Iterable":["Touch"],"ListBase.E":"Touch","ImmutableListMixin.E":"Touch"},"TrackDefaultList":{"JSObject":[]},"UIEvent":{"Event":[],"JSObject":[]},"Url":{"JSObject":[]},"VideoTrackList":{"EventTarget":[],"JSObject":[]},"_CssRuleList":{"ListBase":["CssRule"],"ImmutableListMixin":["CssRule"],"List":["CssRule"],"JavaScriptIndexingBehavior":["CssRule"],"EfficientLengthIterable":["CssRule"],"JSObject":[],"Iterable":["CssRule"],"ListBase.E":"CssRule","ImmutableListMixin.E":"CssRule"},"_DomRect":{"Rectangle":["num"],"JSObject":[]},"_GamepadList":{"ListBase":["Gamepad?"],"ImmutableListMixin":["Gamepad?"],"List":["Gamepad?"],"JavaScriptIndexingBehavior":["Gamepad?"],"EfficientLengthIterable":["Gamepad?"],"JSObject":[],"Iterable":["Gamepad?"],"ListBase.E":"Gamepad?","ImmutableListMixin.E":"Gamepad?"},"_NamedNodeMap":{"ListBase":["Node"],"ImmutableListMixin":["Node"],"List":["Node"],"JavaScriptIndexingBehavior":["Node"],"EfficientLengthIterable":["Node"],"JSObject":[],"Iterable":["Node"],"ListBase.E":"Node","ImmutableListMixin.E":"Node"},"_SpeechRecognitionResultList":{"ListBase":["SpeechRecognitionResult"],"ImmutableListMixin":["SpeechRecognitionResult"],"List":["SpeechRecognitionResult"],"JavaScriptIndexingBehavior":["SpeechRecognitionResult"],"EfficientLengthIterable":["SpeechRecognitionResult"],"JSObject":[],"Iterable":["SpeechRecognitionResult"],"ListBase.E":"SpeechRecognitionResult","ImmutableListMixin.E":"SpeechRecognitionResult"},"_StyleSheetList":{"ListBase":["StyleSheet"],"ImmutableListMixin":["StyleSheet"],"List":["StyleSheet"],"JavaScriptIndexingBehavior":["StyleSheet"],"EfficientLengthIterable":["StyleSheet"],"JSObject":[],"Iterable":["StyleSheet"],"ListBase.E":"StyleSheet","ImmutableListMixin.E":"StyleSheet"},"_EventStream":{"Stream":["1"]},"_ElementEventStreamImpl":{"_EventStream":["1"],"Stream":["1"],"Stream.T":"1"},"_EventStreamSubscription":{"StreamSubscription":["1"]},"FixedSizeListIterator":{"Iterator":["1"]},"_TrustedHtmlTreeSanitizer":{"NodeTreeSanitizer":[]},"NullRejectionException":{"Exception":[]},"Length":{"JSObject":[]},"Number":{"JSObject":[]},"Transform":{"JSObject":[]},"LengthList":{"ListBase":["Length"],"ImmutableListMixin":["Length"],"List":["Length"],"EfficientLengthIterable":["Length"],"JSObject":[],"Iterable":["Length"],"ListBase.E":"Length","ImmutableListMixin.E":"Length"},"NumberList":{"ListBase":["Number"],"ImmutableListMixin":["Number"],"List":["Number"],"EfficientLengthIterable":["Number"],"JSObject":[],"Iterable":["Number"],"ListBase.E":"Number","ImmutableListMixin.E":"Number"},"PointList":{"JSObject":[]},"StringList":{"ListBase":["String"],"ImmutableListMixin":["String"],"List":["String"],"EfficientLengthIterable":["String"],"JSObject":[],"Iterable":["String"],"ListBase.E":"String","ImmutableListMixin.E":"String"},"SvgElement":{"Element":[],"Node":[],"EventTarget":[],"JSObject":[]},"TransformList":{"ListBase":["Transform"],"ImmutableListMixin":["Transform"],"List":["Transform"],"EfficientLengthIterable":["Transform"],"JSObject":[],"Iterable":["Transform"],"ListBase.E":"Transform","ImmutableListMixin.E":"Transform"},"AudioBuffer":{"JSObject":[]},"AudioParamMap":{"MapBase":["String","@"],"JSObject":[],"Map":["String","@"],"MapBase.K":"String","MapBase.V":"@"},"AudioTrackList":{"EventTarget":[],"JSObject":[]},"BaseAudioContext":{"EventTarget":[],"JSObject":[]},"OfflineAudioContext":{"EventTarget":[],"JSObject":[]},"CanonicalizedMap":{"Map":["2","3"]},"BaseClient":{"Client0":[]},"BrowserClient":{"Client0":[]},"ByteStream":{"StreamView":["List<int>"],"Stream":["List<int>"],"Stream.T":"List<int>","StreamView.T":"List<int>"},"ClientException":{"Exception":[]},"Request":{"BaseRequest":[]},"StreamedResponseV2":{"StreamedResponse":[]},"CaseInsensitiveMap":{"CanonicalizedMap":["String","String","1"],"Map":["String","1"],"CanonicalizedMap.K":"String","CanonicalizedMap.V":"1","CanonicalizedMap.C":"String"},"PathException":{"Exception":[]},"PosixStyle":{"InternalStyle":[]},"UrlStyle":{"InternalStyle":[]},"WindowsStyle":{"InternalStyle":[]},"FileLocation":{"SourceLocation":[],"Comparable":["SourceLocation"]},"_FileSpan":{"SourceSpanWithContext":[],"SourceSpan":[],"Comparable":["SourceSpan"]},"SourceLocation":{"Comparable":["SourceLocation"]},"SourceLocationMixin":{"SourceLocation":[],"Comparable":["SourceLocation"]},"SourceSpan":{"Comparable":["SourceSpan"]},"SourceSpanBase":{"SourceSpan":[],"Comparable":["SourceSpan"]},"SourceSpanException":{"Exception":[]},"SourceSpanFormatException":{"FormatException":[],"Exception":[]},"SourceSpanMixin":{"SourceSpan":[],"Comparable":["SourceSpan"]},"SourceSpanWithContext":{"SourceSpan":[],"Comparable":["SourceSpan"]},"StringScannerException":{"FormatException":[],"Exception":[]},"Int8List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint8List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint8ClampedList":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Int16List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint16List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Int32List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Uint32List":{"List":["int"],"EfficientLengthIterable":["int"],"Iterable":["int"]},"Float32List":{"List":["double"],"EfficientLengthIterable":["double"],"Iterable":["double"]},"Float64List":{"List":["double"],"EfficientLengthIterable":["double"],"Iterable":["double"]}}'));
   A._Universe_addErasedTypes(init.typeUniverse, JSON.parse('{"UnmodifiableListBase":1,"NativeTypedArray":1,"_DelayedEvent":1,"Converter":2}'));
   var string$ = {
     x00_____: "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\u03f6\x00\u0404\u03f4 \u03f4\u03f6\u01f6\u01f6\u03f6\u03fc\u01f4\u03ff\u03ff\u0584\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u05d4\u01f4\x00\u01f4\x00\u0504\u05c4\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u0400\x00\u0400\u0200\u03f7\u0200\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u0200\u0200\u0200\u03f7\x00",
@@ -16614,7 +16860,8 @@
     return {
       $env_1_1_void: findType("@<~>"),
       AsyncError: findType("AsyncError"),
-      ButtonElement: findType("ButtonElement"),
+      BaseElement: findType("BaseElement"),
+      BodyElement: findType("BodyElement"),
       ByteBuffer: findType("ByteBuffer"),
       ByteData: findType("ByteData"),
       CaseInsensitiveMap_String: findType("CaseInsensitiveMap<String>"),
@@ -16622,6 +16869,7 @@
       Comparable_dynamic: findType("Comparable<@>"),
       CssRule: findType("CssRule"),
       EfficientLengthIterable_dynamic: findType("EfficientLengthIterable<@>"),
+      Element: findType("Element"),
       Error: findType("Error"),
       Event: findType("Event"),
       Exception: findType("Exception"),
@@ -16671,7 +16919,6 @@
       Rectangle_num: findType("Rectangle<num>"),
       RegExpMatch: findType("RegExpMatch"),
       Response: findType("Response"),
-      SelectElement: findType("SelectElement"),
       SourceBuffer: findType("SourceBuffer"),
       SourceLocation: findType("SourceLocation"),
       SourceSpan: findType("SourceSpan"),
@@ -16701,6 +16948,7 @@
       _AsyncCompleter_Uint8List: findType("_AsyncCompleter<Uint8List>"),
       _AsyncStreamController_List_int: findType("_AsyncStreamController<List<int>>"),
       _ElementEventStreamImpl_MouseEvent: findType("_ElementEventStreamImpl<MouseEvent>"),
+      _FrozenElementList_Element: findType("_FrozenElementList<Element>"),
       _Future_Uint8List: findType("_Future<Uint8List>"),
       _Future_dynamic: findType("_Future<@>"),
       _Future_int: findType("_Future<int>"),
@@ -16748,6 +16996,8 @@
   })();
   (function constants() {
     var makeConstList = hunkHelpers.makeConstList;
+    B.DomImplementation_methods = A.DomImplementation.prototype;
+    B.HtmlDocument_methods = A.HtmlDocument.prototype;
     B.Interceptor_methods = J.Interceptor.prototype;
     B.JSArray_methods = J.JSArray.prototype;
     B.JSInt_methods = J.JSInt.prototype;
@@ -16899,9 +17149,11 @@
     B.C__DelayedDone = new A._DelayedDone();
     B.C__RootZone = new A._RootZone();
     B.C__StringStackTrace = new A._StringStackTrace();
+    B.C__TrustedHtmlTreeSanitizer = new A._TrustedHtmlTreeSanitizer();
     B.JsonDecoder_null = new A.JsonDecoder(null);
     B.Latin1Decoder_false_255 = new A.Latin1Decoder(false, 255);
     B.List_empty = A._setArrayType(makeConstList([]), type$.JSArray_String);
+    B.List_tEi = A._setArrayType(makeConstList(["HEAD", "AREA", "BASE", "BASEFONT", "BR", "COL", "COLGROUP", "EMBED", "FRAME", "FRAMESET", "HR", "IMAGE", "IMG", "INPUT", "ISINDEX", "LINK", "META", "PARAM", "SOURCE", "STYLE", "TITLE", "WBR"]), type$.JSArray_String);
     B.Object_empty = {};
     B.Map_empty = new A.ConstantStringMap(B.Object_empty, [], A.findType("ConstantStringMap<String,String>"));
     B.Type_ByteBuffer_rqD = A.typeLiteral("ByteBuffer");
@@ -16937,6 +17189,8 @@
     $.Zone__current = B.C__RootZone;
     $.Uri__cachedBaseString = "";
     $.Uri__cachedBaseUri = null;
+    $.Element__parseDocument = null;
+    $.Element__parseRange = null;
     $._currentUriBase = null;
     $._current = null;
   })();
@@ -17033,8 +17287,8 @@
       }
       init.dispatchPropertyName = init.getIsolateTag("dispatch_record");
     }();
-    hunkHelpers.setOrUpdateInterceptorsByTag({WebGL: J.Interceptor, AnimationEffectReadOnly: J.JavaScriptObject, AnimationEffectTiming: J.JavaScriptObject, AnimationEffectTimingReadOnly: J.JavaScriptObject, AnimationTimeline: J.JavaScriptObject, AnimationWorkletGlobalScope: J.JavaScriptObject, AuthenticatorAssertionResponse: J.JavaScriptObject, AuthenticatorAttestationResponse: J.JavaScriptObject, AuthenticatorResponse: J.JavaScriptObject, BackgroundFetchFetch: J.JavaScriptObject, BackgroundFetchManager: J.JavaScriptObject, BackgroundFetchSettledFetch: J.JavaScriptObject, BarProp: J.JavaScriptObject, BarcodeDetector: J.JavaScriptObject, BluetoothRemoteGATTDescriptor: J.JavaScriptObject, Body: J.JavaScriptObject, BudgetState: J.JavaScriptObject, CacheStorage: J.JavaScriptObject, CanvasGradient: J.JavaScriptObject, CanvasPattern: J.JavaScriptObject, CanvasRenderingContext2D: J.JavaScriptObject, Client: J.JavaScriptObject, Clients: J.JavaScriptObject, CookieStore: J.JavaScriptObject, Coordinates: J.JavaScriptObject, Credential: J.JavaScriptObject, CredentialUserData: J.JavaScriptObject, CredentialsContainer: J.JavaScriptObject, Crypto: J.JavaScriptObject, CryptoKey: J.JavaScriptObject, CSS: J.JavaScriptObject, CSSVariableReferenceValue: J.JavaScriptObject, CustomElementRegistry: J.JavaScriptObject, DataTransfer: J.JavaScriptObject, DataTransferItem: J.JavaScriptObject, DeprecatedStorageInfo: J.JavaScriptObject, DeprecatedStorageQuota: J.JavaScriptObject, DeprecationReport: J.JavaScriptObject, DetectedBarcode: J.JavaScriptObject, DetectedFace: J.JavaScriptObject, DetectedText: J.JavaScriptObject, DeviceAcceleration: J.JavaScriptObject, DeviceRotationRate: J.JavaScriptObject, DirectoryEntry: J.JavaScriptObject, webkitFileSystemDirectoryEntry: J.JavaScriptObject, FileSystemDirectoryEntry: J.JavaScriptObject, DirectoryReader: J.JavaScriptObject, WebKitDirectoryReader: J.JavaScriptObject, webkitFileSystemDirectoryReader: J.JavaScriptObject, FileSystemDirectoryReader: J.JavaScriptObject, DocumentOrShadowRoot: J.JavaScriptObject, DocumentTimeline: J.JavaScriptObject, DOMError: J.JavaScriptObject, DOMImplementation: J.JavaScriptObject, Iterator: J.JavaScriptObject, DOMMatrix: J.JavaScriptObject, DOMMatrixReadOnly: J.JavaScriptObject, DOMParser: J.JavaScriptObject, DOMPoint: J.JavaScriptObject, DOMPointReadOnly: J.JavaScriptObject, DOMQuad: J.JavaScriptObject, DOMStringMap: J.JavaScriptObject, Entry: J.JavaScriptObject, webkitFileSystemEntry: J.JavaScriptObject, FileSystemEntry: J.JavaScriptObject, External: J.JavaScriptObject, FaceDetector: J.JavaScriptObject, FederatedCredential: J.JavaScriptObject, FileEntry: J.JavaScriptObject, webkitFileSystemFileEntry: J.JavaScriptObject, FileSystemFileEntry: J.JavaScriptObject, DOMFileSystem: J.JavaScriptObject, WebKitFileSystem: J.JavaScriptObject, webkitFileSystem: J.JavaScriptObject, FileSystem: J.JavaScriptObject, FontFaceSource: J.JavaScriptObject, FormData: J.JavaScriptObject, GamepadButton: J.JavaScriptObject, GamepadPose: J.JavaScriptObject, Geolocation: J.JavaScriptObject, Position: J.JavaScriptObject, GeolocationPosition: J.JavaScriptObject, Headers: J.JavaScriptObject, HTMLHyperlinkElementUtils: J.JavaScriptObject, IdleDeadline: J.JavaScriptObject, ImageBitmap: J.JavaScriptObject, ImageBitmapRenderingContext: J.JavaScriptObject, ImageCapture: J.JavaScriptObject, ImageData: J.JavaScriptObject, InputDeviceCapabilities: J.JavaScriptObject, IntersectionObserver: J.JavaScriptObject, IntersectionObserverEntry: J.JavaScriptObject, InterventionReport: J.JavaScriptObject, KeyframeEffect: J.JavaScriptObject, KeyframeEffectReadOnly: J.JavaScriptObject, MediaCapabilities: J.JavaScriptObject, MediaCapabilitiesInfo: J.JavaScriptObject, MediaDeviceInfo: J.JavaScriptObject, MediaError: J.JavaScriptObject, MediaKeyStatusMap: J.JavaScriptObject, MediaKeySystemAccess: J.JavaScriptObject, MediaKeys: J.JavaScriptObject, MediaKeysPolicy: J.JavaScriptObject, MediaMetadata: J.JavaScriptObject, MediaSession: J.JavaScriptObject, MediaSettingsRange: J.JavaScriptObject, MemoryInfo: J.JavaScriptObject, MessageChannel: J.JavaScriptObject, Metadata: J.JavaScriptObject, MutationObserver: J.JavaScriptObject, WebKitMutationObserver: J.JavaScriptObject, MutationRecord: J.JavaScriptObject, NavigationPreloadManager: J.JavaScriptObject, Navigator: J.JavaScriptObject, NavigatorAutomationInformation: J.JavaScriptObject, NavigatorConcurrentHardware: J.JavaScriptObject, NavigatorCookies: J.JavaScriptObject, NavigatorUserMediaError: J.JavaScriptObject, NodeFilter: J.JavaScriptObject, NodeIterator: J.JavaScriptObject, NonDocumentTypeChildNode: J.JavaScriptObject, NonElementParentNode: J.JavaScriptObject, NoncedElement: J.JavaScriptObject, OffscreenCanvasRenderingContext2D: J.JavaScriptObject, OverconstrainedError: J.JavaScriptObject, PaintRenderingContext2D: J.JavaScriptObject, PaintSize: J.JavaScriptObject, PaintWorkletGlobalScope: J.JavaScriptObject, PasswordCredential: J.JavaScriptObject, Path2D: J.JavaScriptObject, PaymentAddress: J.JavaScriptObject, PaymentInstruments: J.JavaScriptObject, PaymentManager: J.JavaScriptObject, PaymentResponse: J.JavaScriptObject, PerformanceEntry: J.JavaScriptObject, PerformanceLongTaskTiming: J.JavaScriptObject, PerformanceMark: J.JavaScriptObject, PerformanceMeasure: J.JavaScriptObject, PerformanceNavigation: J.JavaScriptObject, PerformanceNavigationTiming: J.JavaScriptObject, PerformanceObserver: J.JavaScriptObject, PerformanceObserverEntryList: J.JavaScriptObject, PerformancePaintTiming: J.JavaScriptObject, PerformanceResourceTiming: J.JavaScriptObject, PerformanceServerTiming: J.JavaScriptObject, PerformanceTiming: J.JavaScriptObject, Permissions: J.JavaScriptObject, PhotoCapabilities: J.JavaScriptObject, PositionError: J.JavaScriptObject, GeolocationPositionError: J.JavaScriptObject, Presentation: J.JavaScriptObject, PresentationReceiver: J.JavaScriptObject, PublicKeyCredential: J.JavaScriptObject, PushManager: J.JavaScriptObject, PushMessageData: J.JavaScriptObject, PushSubscription: J.JavaScriptObject, PushSubscriptionOptions: J.JavaScriptObject, Range: J.JavaScriptObject, RelatedApplication: J.JavaScriptObject, ReportBody: J.JavaScriptObject, ReportingObserver: J.JavaScriptObject, ResizeObserver: J.JavaScriptObject, ResizeObserverEntry: J.JavaScriptObject, RTCCertificate: J.JavaScriptObject, RTCIceCandidate: J.JavaScriptObject, mozRTCIceCandidate: J.JavaScriptObject, RTCLegacyStatsReport: J.JavaScriptObject, RTCRtpContributingSource: J.JavaScriptObject, RTCRtpReceiver: J.JavaScriptObject, RTCRtpSender: J.JavaScriptObject, RTCSessionDescription: J.JavaScriptObject, mozRTCSessionDescription: J.JavaScriptObject, RTCStatsResponse: J.JavaScriptObject, Screen: J.JavaScriptObject, ScrollState: J.JavaScriptObject, ScrollTimeline: J.JavaScriptObject, Selection: J.JavaScriptObject, SharedArrayBuffer: J.JavaScriptObject, SpeechRecognitionAlternative: J.JavaScriptObject, SpeechSynthesisVoice: J.JavaScriptObject, StaticRange: J.JavaScriptObject, StorageManager: J.JavaScriptObject, StyleMedia: J.JavaScriptObject, StylePropertyMap: J.JavaScriptObject, StylePropertyMapReadonly: J.JavaScriptObject, SyncManager: J.JavaScriptObject, TaskAttributionTiming: J.JavaScriptObject, TextDetector: J.JavaScriptObject, TextMetrics: J.JavaScriptObject, TrackDefault: J.JavaScriptObject, TreeWalker: J.JavaScriptObject, TrustedHTML: J.JavaScriptObject, TrustedScriptURL: J.JavaScriptObject, TrustedURL: J.JavaScriptObject, UnderlyingSourceBase: J.JavaScriptObject, URLSearchParams: J.JavaScriptObject, VRCoordinateSystem: J.JavaScriptObject, VRDisplayCapabilities: J.JavaScriptObject, VREyeParameters: J.JavaScriptObject, VRFrameData: J.JavaScriptObject, VRFrameOfReference: J.JavaScriptObject, VRPose: J.JavaScriptObject, VRStageBounds: J.JavaScriptObject, VRStageBoundsPoint: J.JavaScriptObject, VRStageParameters: J.JavaScriptObject, ValidityState: J.JavaScriptObject, VideoPlaybackQuality: J.JavaScriptObject, VideoTrack: J.JavaScriptObject, VTTRegion: J.JavaScriptObject, WindowClient: J.JavaScriptObject, WorkletAnimation: J.JavaScriptObject, WorkletGlobalScope: J.JavaScriptObject, XPathEvaluator: J.JavaScriptObject, XPathExpression: J.JavaScriptObject, XPathNSResolver: J.JavaScriptObject, XPathResult: J.JavaScriptObject, XMLSerializer: J.JavaScriptObject, XSLTProcessor: J.JavaScriptObject, Bluetooth: J.JavaScriptObject, BluetoothCharacteristicProperties: J.JavaScriptObject, BluetoothRemoteGATTServer: J.JavaScriptObject, BluetoothRemoteGATTService: J.JavaScriptObject, BluetoothUUID: J.JavaScriptObject, BudgetService: J.JavaScriptObject, Cache: J.JavaScriptObject, DOMFileSystemSync: J.JavaScriptObject, DirectoryEntrySync: J.JavaScriptObject, DirectoryReaderSync: J.JavaScriptObject, EntrySync: J.JavaScriptObject, FileEntrySync: J.JavaScriptObject, FileReaderSync: J.JavaScriptObject, FileWriterSync: J.JavaScriptObject, HTMLAllCollection: J.JavaScriptObject, Mojo: J.JavaScriptObject, MojoHandle: J.JavaScriptObject, MojoWatcher: J.JavaScriptObject, NFC: J.JavaScriptObject, PagePopupController: J.JavaScriptObject, Report: J.JavaScriptObject, Request: J.JavaScriptObject, Response: J.JavaScriptObject, SubtleCrypto: J.JavaScriptObject, USBAlternateInterface: J.JavaScriptObject, USBConfiguration: J.JavaScriptObject, USBDevice: J.JavaScriptObject, USBEndpoint: J.JavaScriptObject, USBInTransferResult: J.JavaScriptObject, USBInterface: J.JavaScriptObject, USBIsochronousInTransferPacket: J.JavaScriptObject, USBIsochronousInTransferResult: J.JavaScriptObject, USBIsochronousOutTransferPacket: J.JavaScriptObject, USBIsochronousOutTransferResult: J.JavaScriptObject, USBOutTransferResult: J.JavaScriptObject, WorkerLocation: J.JavaScriptObject, WorkerNavigator: J.JavaScriptObject, Worklet: J.JavaScriptObject, IDBCursor: J.JavaScriptObject, IDBCursorWithValue: J.JavaScriptObject, IDBFactory: J.JavaScriptObject, IDBIndex: J.JavaScriptObject, IDBKeyRange: J.JavaScriptObject, IDBObjectStore: J.JavaScriptObject, IDBObservation: J.JavaScriptObject, IDBObserver: J.JavaScriptObject, IDBObserverChanges: J.JavaScriptObject, SVGAngle: J.JavaScriptObject, SVGAnimatedAngle: J.JavaScriptObject, SVGAnimatedBoolean: J.JavaScriptObject, SVGAnimatedEnumeration: J.JavaScriptObject, SVGAnimatedInteger: J.JavaScriptObject, SVGAnimatedLength: J.JavaScriptObject, SVGAnimatedLengthList: J.JavaScriptObject, SVGAnimatedNumber: J.JavaScriptObject, SVGAnimatedNumberList: J.JavaScriptObject, SVGAnimatedPreserveAspectRatio: J.JavaScriptObject, SVGAnimatedRect: J.JavaScriptObject, SVGAnimatedString: J.JavaScriptObject, SVGAnimatedTransformList: J.JavaScriptObject, SVGMatrix: J.JavaScriptObject, SVGPoint: J.JavaScriptObject, SVGPreserveAspectRatio: J.JavaScriptObject, SVGRect: J.JavaScriptObject, SVGUnitTypes: J.JavaScriptObject, AudioListener: J.JavaScriptObject, AudioParam: J.JavaScriptObject, AudioTrack: J.JavaScriptObject, AudioWorkletGlobalScope: J.JavaScriptObject, AudioWorkletProcessor: J.JavaScriptObject, PeriodicWave: J.JavaScriptObject, WebGLActiveInfo: J.JavaScriptObject, ANGLEInstancedArrays: J.JavaScriptObject, ANGLE_instanced_arrays: J.JavaScriptObject, WebGLBuffer: J.JavaScriptObject, WebGLCanvas: J.JavaScriptObject, WebGLColorBufferFloat: J.JavaScriptObject, WebGLCompressedTextureASTC: J.JavaScriptObject, WebGLCompressedTextureATC: J.JavaScriptObject, WEBGL_compressed_texture_atc: J.JavaScriptObject, WebGLCompressedTextureETC1: J.JavaScriptObject, WEBGL_compressed_texture_etc1: J.JavaScriptObject, WebGLCompressedTextureETC: J.JavaScriptObject, WebGLCompressedTexturePVRTC: J.JavaScriptObject, WEBGL_compressed_texture_pvrtc: J.JavaScriptObject, WebGLCompressedTextureS3TC: J.JavaScriptObject, WEBGL_compressed_texture_s3tc: J.JavaScriptObject, WebGLCompressedTextureS3TCsRGB: J.JavaScriptObject, WebGLDebugRendererInfo: J.JavaScriptObject, WEBGL_debug_renderer_info: J.JavaScriptObject, WebGLDebugShaders: J.JavaScriptObject, WEBGL_debug_shaders: J.JavaScriptObject, WebGLDepthTexture: J.JavaScriptObject, WEBGL_depth_texture: J.JavaScriptObject, WebGLDrawBuffers: J.JavaScriptObject, WEBGL_draw_buffers: J.JavaScriptObject, EXTsRGB: J.JavaScriptObject, EXT_sRGB: J.JavaScriptObject, EXTBlendMinMax: J.JavaScriptObject, EXT_blend_minmax: J.JavaScriptObject, EXTColorBufferFloat: J.JavaScriptObject, EXTColorBufferHalfFloat: J.JavaScriptObject, EXTDisjointTimerQuery: J.JavaScriptObject, EXTDisjointTimerQueryWebGL2: J.JavaScriptObject, EXTFragDepth: J.JavaScriptObject, EXT_frag_depth: J.JavaScriptObject, EXTShaderTextureLOD: J.JavaScriptObject, EXT_shader_texture_lod: J.JavaScriptObject, EXTTextureFilterAnisotropic: J.JavaScriptObject, EXT_texture_filter_anisotropic: J.JavaScriptObject, WebGLFramebuffer: J.JavaScriptObject, WebGLGetBufferSubDataAsync: J.JavaScriptObject, WebGLLoseContext: J.JavaScriptObject, WebGLExtensionLoseContext: J.JavaScriptObject, WEBGL_lose_context: J.JavaScriptObject, OESElementIndexUint: J.JavaScriptObject, OES_element_index_uint: J.JavaScriptObject, OESStandardDerivatives: J.JavaScriptObject, OES_standard_derivatives: J.JavaScriptObject, OESTextureFloat: J.JavaScriptObject, OES_texture_float: J.JavaScriptObject, OESTextureFloatLinear: J.JavaScriptObject, OES_texture_float_linear: J.JavaScriptObject, OESTextureHalfFloat: J.JavaScriptObject, OES_texture_half_float: J.JavaScriptObject, OESTextureHalfFloatLinear: J.JavaScriptObject, OES_texture_half_float_linear: J.JavaScriptObject, OESVertexArrayObject: J.JavaScriptObject, OES_vertex_array_object: J.JavaScriptObject, WebGLProgram: J.JavaScriptObject, WebGLQuery: J.JavaScriptObject, WebGLRenderbuffer: J.JavaScriptObject, WebGLRenderingContext: J.JavaScriptObject, WebGL2RenderingContext: J.JavaScriptObject, WebGLSampler: J.JavaScriptObject, WebGLShader: J.JavaScriptObject, WebGLShaderPrecisionFormat: J.JavaScriptObject, WebGLSync: J.JavaScriptObject, WebGLTexture: J.JavaScriptObject, WebGLTimerQueryEXT: J.JavaScriptObject, WebGLTransformFeedback: J.JavaScriptObject, WebGLUniformLocation: J.JavaScriptObject, WebGLVertexArrayObject: J.JavaScriptObject, WebGLVertexArrayObjectOES: J.JavaScriptObject, WebGL2RenderingContextBase: J.JavaScriptObject, ArrayBuffer: A.NativeByteBuffer, ArrayBufferView: A.NativeTypedData, DataView: A.NativeByteData, Float32Array: A.NativeFloat32List, Float64Array: A.NativeFloat64List, Int16Array: A.NativeInt16List, Int32Array: A.NativeInt32List, Int8Array: A.NativeInt8List, Uint16Array: A.NativeUint16List, Uint32Array: A.NativeUint32List, Uint8ClampedArray: A.NativeUint8ClampedList, CanvasPixelArray: A.NativeUint8ClampedList, Uint8Array: A.NativeUint8List, HTMLAudioElement: A.HtmlElement, HTMLBRElement: A.HtmlElement, HTMLBaseElement: A.HtmlElement, HTMLBodyElement: A.HtmlElement, HTMLCanvasElement: A.HtmlElement, HTMLContentElement: A.HtmlElement, HTMLDListElement: A.HtmlElement, HTMLDataElement: A.HtmlElement, HTMLDataListElement: A.HtmlElement, HTMLDetailsElement: A.HtmlElement, HTMLDialogElement: A.HtmlElement, HTMLDivElement: A.HtmlElement, HTMLEmbedElement: A.HtmlElement, HTMLFieldSetElement: A.HtmlElement, HTMLHRElement: A.HtmlElement, HTMLHeadElement: A.HtmlElement, HTMLHeadingElement: A.HtmlElement, HTMLHtmlElement: A.HtmlElement, HTMLIFrameElement: A.HtmlElement, HTMLImageElement: A.HtmlElement, HTMLInputElement: A.HtmlElement, HTMLLIElement: A.HtmlElement, HTMLLabelElement: A.HtmlElement, HTMLLegendElement: A.HtmlElement, HTMLLinkElement: A.HtmlElement, HTMLMapElement: A.HtmlElement, HTMLMediaElement: A.HtmlElement, HTMLMenuElement: A.HtmlElement, HTMLMetaElement: A.HtmlElement, HTMLMeterElement: A.HtmlElement, HTMLModElement: A.HtmlElement, HTMLOListElement: A.HtmlElement, HTMLObjectElement: A.HtmlElement, HTMLOptGroupElement: A.HtmlElement, HTMLOptionElement: A.HtmlElement, HTMLOutputElement: A.HtmlElement, HTMLParagraphElement: A.HtmlElement, HTMLParamElement: A.HtmlElement, HTMLPictureElement: A.HtmlElement, HTMLPreElement: A.HtmlElement, HTMLProgressElement: A.HtmlElement, HTMLQuoteElement: A.HtmlElement, HTMLScriptElement: A.HtmlElement, HTMLShadowElement: A.HtmlElement, HTMLSlotElement: A.HtmlElement, HTMLSourceElement: A.HtmlElement, HTMLSpanElement: A.HtmlElement, HTMLStyleElement: A.HtmlElement, HTMLTableCaptionElement: A.HtmlElement, HTMLTableCellElement: A.HtmlElement, HTMLTableDataCellElement: A.HtmlElement, HTMLTableHeaderCellElement: A.HtmlElement, HTMLTableColElement: A.HtmlElement, HTMLTableElement: A.HtmlElement, HTMLTableRowElement: A.HtmlElement, HTMLTableSectionElement: A.HtmlElement, HTMLTemplateElement: A.HtmlElement, HTMLTextAreaElement: A.HtmlElement, HTMLTimeElement: A.HtmlElement, HTMLTitleElement: A.HtmlElement, HTMLTrackElement: A.HtmlElement, HTMLUListElement: A.HtmlElement, HTMLUnknownElement: A.HtmlElement, HTMLVideoElement: A.HtmlElement, HTMLDirectoryElement: A.HtmlElement, HTMLFontElement: A.HtmlElement, HTMLFrameElement: A.HtmlElement, HTMLFrameSetElement: A.HtmlElement, HTMLMarqueeElement: A.HtmlElement, HTMLElement: A.HtmlElement, AccessibleNodeList: A.AccessibleNodeList, HTMLAnchorElement: A.AnchorElement, HTMLAreaElement: A.AreaElement, Blob: A.Blob, HTMLButtonElement: A.ButtonElement, CDATASection: A.CharacterData, CharacterData: A.CharacterData, Comment: A.CharacterData, ProcessingInstruction: A.CharacterData, Text: A.CharacterData, CSSPerspective: A.CssPerspective, CSSCharsetRule: A.CssRule, CSSConditionRule: A.CssRule, CSSFontFaceRule: A.CssRule, CSSGroupingRule: A.CssRule, CSSImportRule: A.CssRule, CSSKeyframeRule: A.CssRule, MozCSSKeyframeRule: A.CssRule, WebKitCSSKeyframeRule: A.CssRule, CSSKeyframesRule: A.CssRule, MozCSSKeyframesRule: A.CssRule, WebKitCSSKeyframesRule: A.CssRule, CSSMediaRule: A.CssRule, CSSNamespaceRule: A.CssRule, CSSPageRule: A.CssRule, CSSRule: A.CssRule, CSSStyleRule: A.CssRule, CSSSupportsRule: A.CssRule, CSSViewportRule: A.CssRule, CSSStyleDeclaration: A.CssStyleDeclaration, MSStyleCSSProperties: A.CssStyleDeclaration, CSS2Properties: A.CssStyleDeclaration, CSSImageValue: A.CssStyleValue, CSSKeywordValue: A.CssStyleValue, CSSNumericValue: A.CssStyleValue, CSSPositionValue: A.CssStyleValue, CSSResourceValue: A.CssStyleValue, CSSUnitValue: A.CssStyleValue, CSSURLImageValue: A.CssStyleValue, CSSStyleValue: A.CssStyleValue, CSSMatrixComponent: A.CssTransformComponent, CSSRotation: A.CssTransformComponent, CSSScale: A.CssTransformComponent, CSSSkew: A.CssTransformComponent, CSSTranslation: A.CssTransformComponent, CSSTransformComponent: A.CssTransformComponent, CSSTransformValue: A.CssTransformValue, CSSUnparsedValue: A.CssUnparsedValue, DataTransferItemList: A.DataTransferItemList, DOMException: A.DomException, ClientRectList: A.DomRectList, DOMRectList: A.DomRectList, DOMRectReadOnly: A.DomRectReadOnly, DOMStringList: A.DomStringList, DOMTokenList: A.DomTokenList, MathMLElement: A.Element, SVGAElement: A.Element, SVGAnimateElement: A.Element, SVGAnimateMotionElement: A.Element, SVGAnimateTransformElement: A.Element, SVGAnimationElement: A.Element, SVGCircleElement: A.Element, SVGClipPathElement: A.Element, SVGDefsElement: A.Element, SVGDescElement: A.Element, SVGDiscardElement: A.Element, SVGEllipseElement: A.Element, SVGFEBlendElement: A.Element, SVGFEColorMatrixElement: A.Element, SVGFEComponentTransferElement: A.Element, SVGFECompositeElement: A.Element, SVGFEConvolveMatrixElement: A.Element, SVGFEDiffuseLightingElement: A.Element, SVGFEDisplacementMapElement: A.Element, SVGFEDistantLightElement: A.Element, SVGFEFloodElement: A.Element, SVGFEFuncAElement: A.Element, SVGFEFuncBElement: A.Element, SVGFEFuncGElement: A.Element, SVGFEFuncRElement: A.Element, SVGFEGaussianBlurElement: A.Element, SVGFEImageElement: A.Element, SVGFEMergeElement: A.Element, SVGFEMergeNodeElement: A.Element, SVGFEMorphologyElement: A.Element, SVGFEOffsetElement: A.Element, SVGFEPointLightElement: A.Element, SVGFESpecularLightingElement: A.Element, SVGFESpotLightElement: A.Element, SVGFETileElement: A.Element, SVGFETurbulenceElement: A.Element, SVGFilterElement: A.Element, SVGForeignObjectElement: A.Element, SVGGElement: A.Element, SVGGeometryElement: A.Element, SVGGraphicsElement: A.Element, SVGImageElement: A.Element, SVGLineElement: A.Element, SVGLinearGradientElement: A.Element, SVGMarkerElement: A.Element, SVGMaskElement: A.Element, SVGMetadataElement: A.Element, SVGPathElement: A.Element, SVGPatternElement: A.Element, SVGPolygonElement: A.Element, SVGPolylineElement: A.Element, SVGRadialGradientElement: A.Element, SVGRectElement: A.Element, SVGScriptElement: A.Element, SVGSetElement: A.Element, SVGStopElement: A.Element, SVGStyleElement: A.Element, SVGElement: A.Element, SVGSVGElement: A.Element, SVGSwitchElement: A.Element, SVGSymbolElement: A.Element, SVGTSpanElement: A.Element, SVGTextContentElement: A.Element, SVGTextElement: A.Element, SVGTextPathElement: A.Element, SVGTextPositioningElement: A.Element, SVGTitleElement: A.Element, SVGUseElement: A.Element, SVGViewElement: A.Element, SVGGradientElement: A.Element, SVGComponentTransferFunctionElement: A.Element, SVGFEDropShadowElement: A.Element, SVGMPathElement: A.Element, Element: A.Element, AbortPaymentEvent: A.Event, AnimationEvent: A.Event, AnimationPlaybackEvent: A.Event, ApplicationCacheErrorEvent: A.Event, BackgroundFetchClickEvent: A.Event, BackgroundFetchEvent: A.Event, BackgroundFetchFailEvent: A.Event, BackgroundFetchedEvent: A.Event, BeforeInstallPromptEvent: A.Event, BeforeUnloadEvent: A.Event, BlobEvent: A.Event, CanMakePaymentEvent: A.Event, ClipboardEvent: A.Event, CloseEvent: A.Event, CustomEvent: A.Event, DeviceMotionEvent: A.Event, DeviceOrientationEvent: A.Event, ErrorEvent: A.Event, ExtendableEvent: A.Event, ExtendableMessageEvent: A.Event, FetchEvent: A.Event, FontFaceSetLoadEvent: A.Event, ForeignFetchEvent: A.Event, GamepadEvent: A.Event, HashChangeEvent: A.Event, InstallEvent: A.Event, MediaEncryptedEvent: A.Event, MediaKeyMessageEvent: A.Event, MediaQueryListEvent: A.Event, MediaStreamEvent: A.Event, MediaStreamTrackEvent: A.Event, MessageEvent: A.Event, MIDIConnectionEvent: A.Event, MIDIMessageEvent: A.Event, MutationEvent: A.Event, NotificationEvent: A.Event, PageTransitionEvent: A.Event, PaymentRequestEvent: A.Event, PaymentRequestUpdateEvent: A.Event, PopStateEvent: A.Event, PresentationConnectionAvailableEvent: A.Event, PresentationConnectionCloseEvent: A.Event, ProgressEvent: A.Event, PromiseRejectionEvent: A.Event, PushEvent: A.Event, RTCDataChannelEvent: A.Event, RTCDTMFToneChangeEvent: A.Event, RTCPeerConnectionIceEvent: A.Event, RTCTrackEvent: A.Event, SecurityPolicyViolationEvent: A.Event, SensorErrorEvent: A.Event, SpeechRecognitionError: A.Event, SpeechRecognitionEvent: A.Event, SpeechSynthesisEvent: A.Event, StorageEvent: A.Event, SyncEvent: A.Event, TrackEvent: A.Event, TransitionEvent: A.Event, WebKitTransitionEvent: A.Event, VRDeviceEvent: A.Event, VRDisplayEvent: A.Event, VRSessionEvent: A.Event, MojoInterfaceRequestEvent: A.Event, ResourceProgressEvent: A.Event, USBConnectionEvent: A.Event, IDBVersionChangeEvent: A.Event, AudioProcessingEvent: A.Event, OfflineAudioCompletionEvent: A.Event, WebGLContextEvent: A.Event, Event: A.Event, InputEvent: A.Event, SubmitEvent: A.Event, AbsoluteOrientationSensor: A.EventTarget, Accelerometer: A.EventTarget, AccessibleNode: A.EventTarget, AmbientLightSensor: A.EventTarget, Animation: A.EventTarget, ApplicationCache: A.EventTarget, DOMApplicationCache: A.EventTarget, OfflineResourceList: A.EventTarget, BackgroundFetchRegistration: A.EventTarget, BatteryManager: A.EventTarget, BroadcastChannel: A.EventTarget, CanvasCaptureMediaStreamTrack: A.EventTarget, DedicatedWorkerGlobalScope: A.EventTarget, EventSource: A.EventTarget, FileReader: A.EventTarget, Gyroscope: A.EventTarget, XMLHttpRequest: A.EventTarget, XMLHttpRequestEventTarget: A.EventTarget, XMLHttpRequestUpload: A.EventTarget, LinearAccelerationSensor: A.EventTarget, Magnetometer: A.EventTarget, MediaDevices: A.EventTarget, MediaKeySession: A.EventTarget, MediaQueryList: A.EventTarget, MediaRecorder: A.EventTarget, MediaSource: A.EventTarget, MediaStream: A.EventTarget, MediaStreamTrack: A.EventTarget, MessagePort: A.EventTarget, MIDIAccess: A.EventTarget, MIDIInput: A.EventTarget, MIDIOutput: A.EventTarget, MIDIPort: A.EventTarget, NetworkInformation: A.EventTarget, Notification: A.EventTarget, OffscreenCanvas: A.EventTarget, OrientationSensor: A.EventTarget, PaymentRequest: A.EventTarget, Performance: A.EventTarget, PermissionStatus: A.EventTarget, PresentationAvailability: A.EventTarget, PresentationConnection: A.EventTarget, PresentationConnectionList: A.EventTarget, PresentationRequest: A.EventTarget, RelativeOrientationSensor: A.EventTarget, RemotePlayback: A.EventTarget, RTCDataChannel: A.EventTarget, DataChannel: A.EventTarget, RTCDTMFSender: A.EventTarget, RTCPeerConnection: A.EventTarget, webkitRTCPeerConnection: A.EventTarget, mozRTCPeerConnection: A.EventTarget, ScreenOrientation: A.EventTarget, Sensor: A.EventTarget, ServiceWorker: A.EventTarget, ServiceWorkerContainer: A.EventTarget, ServiceWorkerGlobalScope: A.EventTarget, ServiceWorkerRegistration: A.EventTarget, SharedWorker: A.EventTarget, SharedWorkerGlobalScope: A.EventTarget, SpeechRecognition: A.EventTarget, webkitSpeechRecognition: A.EventTarget, SpeechSynthesis: A.EventTarget, SpeechSynthesisUtterance: A.EventTarget, VR: A.EventTarget, VRDevice: A.EventTarget, VRDisplay: A.EventTarget, VRSession: A.EventTarget, VisualViewport: A.EventTarget, WebSocket: A.EventTarget, Window: A.EventTarget, DOMWindow: A.EventTarget, Worker: A.EventTarget, WorkerGlobalScope: A.EventTarget, WorkerPerformance: A.EventTarget, BluetoothDevice: A.EventTarget, BluetoothRemoteGATTCharacteristic: A.EventTarget, Clipboard: A.EventTarget, MojoInterfaceInterceptor: A.EventTarget, USB: A.EventTarget, IDBDatabase: A.EventTarget, IDBOpenDBRequest: A.EventTarget, IDBVersionChangeRequest: A.EventTarget, IDBRequest: A.EventTarget, IDBTransaction: A.EventTarget, AnalyserNode: A.EventTarget, RealtimeAnalyserNode: A.EventTarget, AudioBufferSourceNode: A.EventTarget, AudioDestinationNode: A.EventTarget, AudioNode: A.EventTarget, AudioScheduledSourceNode: A.EventTarget, AudioWorkletNode: A.EventTarget, BiquadFilterNode: A.EventTarget, ChannelMergerNode: A.EventTarget, AudioChannelMerger: A.EventTarget, ChannelSplitterNode: A.EventTarget, AudioChannelSplitter: A.EventTarget, ConstantSourceNode: A.EventTarget, ConvolverNode: A.EventTarget, DelayNode: A.EventTarget, DynamicsCompressorNode: A.EventTarget, GainNode: A.EventTarget, AudioGainNode: A.EventTarget, IIRFilterNode: A.EventTarget, MediaElementAudioSourceNode: A.EventTarget, MediaStreamAudioDestinationNode: A.EventTarget, MediaStreamAudioSourceNode: A.EventTarget, OscillatorNode: A.EventTarget, Oscillator: A.EventTarget, PannerNode: A.EventTarget, AudioPannerNode: A.EventTarget, webkitAudioPannerNode: A.EventTarget, ScriptProcessorNode: A.EventTarget, JavaScriptAudioNode: A.EventTarget, StereoPannerNode: A.EventTarget, WaveShaperNode: A.EventTarget, EventTarget: A.EventTarget, File: A.File, FileList: A.FileList, FileWriter: A.FileWriter, FontFace: A.FontFace, FontFaceSet: A.FontFaceSet, HTMLFormElement: A.FormElement, Gamepad: A.Gamepad, History: A.History, HTMLCollection: A.HtmlCollection, HTMLFormControlsCollection: A.HtmlCollection, HTMLOptionsCollection: A.HtmlCollection, Location: A.Location, MediaList: A.MediaList, MIDIInputMap: A.MidiInputMap, MIDIOutputMap: A.MidiOutputMap, MimeType: A.MimeType, MimeTypeArray: A.MimeTypeArray, MouseEvent: A.MouseEvent, DragEvent: A.MouseEvent, PointerEvent: A.MouseEvent, WheelEvent: A.MouseEvent, Document: A.Node, DocumentFragment: A.Node, HTMLDocument: A.Node, ShadowRoot: A.Node, XMLDocument: A.Node, Attr: A.Node, DocumentType: A.Node, Node: A.Node, NodeList: A.NodeList, RadioNodeList: A.NodeList, Plugin: A.Plugin, PluginArray: A.PluginArray, RTCStatsReport: A.RtcStatsReport, HTMLSelectElement: A.SelectElement, SourceBuffer: A.SourceBuffer, SourceBufferList: A.SourceBufferList, SpeechGrammar: A.SpeechGrammar, SpeechGrammarList: A.SpeechGrammarList, SpeechRecognitionResult: A.SpeechRecognitionResult, Storage: A.Storage, CSSStyleSheet: A.StyleSheet, StyleSheet: A.StyleSheet, TextTrack: A.TextTrack, TextTrackCue: A.TextTrackCue, VTTCue: A.TextTrackCue, TextTrackCueList: A.TextTrackCueList, TextTrackList: A.TextTrackList, TimeRanges: A.TimeRanges, Touch: A.Touch, TouchList: A.TouchList, TrackDefaultList: A.TrackDefaultList, CompositionEvent: A.UIEvent, FocusEvent: A.UIEvent, KeyboardEvent: A.UIEvent, TextEvent: A.UIEvent, TouchEvent: A.UIEvent, UIEvent: A.UIEvent, URL: A.Url, VideoTrackList: A.VideoTrackList, CSSRuleList: A._CssRuleList, ClientRect: A._DomRect, DOMRect: A._DomRect, GamepadList: A._GamepadList, NamedNodeMap: A._NamedNodeMap, MozNamedAttrMap: A._NamedNodeMap, SpeechRecognitionResultList: A._SpeechRecognitionResultList, StyleSheetList: A._StyleSheetList, SVGLength: A.Length, SVGLengthList: A.LengthList, SVGNumber: A.Number, SVGNumberList: A.NumberList, SVGPointList: A.PointList, SVGStringList: A.StringList, SVGTransform: A.Transform, SVGTransformList: A.TransformList, AudioBuffer: A.AudioBuffer, AudioParamMap: A.AudioParamMap, AudioTrackList: A.AudioTrackList, AudioContext: A.BaseAudioContext, webkitAudioContext: A.BaseAudioContext, BaseAudioContext: A.BaseAudioContext, OfflineAudioContext: A.OfflineAudioContext});
-    hunkHelpers.setOrUpdateLeafTags({WebGL: true, AnimationEffectReadOnly: true, AnimationEffectTiming: true, AnimationEffectTimingReadOnly: true, AnimationTimeline: true, AnimationWorkletGlobalScope: true, AuthenticatorAssertionResponse: true, AuthenticatorAttestationResponse: true, AuthenticatorResponse: true, BackgroundFetchFetch: true, BackgroundFetchManager: true, BackgroundFetchSettledFetch: true, BarProp: true, BarcodeDetector: true, BluetoothRemoteGATTDescriptor: true, Body: true, BudgetState: true, CacheStorage: true, CanvasGradient: true, CanvasPattern: true, CanvasRenderingContext2D: true, Client: true, Clients: true, CookieStore: true, Coordinates: true, Credential: true, CredentialUserData: true, CredentialsContainer: true, Crypto: true, CryptoKey: true, CSS: true, CSSVariableReferenceValue: true, CustomElementRegistry: true, DataTransfer: true, DataTransferItem: true, DeprecatedStorageInfo: true, DeprecatedStorageQuota: true, DeprecationReport: true, DetectedBarcode: true, DetectedFace: true, DetectedText: true, DeviceAcceleration: true, DeviceRotationRate: true, DirectoryEntry: true, webkitFileSystemDirectoryEntry: true, FileSystemDirectoryEntry: true, DirectoryReader: true, WebKitDirectoryReader: true, webkitFileSystemDirectoryReader: true, FileSystemDirectoryReader: true, DocumentOrShadowRoot: true, DocumentTimeline: true, DOMError: true, DOMImplementation: true, Iterator: true, DOMMatrix: true, DOMMatrixReadOnly: true, DOMParser: true, DOMPoint: true, DOMPointReadOnly: true, DOMQuad: true, DOMStringMap: true, Entry: true, webkitFileSystemEntry: true, FileSystemEntry: true, External: true, FaceDetector: true, FederatedCredential: true, FileEntry: true, webkitFileSystemFileEntry: true, FileSystemFileEntry: true, DOMFileSystem: true, WebKitFileSystem: true, webkitFileSystem: true, FileSystem: true, FontFaceSource: true, FormData: true, GamepadButton: true, GamepadPose: true, Geolocation: true, Position: true, GeolocationPosition: true, Headers: true, HTMLHyperlinkElementUtils: true, IdleDeadline: true, ImageBitmap: true, ImageBitmapRenderingContext: true, ImageCapture: true, ImageData: true, InputDeviceCapabilities: true, IntersectionObserver: true, IntersectionObserverEntry: true, InterventionReport: true, KeyframeEffect: true, KeyframeEffectReadOnly: true, MediaCapabilities: true, MediaCapabilitiesInfo: true, MediaDeviceInfo: true, MediaError: true, MediaKeyStatusMap: true, MediaKeySystemAccess: true, MediaKeys: true, MediaKeysPolicy: true, MediaMetadata: true, MediaSession: true, MediaSettingsRange: true, MemoryInfo: true, MessageChannel: true, Metadata: true, MutationObserver: true, WebKitMutationObserver: true, MutationRecord: true, NavigationPreloadManager: true, Navigator: true, NavigatorAutomationInformation: true, NavigatorConcurrentHardware: true, NavigatorCookies: true, NavigatorUserMediaError: true, NodeFilter: true, NodeIterator: true, NonDocumentTypeChildNode: true, NonElementParentNode: true, NoncedElement: true, OffscreenCanvasRenderingContext2D: true, OverconstrainedError: true, PaintRenderingContext2D: true, PaintSize: true, PaintWorkletGlobalScope: true, PasswordCredential: true, Path2D: true, PaymentAddress: true, PaymentInstruments: true, PaymentManager: true, PaymentResponse: true, PerformanceEntry: true, PerformanceLongTaskTiming: true, PerformanceMark: true, PerformanceMeasure: true, PerformanceNavigation: true, PerformanceNavigationTiming: true, PerformanceObserver: true, PerformanceObserverEntryList: true, PerformancePaintTiming: true, PerformanceResourceTiming: true, PerformanceServerTiming: true, PerformanceTiming: true, Permissions: true, PhotoCapabilities: true, PositionError: true, GeolocationPositionError: true, Presentation: true, PresentationReceiver: true, PublicKeyCredential: true, PushManager: true, PushMessageData: true, PushSubscription: true, PushSubscriptionOptions: true, Range: true, RelatedApplication: true, ReportBody: true, ReportingObserver: true, ResizeObserver: true, ResizeObserverEntry: true, RTCCertificate: true, RTCIceCandidate: true, mozRTCIceCandidate: true, RTCLegacyStatsReport: true, RTCRtpContributingSource: true, RTCRtpReceiver: true, RTCRtpSender: true, RTCSessionDescription: true, mozRTCSessionDescription: true, RTCStatsResponse: true, Screen: true, ScrollState: true, ScrollTimeline: true, Selection: true, SharedArrayBuffer: true, SpeechRecognitionAlternative: true, SpeechSynthesisVoice: true, StaticRange: true, StorageManager: true, StyleMedia: true, StylePropertyMap: true, StylePropertyMapReadonly: true, SyncManager: true, TaskAttributionTiming: true, TextDetector: true, TextMetrics: true, TrackDefault: true, TreeWalker: true, TrustedHTML: true, TrustedScriptURL: true, TrustedURL: true, UnderlyingSourceBase: true, URLSearchParams: true, VRCoordinateSystem: true, VRDisplayCapabilities: true, VREyeParameters: true, VRFrameData: true, VRFrameOfReference: true, VRPose: true, VRStageBounds: true, VRStageBoundsPoint: true, VRStageParameters: true, ValidityState: true, VideoPlaybackQuality: true, VideoTrack: true, VTTRegion: true, WindowClient: true, WorkletAnimation: true, WorkletGlobalScope: true, XPathEvaluator: true, XPathExpression: true, XPathNSResolver: true, XPathResult: true, XMLSerializer: true, XSLTProcessor: true, Bluetooth: true, BluetoothCharacteristicProperties: true, BluetoothRemoteGATTServer: true, BluetoothRemoteGATTService: true, BluetoothUUID: true, BudgetService: true, Cache: true, DOMFileSystemSync: true, DirectoryEntrySync: true, DirectoryReaderSync: true, EntrySync: true, FileEntrySync: true, FileReaderSync: true, FileWriterSync: true, HTMLAllCollection: true, Mojo: true, MojoHandle: true, MojoWatcher: true, NFC: true, PagePopupController: true, Report: true, Request: true, Response: true, SubtleCrypto: true, USBAlternateInterface: true, USBConfiguration: true, USBDevice: true, USBEndpoint: true, USBInTransferResult: true, USBInterface: true, USBIsochronousInTransferPacket: true, USBIsochronousInTransferResult: true, USBIsochronousOutTransferPacket: true, USBIsochronousOutTransferResult: true, USBOutTransferResult: true, WorkerLocation: true, WorkerNavigator: true, Worklet: true, IDBCursor: true, IDBCursorWithValue: true, IDBFactory: true, IDBIndex: true, IDBKeyRange: true, IDBObjectStore: true, IDBObservation: true, IDBObserver: true, IDBObserverChanges: true, SVGAngle: true, SVGAnimatedAngle: true, SVGAnimatedBoolean: true, SVGAnimatedEnumeration: true, SVGAnimatedInteger: true, SVGAnimatedLength: true, SVGAnimatedLengthList: true, SVGAnimatedNumber: true, SVGAnimatedNumberList: true, SVGAnimatedPreserveAspectRatio: true, SVGAnimatedRect: true, SVGAnimatedString: true, SVGAnimatedTransformList: true, SVGMatrix: true, SVGPoint: true, SVGPreserveAspectRatio: true, SVGRect: true, SVGUnitTypes: true, AudioListener: true, AudioParam: true, AudioTrack: true, AudioWorkletGlobalScope: true, AudioWorkletProcessor: true, PeriodicWave: true, WebGLActiveInfo: true, ANGLEInstancedArrays: true, ANGLE_instanced_arrays: true, WebGLBuffer: true, WebGLCanvas: true, WebGLColorBufferFloat: true, WebGLCompressedTextureASTC: true, WebGLCompressedTextureATC: true, WEBGL_compressed_texture_atc: true, WebGLCompressedTextureETC1: true, WEBGL_compressed_texture_etc1: true, WebGLCompressedTextureETC: true, WebGLCompressedTexturePVRTC: true, WEBGL_compressed_texture_pvrtc: true, WebGLCompressedTextureS3TC: true, WEBGL_compressed_texture_s3tc: true, WebGLCompressedTextureS3TCsRGB: true, WebGLDebugRendererInfo: true, WEBGL_debug_renderer_info: true, WebGLDebugShaders: true, WEBGL_debug_shaders: true, WebGLDepthTexture: true, WEBGL_depth_texture: true, WebGLDrawBuffers: true, WEBGL_draw_buffers: true, EXTsRGB: true, EXT_sRGB: true, EXTBlendMinMax: true, EXT_blend_minmax: true, EXTColorBufferFloat: true, EXTColorBufferHalfFloat: true, EXTDisjointTimerQuery: true, EXTDisjointTimerQueryWebGL2: true, EXTFragDepth: true, EXT_frag_depth: true, EXTShaderTextureLOD: true, EXT_shader_texture_lod: true, EXTTextureFilterAnisotropic: true, EXT_texture_filter_anisotropic: true, WebGLFramebuffer: true, WebGLGetBufferSubDataAsync: true, WebGLLoseContext: true, WebGLExtensionLoseContext: true, WEBGL_lose_context: true, OESElementIndexUint: true, OES_element_index_uint: true, OESStandardDerivatives: true, OES_standard_derivatives: true, OESTextureFloat: true, OES_texture_float: true, OESTextureFloatLinear: true, OES_texture_float_linear: true, OESTextureHalfFloat: true, OES_texture_half_float: true, OESTextureHalfFloatLinear: true, OES_texture_half_float_linear: true, OESVertexArrayObject: true, OES_vertex_array_object: true, WebGLProgram: true, WebGLQuery: true, WebGLRenderbuffer: true, WebGLRenderingContext: true, WebGL2RenderingContext: true, WebGLSampler: true, WebGLShader: true, WebGLShaderPrecisionFormat: true, WebGLSync: true, WebGLTexture: true, WebGLTimerQueryEXT: true, WebGLTransformFeedback: true, WebGLUniformLocation: true, WebGLVertexArrayObject: true, WebGLVertexArrayObjectOES: true, WebGL2RenderingContextBase: true, ArrayBuffer: true, ArrayBufferView: false, DataView: true, Float32Array: true, Float64Array: true, Int16Array: true, Int32Array: true, Int8Array: true, Uint16Array: true, Uint32Array: true, Uint8ClampedArray: true, CanvasPixelArray: true, Uint8Array: false, HTMLAudioElement: true, HTMLBRElement: true, HTMLBaseElement: true, HTMLBodyElement: true, HTMLCanvasElement: true, HTMLContentElement: true, HTMLDListElement: true, HTMLDataElement: true, HTMLDataListElement: true, HTMLDetailsElement: true, HTMLDialogElement: true, HTMLDivElement: true, HTMLEmbedElement: true, HTMLFieldSetElement: true, HTMLHRElement: true, HTMLHeadElement: true, HTMLHeadingElement: true, HTMLHtmlElement: true, HTMLIFrameElement: true, HTMLImageElement: true, HTMLInputElement: true, HTMLLIElement: true, HTMLLabelElement: true, HTMLLegendElement: true, HTMLLinkElement: true, HTMLMapElement: true, HTMLMediaElement: true, HTMLMenuElement: true, HTMLMetaElement: true, HTMLMeterElement: true, HTMLModElement: true, HTMLOListElement: true, HTMLObjectElement: true, HTMLOptGroupElement: true, HTMLOptionElement: true, HTMLOutputElement: true, HTMLParagraphElement: true, HTMLParamElement: true, HTMLPictureElement: true, HTMLPreElement: true, HTMLProgressElement: true, HTMLQuoteElement: true, HTMLScriptElement: true, HTMLShadowElement: true, HTMLSlotElement: true, HTMLSourceElement: true, HTMLSpanElement: true, HTMLStyleElement: true, HTMLTableCaptionElement: true, HTMLTableCellElement: true, HTMLTableDataCellElement: true, HTMLTableHeaderCellElement: true, HTMLTableColElement: true, HTMLTableElement: true, HTMLTableRowElement: true, HTMLTableSectionElement: true, HTMLTemplateElement: true, HTMLTextAreaElement: true, HTMLTimeElement: true, HTMLTitleElement: true, HTMLTrackElement: true, HTMLUListElement: true, HTMLUnknownElement: true, HTMLVideoElement: true, HTMLDirectoryElement: true, HTMLFontElement: true, HTMLFrameElement: true, HTMLFrameSetElement: true, HTMLMarqueeElement: true, HTMLElement: false, AccessibleNodeList: true, HTMLAnchorElement: true, HTMLAreaElement: true, Blob: false, HTMLButtonElement: true, CDATASection: true, CharacterData: true, Comment: true, ProcessingInstruction: true, Text: true, CSSPerspective: true, CSSCharsetRule: true, CSSConditionRule: true, CSSFontFaceRule: true, CSSGroupingRule: true, CSSImportRule: true, CSSKeyframeRule: true, MozCSSKeyframeRule: true, WebKitCSSKeyframeRule: true, CSSKeyframesRule: true, MozCSSKeyframesRule: true, WebKitCSSKeyframesRule: true, CSSMediaRule: true, CSSNamespaceRule: true, CSSPageRule: true, CSSRule: true, CSSStyleRule: true, CSSSupportsRule: true, CSSViewportRule: true, CSSStyleDeclaration: true, MSStyleCSSProperties: true, CSS2Properties: true, CSSImageValue: true, CSSKeywordValue: true, CSSNumericValue: true, CSSPositionValue: true, CSSResourceValue: true, CSSUnitValue: true, CSSURLImageValue: true, CSSStyleValue: false, CSSMatrixComponent: true, CSSRotation: true, CSSScale: true, CSSSkew: true, CSSTranslation: true, CSSTransformComponent: false, CSSTransformValue: true, CSSUnparsedValue: true, DataTransferItemList: true, DOMException: true, ClientRectList: true, DOMRectList: true, DOMRectReadOnly: false, DOMStringList: true, DOMTokenList: true, MathMLElement: true, SVGAElement: true, SVGAnimateElement: true, SVGAnimateMotionElement: true, SVGAnimateTransformElement: true, SVGAnimationElement: true, SVGCircleElement: true, SVGClipPathElement: true, SVGDefsElement: true, SVGDescElement: true, SVGDiscardElement: true, SVGEllipseElement: true, SVGFEBlendElement: true, SVGFEColorMatrixElement: true, SVGFEComponentTransferElement: true, SVGFECompositeElement: true, SVGFEConvolveMatrixElement: true, SVGFEDiffuseLightingElement: true, SVGFEDisplacementMapElement: true, SVGFEDistantLightElement: true, SVGFEFloodElement: true, SVGFEFuncAElement: true, SVGFEFuncBElement: true, SVGFEFuncGElement: true, SVGFEFuncRElement: true, SVGFEGaussianBlurElement: true, SVGFEImageElement: true, SVGFEMergeElement: true, SVGFEMergeNodeElement: true, SVGFEMorphologyElement: true, SVGFEOffsetElement: true, SVGFEPointLightElement: true, SVGFESpecularLightingElement: true, SVGFESpotLightElement: true, SVGFETileElement: true, SVGFETurbulenceElement: true, SVGFilterElement: true, SVGForeignObjectElement: true, SVGGElement: true, SVGGeometryElement: true, SVGGraphicsElement: true, SVGImageElement: true, SVGLineElement: true, SVGLinearGradientElement: true, SVGMarkerElement: true, SVGMaskElement: true, SVGMetadataElement: true, SVGPathElement: true, SVGPatternElement: true, SVGPolygonElement: true, SVGPolylineElement: true, SVGRadialGradientElement: true, SVGRectElement: true, SVGScriptElement: true, SVGSetElement: true, SVGStopElement: true, SVGStyleElement: true, SVGElement: true, SVGSVGElement: true, SVGSwitchElement: true, SVGSymbolElement: true, SVGTSpanElement: true, SVGTextContentElement: true, SVGTextElement: true, SVGTextPathElement: true, SVGTextPositioningElement: true, SVGTitleElement: true, SVGUseElement: true, SVGViewElement: true, SVGGradientElement: true, SVGComponentTransferFunctionElement: true, SVGFEDropShadowElement: true, SVGMPathElement: true, Element: false, AbortPaymentEvent: true, AnimationEvent: true, AnimationPlaybackEvent: true, ApplicationCacheErrorEvent: true, BackgroundFetchClickEvent: true, BackgroundFetchEvent: true, BackgroundFetchFailEvent: true, BackgroundFetchedEvent: true, BeforeInstallPromptEvent: true, BeforeUnloadEvent: true, BlobEvent: true, CanMakePaymentEvent: true, ClipboardEvent: true, CloseEvent: true, CustomEvent: true, DeviceMotionEvent: true, DeviceOrientationEvent: true, ErrorEvent: true, ExtendableEvent: true, ExtendableMessageEvent: true, FetchEvent: true, FontFaceSetLoadEvent: true, ForeignFetchEvent: true, GamepadEvent: true, HashChangeEvent: true, InstallEvent: true, MediaEncryptedEvent: true, MediaKeyMessageEvent: true, MediaQueryListEvent: true, MediaStreamEvent: true, MediaStreamTrackEvent: true, MessageEvent: true, MIDIConnectionEvent: true, MIDIMessageEvent: true, MutationEvent: true, NotificationEvent: true, PageTransitionEvent: true, PaymentRequestEvent: true, PaymentRequestUpdateEvent: true, PopStateEvent: true, PresentationConnectionAvailableEvent: true, PresentationConnectionCloseEvent: true, ProgressEvent: true, PromiseRejectionEvent: true, PushEvent: true, RTCDataChannelEvent: true, RTCDTMFToneChangeEvent: true, RTCPeerConnectionIceEvent: true, RTCTrackEvent: true, SecurityPolicyViolationEvent: true, SensorErrorEvent: true, SpeechRecognitionError: true, SpeechRecognitionEvent: true, SpeechSynthesisEvent: true, StorageEvent: true, SyncEvent: true, TrackEvent: true, TransitionEvent: true, WebKitTransitionEvent: true, VRDeviceEvent: true, VRDisplayEvent: true, VRSessionEvent: true, MojoInterfaceRequestEvent: true, ResourceProgressEvent: true, USBConnectionEvent: true, IDBVersionChangeEvent: true, AudioProcessingEvent: true, OfflineAudioCompletionEvent: true, WebGLContextEvent: true, Event: false, InputEvent: false, SubmitEvent: false, AbsoluteOrientationSensor: true, Accelerometer: true, AccessibleNode: true, AmbientLightSensor: true, Animation: true, ApplicationCache: true, DOMApplicationCache: true, OfflineResourceList: true, BackgroundFetchRegistration: true, BatteryManager: true, BroadcastChannel: true, CanvasCaptureMediaStreamTrack: true, DedicatedWorkerGlobalScope: true, EventSource: true, FileReader: true, Gyroscope: true, XMLHttpRequest: true, XMLHttpRequestEventTarget: true, XMLHttpRequestUpload: true, LinearAccelerationSensor: true, Magnetometer: true, MediaDevices: true, MediaKeySession: true, MediaQueryList: true, MediaRecorder: true, MediaSource: true, MediaStream: true, MediaStreamTrack: true, MessagePort: true, MIDIAccess: true, MIDIInput: true, MIDIOutput: true, MIDIPort: true, NetworkInformation: true, Notification: true, OffscreenCanvas: true, OrientationSensor: true, PaymentRequest: true, Performance: true, PermissionStatus: true, PresentationAvailability: true, PresentationConnection: true, PresentationConnectionList: true, PresentationRequest: true, RelativeOrientationSensor: true, RemotePlayback: true, RTCDataChannel: true, DataChannel: true, RTCDTMFSender: true, RTCPeerConnection: true, webkitRTCPeerConnection: true, mozRTCPeerConnection: true, ScreenOrientation: true, Sensor: true, ServiceWorker: true, ServiceWorkerContainer: true, ServiceWorkerGlobalScope: true, ServiceWorkerRegistration: true, SharedWorker: true, SharedWorkerGlobalScope: true, SpeechRecognition: true, webkitSpeechRecognition: true, SpeechSynthesis: true, SpeechSynthesisUtterance: true, VR: true, VRDevice: true, VRDisplay: true, VRSession: true, VisualViewport: true, WebSocket: true, Window: true, DOMWindow: true, Worker: true, WorkerGlobalScope: true, WorkerPerformance: true, BluetoothDevice: true, BluetoothRemoteGATTCharacteristic: true, Clipboard: true, MojoInterfaceInterceptor: true, USB: true, IDBDatabase: true, IDBOpenDBRequest: true, IDBVersionChangeRequest: true, IDBRequest: true, IDBTransaction: true, AnalyserNode: true, RealtimeAnalyserNode: true, AudioBufferSourceNode: true, AudioDestinationNode: true, AudioNode: true, AudioScheduledSourceNode: true, AudioWorkletNode: true, BiquadFilterNode: true, ChannelMergerNode: true, AudioChannelMerger: true, ChannelSplitterNode: true, AudioChannelSplitter: true, ConstantSourceNode: true, ConvolverNode: true, DelayNode: true, DynamicsCompressorNode: true, GainNode: true, AudioGainNode: true, IIRFilterNode: true, MediaElementAudioSourceNode: true, MediaStreamAudioDestinationNode: true, MediaStreamAudioSourceNode: true, OscillatorNode: true, Oscillator: true, PannerNode: true, AudioPannerNode: true, webkitAudioPannerNode: true, ScriptProcessorNode: true, JavaScriptAudioNode: true, StereoPannerNode: true, WaveShaperNode: true, EventTarget: false, File: true, FileList: true, FileWriter: true, FontFace: true, FontFaceSet: true, HTMLFormElement: true, Gamepad: true, History: true, HTMLCollection: true, HTMLFormControlsCollection: true, HTMLOptionsCollection: true, Location: true, MediaList: true, MIDIInputMap: true, MIDIOutputMap: true, MimeType: true, MimeTypeArray: true, MouseEvent: true, DragEvent: true, PointerEvent: true, WheelEvent: true, Document: true, DocumentFragment: true, HTMLDocument: true, ShadowRoot: true, XMLDocument: true, Attr: true, DocumentType: true, Node: false, NodeList: true, RadioNodeList: true, Plugin: true, PluginArray: true, RTCStatsReport: true, HTMLSelectElement: true, SourceBuffer: true, SourceBufferList: true, SpeechGrammar: true, SpeechGrammarList: true, SpeechRecognitionResult: true, Storage: true, CSSStyleSheet: true, StyleSheet: true, TextTrack: true, TextTrackCue: true, VTTCue: true, TextTrackCueList: true, TextTrackList: true, TimeRanges: true, Touch: true, TouchList: true, TrackDefaultList: true, CompositionEvent: true, FocusEvent: true, KeyboardEvent: true, TextEvent: true, TouchEvent: true, UIEvent: false, URL: true, VideoTrackList: true, CSSRuleList: true, ClientRect: true, DOMRect: true, GamepadList: true, NamedNodeMap: true, MozNamedAttrMap: true, SpeechRecognitionResultList: true, StyleSheetList: true, SVGLength: true, SVGLengthList: true, SVGNumber: true, SVGNumberList: true, SVGPointList: true, SVGStringList: true, SVGTransform: true, SVGTransformList: true, AudioBuffer: true, AudioParamMap: true, AudioTrackList: true, AudioContext: true, webkitAudioContext: true, BaseAudioContext: false, OfflineAudioContext: true});
+    hunkHelpers.setOrUpdateInterceptorsByTag({WebGL: J.Interceptor, AnimationEffectReadOnly: J.JavaScriptObject, AnimationEffectTiming: J.JavaScriptObject, AnimationEffectTimingReadOnly: J.JavaScriptObject, AnimationTimeline: J.JavaScriptObject, AnimationWorkletGlobalScope: J.JavaScriptObject, AuthenticatorAssertionResponse: J.JavaScriptObject, AuthenticatorAttestationResponse: J.JavaScriptObject, AuthenticatorResponse: J.JavaScriptObject, BackgroundFetchFetch: J.JavaScriptObject, BackgroundFetchManager: J.JavaScriptObject, BackgroundFetchSettledFetch: J.JavaScriptObject, BarProp: J.JavaScriptObject, BarcodeDetector: J.JavaScriptObject, BluetoothRemoteGATTDescriptor: J.JavaScriptObject, Body: J.JavaScriptObject, BudgetState: J.JavaScriptObject, CacheStorage: J.JavaScriptObject, CanvasGradient: J.JavaScriptObject, CanvasPattern: J.JavaScriptObject, CanvasRenderingContext2D: J.JavaScriptObject, Client: J.JavaScriptObject, Clients: J.JavaScriptObject, CookieStore: J.JavaScriptObject, Coordinates: J.JavaScriptObject, Credential: J.JavaScriptObject, CredentialUserData: J.JavaScriptObject, CredentialsContainer: J.JavaScriptObject, Crypto: J.JavaScriptObject, CryptoKey: J.JavaScriptObject, CSS: J.JavaScriptObject, CSSVariableReferenceValue: J.JavaScriptObject, CustomElementRegistry: J.JavaScriptObject, DataTransfer: J.JavaScriptObject, DataTransferItem: J.JavaScriptObject, DeprecatedStorageInfo: J.JavaScriptObject, DeprecatedStorageQuota: J.JavaScriptObject, DeprecationReport: J.JavaScriptObject, DetectedBarcode: J.JavaScriptObject, DetectedFace: J.JavaScriptObject, DetectedText: J.JavaScriptObject, DeviceAcceleration: J.JavaScriptObject, DeviceRotationRate: J.JavaScriptObject, DirectoryEntry: J.JavaScriptObject, webkitFileSystemDirectoryEntry: J.JavaScriptObject, FileSystemDirectoryEntry: J.JavaScriptObject, DirectoryReader: J.JavaScriptObject, WebKitDirectoryReader: J.JavaScriptObject, webkitFileSystemDirectoryReader: J.JavaScriptObject, FileSystemDirectoryReader: J.JavaScriptObject, DocumentOrShadowRoot: J.JavaScriptObject, DocumentTimeline: J.JavaScriptObject, DOMError: J.JavaScriptObject, Iterator: J.JavaScriptObject, DOMMatrix: J.JavaScriptObject, DOMMatrixReadOnly: J.JavaScriptObject, DOMParser: J.JavaScriptObject, DOMPoint: J.JavaScriptObject, DOMPointReadOnly: J.JavaScriptObject, DOMQuad: J.JavaScriptObject, DOMStringMap: J.JavaScriptObject, Entry: J.JavaScriptObject, webkitFileSystemEntry: J.JavaScriptObject, FileSystemEntry: J.JavaScriptObject, External: J.JavaScriptObject, FaceDetector: J.JavaScriptObject, FederatedCredential: J.JavaScriptObject, FileEntry: J.JavaScriptObject, webkitFileSystemFileEntry: J.JavaScriptObject, FileSystemFileEntry: J.JavaScriptObject, DOMFileSystem: J.JavaScriptObject, WebKitFileSystem: J.JavaScriptObject, webkitFileSystem: J.JavaScriptObject, FileSystem: J.JavaScriptObject, FontFaceSource: J.JavaScriptObject, FormData: J.JavaScriptObject, GamepadButton: J.JavaScriptObject, GamepadPose: J.JavaScriptObject, Geolocation: J.JavaScriptObject, Position: J.JavaScriptObject, GeolocationPosition: J.JavaScriptObject, Headers: J.JavaScriptObject, HTMLHyperlinkElementUtils: J.JavaScriptObject, IdleDeadline: J.JavaScriptObject, ImageBitmap: J.JavaScriptObject, ImageBitmapRenderingContext: J.JavaScriptObject, ImageCapture: J.JavaScriptObject, ImageData: J.JavaScriptObject, InputDeviceCapabilities: J.JavaScriptObject, IntersectionObserver: J.JavaScriptObject, IntersectionObserverEntry: J.JavaScriptObject, InterventionReport: J.JavaScriptObject, KeyframeEffect: J.JavaScriptObject, KeyframeEffectReadOnly: J.JavaScriptObject, MediaCapabilities: J.JavaScriptObject, MediaCapabilitiesInfo: J.JavaScriptObject, MediaDeviceInfo: J.JavaScriptObject, MediaError: J.JavaScriptObject, MediaKeyStatusMap: J.JavaScriptObject, MediaKeySystemAccess: J.JavaScriptObject, MediaKeys: J.JavaScriptObject, MediaKeysPolicy: J.JavaScriptObject, MediaMetadata: J.JavaScriptObject, MediaSession: J.JavaScriptObject, MediaSettingsRange: J.JavaScriptObject, MemoryInfo: J.JavaScriptObject, MessageChannel: J.JavaScriptObject, Metadata: J.JavaScriptObject, MutationObserver: J.JavaScriptObject, WebKitMutationObserver: J.JavaScriptObject, MutationRecord: J.JavaScriptObject, NavigationPreloadManager: J.JavaScriptObject, Navigator: J.JavaScriptObject, NavigatorAutomationInformation: J.JavaScriptObject, NavigatorConcurrentHardware: J.JavaScriptObject, NavigatorCookies: J.JavaScriptObject, NavigatorUserMediaError: J.JavaScriptObject, NodeFilter: J.JavaScriptObject, NodeIterator: J.JavaScriptObject, NonDocumentTypeChildNode: J.JavaScriptObject, NonElementParentNode: J.JavaScriptObject, NoncedElement: J.JavaScriptObject, OffscreenCanvasRenderingContext2D: J.JavaScriptObject, OverconstrainedError: J.JavaScriptObject, PaintRenderingContext2D: J.JavaScriptObject, PaintSize: J.JavaScriptObject, PaintWorkletGlobalScope: J.JavaScriptObject, PasswordCredential: J.JavaScriptObject, Path2D: J.JavaScriptObject, PaymentAddress: J.JavaScriptObject, PaymentInstruments: J.JavaScriptObject, PaymentManager: J.JavaScriptObject, PaymentResponse: J.JavaScriptObject, PerformanceEntry: J.JavaScriptObject, PerformanceLongTaskTiming: J.JavaScriptObject, PerformanceMark: J.JavaScriptObject, PerformanceMeasure: J.JavaScriptObject, PerformanceNavigation: J.JavaScriptObject, PerformanceNavigationTiming: J.JavaScriptObject, PerformanceObserver: J.JavaScriptObject, PerformanceObserverEntryList: J.JavaScriptObject, PerformancePaintTiming: J.JavaScriptObject, PerformanceResourceTiming: J.JavaScriptObject, PerformanceServerTiming: J.JavaScriptObject, PerformanceTiming: J.JavaScriptObject, Permissions: J.JavaScriptObject, PhotoCapabilities: J.JavaScriptObject, PositionError: J.JavaScriptObject, GeolocationPositionError: J.JavaScriptObject, Presentation: J.JavaScriptObject, PresentationReceiver: J.JavaScriptObject, PublicKeyCredential: J.JavaScriptObject, PushManager: J.JavaScriptObject, PushMessageData: J.JavaScriptObject, PushSubscription: J.JavaScriptObject, PushSubscriptionOptions: J.JavaScriptObject, Range: J.JavaScriptObject, RelatedApplication: J.JavaScriptObject, ReportBody: J.JavaScriptObject, ReportingObserver: J.JavaScriptObject, ResizeObserver: J.JavaScriptObject, ResizeObserverEntry: J.JavaScriptObject, RTCCertificate: J.JavaScriptObject, RTCIceCandidate: J.JavaScriptObject, mozRTCIceCandidate: J.JavaScriptObject, RTCLegacyStatsReport: J.JavaScriptObject, RTCRtpContributingSource: J.JavaScriptObject, RTCRtpReceiver: J.JavaScriptObject, RTCRtpSender: J.JavaScriptObject, RTCSessionDescription: J.JavaScriptObject, mozRTCSessionDescription: J.JavaScriptObject, RTCStatsResponse: J.JavaScriptObject, Screen: J.JavaScriptObject, ScrollState: J.JavaScriptObject, ScrollTimeline: J.JavaScriptObject, Selection: J.JavaScriptObject, SharedArrayBuffer: J.JavaScriptObject, SpeechRecognitionAlternative: J.JavaScriptObject, SpeechSynthesisVoice: J.JavaScriptObject, StaticRange: J.JavaScriptObject, StorageManager: J.JavaScriptObject, StyleMedia: J.JavaScriptObject, StylePropertyMap: J.JavaScriptObject, StylePropertyMapReadonly: J.JavaScriptObject, SyncManager: J.JavaScriptObject, TaskAttributionTiming: J.JavaScriptObject, TextDetector: J.JavaScriptObject, TextMetrics: J.JavaScriptObject, TrackDefault: J.JavaScriptObject, TreeWalker: J.JavaScriptObject, TrustedHTML: J.JavaScriptObject, TrustedScriptURL: J.JavaScriptObject, TrustedURL: J.JavaScriptObject, UnderlyingSourceBase: J.JavaScriptObject, URLSearchParams: J.JavaScriptObject, VRCoordinateSystem: J.JavaScriptObject, VRDisplayCapabilities: J.JavaScriptObject, VREyeParameters: J.JavaScriptObject, VRFrameData: J.JavaScriptObject, VRFrameOfReference: J.JavaScriptObject, VRPose: J.JavaScriptObject, VRStageBounds: J.JavaScriptObject, VRStageBoundsPoint: J.JavaScriptObject, VRStageParameters: J.JavaScriptObject, ValidityState: J.JavaScriptObject, VideoPlaybackQuality: J.JavaScriptObject, VideoTrack: J.JavaScriptObject, VTTRegion: J.JavaScriptObject, WindowClient: J.JavaScriptObject, WorkletAnimation: J.JavaScriptObject, WorkletGlobalScope: J.JavaScriptObject, XPathEvaluator: J.JavaScriptObject, XPathExpression: J.JavaScriptObject, XPathNSResolver: J.JavaScriptObject, XPathResult: J.JavaScriptObject, XMLSerializer: J.JavaScriptObject, XSLTProcessor: J.JavaScriptObject, Bluetooth: J.JavaScriptObject, BluetoothCharacteristicProperties: J.JavaScriptObject, BluetoothRemoteGATTServer: J.JavaScriptObject, BluetoothRemoteGATTService: J.JavaScriptObject, BluetoothUUID: J.JavaScriptObject, BudgetService: J.JavaScriptObject, Cache: J.JavaScriptObject, DOMFileSystemSync: J.JavaScriptObject, DirectoryEntrySync: J.JavaScriptObject, DirectoryReaderSync: J.JavaScriptObject, EntrySync: J.JavaScriptObject, FileEntrySync: J.JavaScriptObject, FileReaderSync: J.JavaScriptObject, FileWriterSync: J.JavaScriptObject, HTMLAllCollection: J.JavaScriptObject, Mojo: J.JavaScriptObject, MojoHandle: J.JavaScriptObject, MojoWatcher: J.JavaScriptObject, NFC: J.JavaScriptObject, PagePopupController: J.JavaScriptObject, Report: J.JavaScriptObject, Request: J.JavaScriptObject, Response: J.JavaScriptObject, SubtleCrypto: J.JavaScriptObject, USBAlternateInterface: J.JavaScriptObject, USBConfiguration: J.JavaScriptObject, USBDevice: J.JavaScriptObject, USBEndpoint: J.JavaScriptObject, USBInTransferResult: J.JavaScriptObject, USBInterface: J.JavaScriptObject, USBIsochronousInTransferPacket: J.JavaScriptObject, USBIsochronousInTransferResult: J.JavaScriptObject, USBIsochronousOutTransferPacket: J.JavaScriptObject, USBIsochronousOutTransferResult: J.JavaScriptObject, USBOutTransferResult: J.JavaScriptObject, WorkerLocation: J.JavaScriptObject, WorkerNavigator: J.JavaScriptObject, Worklet: J.JavaScriptObject, IDBCursor: J.JavaScriptObject, IDBCursorWithValue: J.JavaScriptObject, IDBFactory: J.JavaScriptObject, IDBIndex: J.JavaScriptObject, IDBKeyRange: J.JavaScriptObject, IDBObjectStore: J.JavaScriptObject, IDBObservation: J.JavaScriptObject, IDBObserver: J.JavaScriptObject, IDBObserverChanges: J.JavaScriptObject, SVGAngle: J.JavaScriptObject, SVGAnimatedAngle: J.JavaScriptObject, SVGAnimatedBoolean: J.JavaScriptObject, SVGAnimatedEnumeration: J.JavaScriptObject, SVGAnimatedInteger: J.JavaScriptObject, SVGAnimatedLength: J.JavaScriptObject, SVGAnimatedLengthList: J.JavaScriptObject, SVGAnimatedNumber: J.JavaScriptObject, SVGAnimatedNumberList: J.JavaScriptObject, SVGAnimatedPreserveAspectRatio: J.JavaScriptObject, SVGAnimatedRect: J.JavaScriptObject, SVGAnimatedString: J.JavaScriptObject, SVGAnimatedTransformList: J.JavaScriptObject, SVGMatrix: J.JavaScriptObject, SVGPoint: J.JavaScriptObject, SVGPreserveAspectRatio: J.JavaScriptObject, SVGRect: J.JavaScriptObject, SVGUnitTypes: J.JavaScriptObject, AudioListener: J.JavaScriptObject, AudioParam: J.JavaScriptObject, AudioTrack: J.JavaScriptObject, AudioWorkletGlobalScope: J.JavaScriptObject, AudioWorkletProcessor: J.JavaScriptObject, PeriodicWave: J.JavaScriptObject, WebGLActiveInfo: J.JavaScriptObject, ANGLEInstancedArrays: J.JavaScriptObject, ANGLE_instanced_arrays: J.JavaScriptObject, WebGLBuffer: J.JavaScriptObject, WebGLCanvas: J.JavaScriptObject, WebGLColorBufferFloat: J.JavaScriptObject, WebGLCompressedTextureASTC: J.JavaScriptObject, WebGLCompressedTextureATC: J.JavaScriptObject, WEBGL_compressed_texture_atc: J.JavaScriptObject, WebGLCompressedTextureETC1: J.JavaScriptObject, WEBGL_compressed_texture_etc1: J.JavaScriptObject, WebGLCompressedTextureETC: J.JavaScriptObject, WebGLCompressedTexturePVRTC: J.JavaScriptObject, WEBGL_compressed_texture_pvrtc: J.JavaScriptObject, WebGLCompressedTextureS3TC: J.JavaScriptObject, WEBGL_compressed_texture_s3tc: J.JavaScriptObject, WebGLCompressedTextureS3TCsRGB: J.JavaScriptObject, WebGLDebugRendererInfo: J.JavaScriptObject, WEBGL_debug_renderer_info: J.JavaScriptObject, WebGLDebugShaders: J.JavaScriptObject, WEBGL_debug_shaders: J.JavaScriptObject, WebGLDepthTexture: J.JavaScriptObject, WEBGL_depth_texture: J.JavaScriptObject, WebGLDrawBuffers: J.JavaScriptObject, WEBGL_draw_buffers: J.JavaScriptObject, EXTsRGB: J.JavaScriptObject, EXT_sRGB: J.JavaScriptObject, EXTBlendMinMax: J.JavaScriptObject, EXT_blend_minmax: J.JavaScriptObject, EXTColorBufferFloat: J.JavaScriptObject, EXTColorBufferHalfFloat: J.JavaScriptObject, EXTDisjointTimerQuery: J.JavaScriptObject, EXTDisjointTimerQueryWebGL2: J.JavaScriptObject, EXTFragDepth: J.JavaScriptObject, EXT_frag_depth: J.JavaScriptObject, EXTShaderTextureLOD: J.JavaScriptObject, EXT_shader_texture_lod: J.JavaScriptObject, EXTTextureFilterAnisotropic: J.JavaScriptObject, EXT_texture_filter_anisotropic: J.JavaScriptObject, WebGLFramebuffer: J.JavaScriptObject, WebGLGetBufferSubDataAsync: J.JavaScriptObject, WebGLLoseContext: J.JavaScriptObject, WebGLExtensionLoseContext: J.JavaScriptObject, WEBGL_lose_context: J.JavaScriptObject, OESElementIndexUint: J.JavaScriptObject, OES_element_index_uint: J.JavaScriptObject, OESStandardDerivatives: J.JavaScriptObject, OES_standard_derivatives: J.JavaScriptObject, OESTextureFloat: J.JavaScriptObject, OES_texture_float: J.JavaScriptObject, OESTextureFloatLinear: J.JavaScriptObject, OES_texture_float_linear: J.JavaScriptObject, OESTextureHalfFloat: J.JavaScriptObject, OES_texture_half_float: J.JavaScriptObject, OESTextureHalfFloatLinear: J.JavaScriptObject, OES_texture_half_float_linear: J.JavaScriptObject, OESVertexArrayObject: J.JavaScriptObject, OES_vertex_array_object: J.JavaScriptObject, WebGLProgram: J.JavaScriptObject, WebGLQuery: J.JavaScriptObject, WebGLRenderbuffer: J.JavaScriptObject, WebGLRenderingContext: J.JavaScriptObject, WebGL2RenderingContext: J.JavaScriptObject, WebGLSampler: J.JavaScriptObject, WebGLShader: J.JavaScriptObject, WebGLShaderPrecisionFormat: J.JavaScriptObject, WebGLSync: J.JavaScriptObject, WebGLTexture: J.JavaScriptObject, WebGLTimerQueryEXT: J.JavaScriptObject, WebGLTransformFeedback: J.JavaScriptObject, WebGLUniformLocation: J.JavaScriptObject, WebGLVertexArrayObject: J.JavaScriptObject, WebGLVertexArrayObjectOES: J.JavaScriptObject, WebGL2RenderingContextBase: J.JavaScriptObject, ArrayBuffer: A.NativeByteBuffer, ArrayBufferView: A.NativeTypedData, DataView: A.NativeByteData, Float32Array: A.NativeFloat32List, Float64Array: A.NativeFloat64List, Int16Array: A.NativeInt16List, Int32Array: A.NativeInt32List, Int8Array: A.NativeInt8List, Uint16Array: A.NativeUint16List, Uint32Array: A.NativeUint32List, Uint8ClampedArray: A.NativeUint8ClampedList, CanvasPixelArray: A.NativeUint8ClampedList, Uint8Array: A.NativeUint8List, HTMLAudioElement: A.HtmlElement, HTMLBRElement: A.HtmlElement, HTMLButtonElement: A.HtmlElement, HTMLCanvasElement: A.HtmlElement, HTMLContentElement: A.HtmlElement, HTMLDListElement: A.HtmlElement, HTMLDataElement: A.HtmlElement, HTMLDataListElement: A.HtmlElement, HTMLDetailsElement: A.HtmlElement, HTMLDialogElement: A.HtmlElement, HTMLDivElement: A.HtmlElement, HTMLEmbedElement: A.HtmlElement, HTMLFieldSetElement: A.HtmlElement, HTMLHRElement: A.HtmlElement, HTMLHeadElement: A.HtmlElement, HTMLHeadingElement: A.HtmlElement, HTMLHtmlElement: A.HtmlElement, HTMLIFrameElement: A.HtmlElement, HTMLImageElement: A.HtmlElement, HTMLInputElement: A.HtmlElement, HTMLLIElement: A.HtmlElement, HTMLLabelElement: A.HtmlElement, HTMLLegendElement: A.HtmlElement, HTMLLinkElement: A.HtmlElement, HTMLMapElement: A.HtmlElement, HTMLMediaElement: A.HtmlElement, HTMLMenuElement: A.HtmlElement, HTMLMetaElement: A.HtmlElement, HTMLMeterElement: A.HtmlElement, HTMLModElement: A.HtmlElement, HTMLOListElement: A.HtmlElement, HTMLObjectElement: A.HtmlElement, HTMLOptGroupElement: A.HtmlElement, HTMLOptionElement: A.HtmlElement, HTMLOutputElement: A.HtmlElement, HTMLParagraphElement: A.HtmlElement, HTMLParamElement: A.HtmlElement, HTMLPictureElement: A.HtmlElement, HTMLPreElement: A.HtmlElement, HTMLProgressElement: A.HtmlElement, HTMLQuoteElement: A.HtmlElement, HTMLScriptElement: A.HtmlElement, HTMLShadowElement: A.HtmlElement, HTMLSlotElement: A.HtmlElement, HTMLSourceElement: A.HtmlElement, HTMLSpanElement: A.HtmlElement, HTMLStyleElement: A.HtmlElement, HTMLTableCaptionElement: A.HtmlElement, HTMLTableCellElement: A.HtmlElement, HTMLTableDataCellElement: A.HtmlElement, HTMLTableHeaderCellElement: A.HtmlElement, HTMLTableColElement: A.HtmlElement, HTMLTableElement: A.HtmlElement, HTMLTableRowElement: A.HtmlElement, HTMLTableSectionElement: A.HtmlElement, HTMLTextAreaElement: A.HtmlElement, HTMLTimeElement: A.HtmlElement, HTMLTitleElement: A.HtmlElement, HTMLTrackElement: A.HtmlElement, HTMLUListElement: A.HtmlElement, HTMLUnknownElement: A.HtmlElement, HTMLVideoElement: A.HtmlElement, HTMLDirectoryElement: A.HtmlElement, HTMLFontElement: A.HtmlElement, HTMLFrameElement: A.HtmlElement, HTMLFrameSetElement: A.HtmlElement, HTMLMarqueeElement: A.HtmlElement, HTMLElement: A.HtmlElement, AccessibleNodeList: A.AccessibleNodeList, HTMLAnchorElement: A.AnchorElement, HTMLAreaElement: A.AreaElement, HTMLBaseElement: A.BaseElement, Blob: A.Blob, HTMLBodyElement: A.BodyElement, CDATASection: A.CharacterData, CharacterData: A.CharacterData, Comment: A.CharacterData, ProcessingInstruction: A.CharacterData, Text: A.CharacterData, CSSPerspective: A.CssPerspective, CSSCharsetRule: A.CssRule, CSSConditionRule: A.CssRule, CSSFontFaceRule: A.CssRule, CSSGroupingRule: A.CssRule, CSSImportRule: A.CssRule, CSSKeyframeRule: A.CssRule, MozCSSKeyframeRule: A.CssRule, WebKitCSSKeyframeRule: A.CssRule, CSSKeyframesRule: A.CssRule, MozCSSKeyframesRule: A.CssRule, WebKitCSSKeyframesRule: A.CssRule, CSSMediaRule: A.CssRule, CSSNamespaceRule: A.CssRule, CSSPageRule: A.CssRule, CSSRule: A.CssRule, CSSStyleRule: A.CssRule, CSSSupportsRule: A.CssRule, CSSViewportRule: A.CssRule, CSSStyleDeclaration: A.CssStyleDeclaration, MSStyleCSSProperties: A.CssStyleDeclaration, CSS2Properties: A.CssStyleDeclaration, CSSImageValue: A.CssStyleValue, CSSKeywordValue: A.CssStyleValue, CSSNumericValue: A.CssStyleValue, CSSPositionValue: A.CssStyleValue, CSSResourceValue: A.CssStyleValue, CSSUnitValue: A.CssStyleValue, CSSURLImageValue: A.CssStyleValue, CSSStyleValue: A.CssStyleValue, CSSMatrixComponent: A.CssTransformComponent, CSSRotation: A.CssTransformComponent, CSSScale: A.CssTransformComponent, CSSSkew: A.CssTransformComponent, CSSTranslation: A.CssTransformComponent, CSSTransformComponent: A.CssTransformComponent, CSSTransformValue: A.CssTransformValue, CSSUnparsedValue: A.CssUnparsedValue, DataTransferItemList: A.DataTransferItemList, XMLDocument: A.Document, Document: A.Document, DOMException: A.DomException, DOMImplementation: A.DomImplementation, ClientRectList: A.DomRectList, DOMRectList: A.DomRectList, DOMRectReadOnly: A.DomRectReadOnly, DOMStringList: A.DomStringList, DOMTokenList: A.DomTokenList, MathMLElement: A.Element, Element: A.Element, AbortPaymentEvent: A.Event, AnimationEvent: A.Event, AnimationPlaybackEvent: A.Event, ApplicationCacheErrorEvent: A.Event, BackgroundFetchClickEvent: A.Event, BackgroundFetchEvent: A.Event, BackgroundFetchFailEvent: A.Event, BackgroundFetchedEvent: A.Event, BeforeInstallPromptEvent: A.Event, BeforeUnloadEvent: A.Event, BlobEvent: A.Event, CanMakePaymentEvent: A.Event, ClipboardEvent: A.Event, CloseEvent: A.Event, CustomEvent: A.Event, DeviceMotionEvent: A.Event, DeviceOrientationEvent: A.Event, ErrorEvent: A.Event, ExtendableEvent: A.Event, ExtendableMessageEvent: A.Event, FetchEvent: A.Event, FontFaceSetLoadEvent: A.Event, ForeignFetchEvent: A.Event, GamepadEvent: A.Event, HashChangeEvent: A.Event, InstallEvent: A.Event, MediaEncryptedEvent: A.Event, MediaKeyMessageEvent: A.Event, MediaQueryListEvent: A.Event, MediaStreamEvent: A.Event, MediaStreamTrackEvent: A.Event, MessageEvent: A.Event, MIDIConnectionEvent: A.Event, MIDIMessageEvent: A.Event, MutationEvent: A.Event, NotificationEvent: A.Event, PageTransitionEvent: A.Event, PaymentRequestEvent: A.Event, PaymentRequestUpdateEvent: A.Event, PopStateEvent: A.Event, PresentationConnectionAvailableEvent: A.Event, PresentationConnectionCloseEvent: A.Event, ProgressEvent: A.Event, PromiseRejectionEvent: A.Event, PushEvent: A.Event, RTCDataChannelEvent: A.Event, RTCDTMFToneChangeEvent: A.Event, RTCPeerConnectionIceEvent: A.Event, RTCTrackEvent: A.Event, SecurityPolicyViolationEvent: A.Event, SensorErrorEvent: A.Event, SpeechRecognitionError: A.Event, SpeechRecognitionEvent: A.Event, SpeechSynthesisEvent: A.Event, StorageEvent: A.Event, SyncEvent: A.Event, TrackEvent: A.Event, TransitionEvent: A.Event, WebKitTransitionEvent: A.Event, VRDeviceEvent: A.Event, VRDisplayEvent: A.Event, VRSessionEvent: A.Event, MojoInterfaceRequestEvent: A.Event, ResourceProgressEvent: A.Event, USBConnectionEvent: A.Event, IDBVersionChangeEvent: A.Event, AudioProcessingEvent: A.Event, OfflineAudioCompletionEvent: A.Event, WebGLContextEvent: A.Event, Event: A.Event, InputEvent: A.Event, SubmitEvent: A.Event, AbsoluteOrientationSensor: A.EventTarget, Accelerometer: A.EventTarget, AccessibleNode: A.EventTarget, AmbientLightSensor: A.EventTarget, Animation: A.EventTarget, ApplicationCache: A.EventTarget, DOMApplicationCache: A.EventTarget, OfflineResourceList: A.EventTarget, BackgroundFetchRegistration: A.EventTarget, BatteryManager: A.EventTarget, BroadcastChannel: A.EventTarget, CanvasCaptureMediaStreamTrack: A.EventTarget, DedicatedWorkerGlobalScope: A.EventTarget, EventSource: A.EventTarget, FileReader: A.EventTarget, Gyroscope: A.EventTarget, XMLHttpRequest: A.EventTarget, XMLHttpRequestEventTarget: A.EventTarget, XMLHttpRequestUpload: A.EventTarget, LinearAccelerationSensor: A.EventTarget, Magnetometer: A.EventTarget, MediaDevices: A.EventTarget, MediaKeySession: A.EventTarget, MediaQueryList: A.EventTarget, MediaRecorder: A.EventTarget, MediaSource: A.EventTarget, MediaStream: A.EventTarget, MediaStreamTrack: A.EventTarget, MessagePort: A.EventTarget, MIDIAccess: A.EventTarget, MIDIInput: A.EventTarget, MIDIOutput: A.EventTarget, MIDIPort: A.EventTarget, NetworkInformation: A.EventTarget, Notification: A.EventTarget, OffscreenCanvas: A.EventTarget, OrientationSensor: A.EventTarget, PaymentRequest: A.EventTarget, Performance: A.EventTarget, PermissionStatus: A.EventTarget, PresentationAvailability: A.EventTarget, PresentationConnection: A.EventTarget, PresentationConnectionList: A.EventTarget, PresentationRequest: A.EventTarget, RelativeOrientationSensor: A.EventTarget, RemotePlayback: A.EventTarget, RTCDataChannel: A.EventTarget, DataChannel: A.EventTarget, RTCDTMFSender: A.EventTarget, RTCPeerConnection: A.EventTarget, webkitRTCPeerConnection: A.EventTarget, mozRTCPeerConnection: A.EventTarget, ScreenOrientation: A.EventTarget, Sensor: A.EventTarget, ServiceWorker: A.EventTarget, ServiceWorkerContainer: A.EventTarget, ServiceWorkerGlobalScope: A.EventTarget, ServiceWorkerRegistration: A.EventTarget, SharedWorker: A.EventTarget, SharedWorkerGlobalScope: A.EventTarget, SpeechRecognition: A.EventTarget, webkitSpeechRecognition: A.EventTarget, SpeechSynthesis: A.EventTarget, SpeechSynthesisUtterance: A.EventTarget, VR: A.EventTarget, VRDevice: A.EventTarget, VRDisplay: A.EventTarget, VRSession: A.EventTarget, VisualViewport: A.EventTarget, WebSocket: A.EventTarget, Window: A.EventTarget, DOMWindow: A.EventTarget, Worker: A.EventTarget, WorkerGlobalScope: A.EventTarget, WorkerPerformance: A.EventTarget, BluetoothDevice: A.EventTarget, BluetoothRemoteGATTCharacteristic: A.EventTarget, Clipboard: A.EventTarget, MojoInterfaceInterceptor: A.EventTarget, USB: A.EventTarget, IDBDatabase: A.EventTarget, IDBOpenDBRequest: A.EventTarget, IDBVersionChangeRequest: A.EventTarget, IDBRequest: A.EventTarget, IDBTransaction: A.EventTarget, AnalyserNode: A.EventTarget, RealtimeAnalyserNode: A.EventTarget, AudioBufferSourceNode: A.EventTarget, AudioDestinationNode: A.EventTarget, AudioNode: A.EventTarget, AudioScheduledSourceNode: A.EventTarget, AudioWorkletNode: A.EventTarget, BiquadFilterNode: A.EventTarget, ChannelMergerNode: A.EventTarget, AudioChannelMerger: A.EventTarget, ChannelSplitterNode: A.EventTarget, AudioChannelSplitter: A.EventTarget, ConstantSourceNode: A.EventTarget, ConvolverNode: A.EventTarget, DelayNode: A.EventTarget, DynamicsCompressorNode: A.EventTarget, GainNode: A.EventTarget, AudioGainNode: A.EventTarget, IIRFilterNode: A.EventTarget, MediaElementAudioSourceNode: A.EventTarget, MediaStreamAudioDestinationNode: A.EventTarget, MediaStreamAudioSourceNode: A.EventTarget, OscillatorNode: A.EventTarget, Oscillator: A.EventTarget, PannerNode: A.EventTarget, AudioPannerNode: A.EventTarget, webkitAudioPannerNode: A.EventTarget, ScriptProcessorNode: A.EventTarget, JavaScriptAudioNode: A.EventTarget, StereoPannerNode: A.EventTarget, WaveShaperNode: A.EventTarget, EventTarget: A.EventTarget, File: A.File, FileList: A.FileList, FileWriter: A.FileWriter, FontFace: A.FontFace, FontFaceSet: A.FontFaceSet, HTMLFormElement: A.FormElement, Gamepad: A.Gamepad, History: A.History, HTMLCollection: A.HtmlCollection, HTMLFormControlsCollection: A.HtmlCollection, HTMLOptionsCollection: A.HtmlCollection, HTMLDocument: A.HtmlDocument, Location: A.Location, MediaList: A.MediaList, MIDIInputMap: A.MidiInputMap, MIDIOutputMap: A.MidiOutputMap, MimeType: A.MimeType, MimeTypeArray: A.MimeTypeArray, MouseEvent: A.MouseEvent, DragEvent: A.MouseEvent, PointerEvent: A.MouseEvent, WheelEvent: A.MouseEvent, DocumentFragment: A.Node, ShadowRoot: A.Node, Attr: A.Node, DocumentType: A.Node, Node: A.Node, NodeList: A.NodeList, RadioNodeList: A.NodeList, Plugin: A.Plugin, PluginArray: A.PluginArray, RTCStatsReport: A.RtcStatsReport, HTMLSelectElement: A.SelectElement, SourceBuffer: A.SourceBuffer, SourceBufferList: A.SourceBufferList, SpeechGrammar: A.SpeechGrammar, SpeechGrammarList: A.SpeechGrammarList, SpeechRecognitionResult: A.SpeechRecognitionResult, Storage: A.Storage, CSSStyleSheet: A.StyleSheet, StyleSheet: A.StyleSheet, HTMLTemplateElement: A.TemplateElement, TextTrack: A.TextTrack, TextTrackCue: A.TextTrackCue, VTTCue: A.TextTrackCue, TextTrackCueList: A.TextTrackCueList, TextTrackList: A.TextTrackList, TimeRanges: A.TimeRanges, Touch: A.Touch, TouchList: A.TouchList, TrackDefaultList: A.TrackDefaultList, CompositionEvent: A.UIEvent, FocusEvent: A.UIEvent, KeyboardEvent: A.UIEvent, TextEvent: A.UIEvent, TouchEvent: A.UIEvent, UIEvent: A.UIEvent, URL: A.Url, VideoTrackList: A.VideoTrackList, CSSRuleList: A._CssRuleList, ClientRect: A._DomRect, DOMRect: A._DomRect, GamepadList: A._GamepadList, NamedNodeMap: A._NamedNodeMap, MozNamedAttrMap: A._NamedNodeMap, SpeechRecognitionResultList: A._SpeechRecognitionResultList, StyleSheetList: A._StyleSheetList, SVGLength: A.Length, SVGLengthList: A.LengthList, SVGNumber: A.Number, SVGNumberList: A.NumberList, SVGPointList: A.PointList, SVGStringList: A.StringList, SVGAElement: A.SvgElement, SVGAnimateElement: A.SvgElement, SVGAnimateMotionElement: A.SvgElement, SVGAnimateTransformElement: A.SvgElement, SVGAnimationElement: A.SvgElement, SVGCircleElement: A.SvgElement, SVGClipPathElement: A.SvgElement, SVGDefsElement: A.SvgElement, SVGDescElement: A.SvgElement, SVGDiscardElement: A.SvgElement, SVGEllipseElement: A.SvgElement, SVGFEBlendElement: A.SvgElement, SVGFEColorMatrixElement: A.SvgElement, SVGFEComponentTransferElement: A.SvgElement, SVGFECompositeElement: A.SvgElement, SVGFEConvolveMatrixElement: A.SvgElement, SVGFEDiffuseLightingElement: A.SvgElement, SVGFEDisplacementMapElement: A.SvgElement, SVGFEDistantLightElement: A.SvgElement, SVGFEFloodElement: A.SvgElement, SVGFEFuncAElement: A.SvgElement, SVGFEFuncBElement: A.SvgElement, SVGFEFuncGElement: A.SvgElement, SVGFEFuncRElement: A.SvgElement, SVGFEGaussianBlurElement: A.SvgElement, SVGFEImageElement: A.SvgElement, SVGFEMergeElement: A.SvgElement, SVGFEMergeNodeElement: A.SvgElement, SVGFEMorphologyElement: A.SvgElement, SVGFEOffsetElement: A.SvgElement, SVGFEPointLightElement: A.SvgElement, SVGFESpecularLightingElement: A.SvgElement, SVGFESpotLightElement: A.SvgElement, SVGFETileElement: A.SvgElement, SVGFETurbulenceElement: A.SvgElement, SVGFilterElement: A.SvgElement, SVGForeignObjectElement: A.SvgElement, SVGGElement: A.SvgElement, SVGGeometryElement: A.SvgElement, SVGGraphicsElement: A.SvgElement, SVGImageElement: A.SvgElement, SVGLineElement: A.SvgElement, SVGLinearGradientElement: A.SvgElement, SVGMarkerElement: A.SvgElement, SVGMaskElement: A.SvgElement, SVGMetadataElement: A.SvgElement, SVGPathElement: A.SvgElement, SVGPatternElement: A.SvgElement, SVGPolygonElement: A.SvgElement, SVGPolylineElement: A.SvgElement, SVGRadialGradientElement: A.SvgElement, SVGRectElement: A.SvgElement, SVGScriptElement: A.SvgElement, SVGSetElement: A.SvgElement, SVGStopElement: A.SvgElement, SVGStyleElement: A.SvgElement, SVGElement: A.SvgElement, SVGSVGElement: A.SvgElement, SVGSwitchElement: A.SvgElement, SVGSymbolElement: A.SvgElement, SVGTSpanElement: A.SvgElement, SVGTextContentElement: A.SvgElement, SVGTextElement: A.SvgElement, SVGTextPathElement: A.SvgElement, SVGTextPositioningElement: A.SvgElement, SVGTitleElement: A.SvgElement, SVGUseElement: A.SvgElement, SVGViewElement: A.SvgElement, SVGGradientElement: A.SvgElement, SVGComponentTransferFunctionElement: A.SvgElement, SVGFEDropShadowElement: A.SvgElement, SVGMPathElement: A.SvgElement, SVGTransform: A.Transform, SVGTransformList: A.TransformList, AudioBuffer: A.AudioBuffer, AudioParamMap: A.AudioParamMap, AudioTrackList: A.AudioTrackList, AudioContext: A.BaseAudioContext, webkitAudioContext: A.BaseAudioContext, BaseAudioContext: A.BaseAudioContext, OfflineAudioContext: A.OfflineAudioContext});
+    hunkHelpers.setOrUpdateLeafTags({WebGL: true, AnimationEffectReadOnly: true, AnimationEffectTiming: true, AnimationEffectTimingReadOnly: true, AnimationTimeline: true, AnimationWorkletGlobalScope: true, AuthenticatorAssertionResponse: true, AuthenticatorAttestationResponse: true, AuthenticatorResponse: true, BackgroundFetchFetch: true, BackgroundFetchManager: true, BackgroundFetchSettledFetch: true, BarProp: true, BarcodeDetector: true, BluetoothRemoteGATTDescriptor: true, Body: true, BudgetState: true, CacheStorage: true, CanvasGradient: true, CanvasPattern: true, CanvasRenderingContext2D: true, Client: true, Clients: true, CookieStore: true, Coordinates: true, Credential: true, CredentialUserData: true, CredentialsContainer: true, Crypto: true, CryptoKey: true, CSS: true, CSSVariableReferenceValue: true, CustomElementRegistry: true, DataTransfer: true, DataTransferItem: true, DeprecatedStorageInfo: true, DeprecatedStorageQuota: true, DeprecationReport: true, DetectedBarcode: true, DetectedFace: true, DetectedText: true, DeviceAcceleration: true, DeviceRotationRate: true, DirectoryEntry: true, webkitFileSystemDirectoryEntry: true, FileSystemDirectoryEntry: true, DirectoryReader: true, WebKitDirectoryReader: true, webkitFileSystemDirectoryReader: true, FileSystemDirectoryReader: true, DocumentOrShadowRoot: true, DocumentTimeline: true, DOMError: true, Iterator: true, DOMMatrix: true, DOMMatrixReadOnly: true, DOMParser: true, DOMPoint: true, DOMPointReadOnly: true, DOMQuad: true, DOMStringMap: true, Entry: true, webkitFileSystemEntry: true, FileSystemEntry: true, External: true, FaceDetector: true, FederatedCredential: true, FileEntry: true, webkitFileSystemFileEntry: true, FileSystemFileEntry: true, DOMFileSystem: true, WebKitFileSystem: true, webkitFileSystem: true, FileSystem: true, FontFaceSource: true, FormData: true, GamepadButton: true, GamepadPose: true, Geolocation: true, Position: true, GeolocationPosition: true, Headers: true, HTMLHyperlinkElementUtils: true, IdleDeadline: true, ImageBitmap: true, ImageBitmapRenderingContext: true, ImageCapture: true, ImageData: true, InputDeviceCapabilities: true, IntersectionObserver: true, IntersectionObserverEntry: true, InterventionReport: true, KeyframeEffect: true, KeyframeEffectReadOnly: true, MediaCapabilities: true, MediaCapabilitiesInfo: true, MediaDeviceInfo: true, MediaError: true, MediaKeyStatusMap: true, MediaKeySystemAccess: true, MediaKeys: true, MediaKeysPolicy: true, MediaMetadata: true, MediaSession: true, MediaSettingsRange: true, MemoryInfo: true, MessageChannel: true, Metadata: true, MutationObserver: true, WebKitMutationObserver: true, MutationRecord: true, NavigationPreloadManager: true, Navigator: true, NavigatorAutomationInformation: true, NavigatorConcurrentHardware: true, NavigatorCookies: true, NavigatorUserMediaError: true, NodeFilter: true, NodeIterator: true, NonDocumentTypeChildNode: true, NonElementParentNode: true, NoncedElement: true, OffscreenCanvasRenderingContext2D: true, OverconstrainedError: true, PaintRenderingContext2D: true, PaintSize: true, PaintWorkletGlobalScope: true, PasswordCredential: true, Path2D: true, PaymentAddress: true, PaymentInstruments: true, PaymentManager: true, PaymentResponse: true, PerformanceEntry: true, PerformanceLongTaskTiming: true, PerformanceMark: true, PerformanceMeasure: true, PerformanceNavigation: true, PerformanceNavigationTiming: true, PerformanceObserver: true, PerformanceObserverEntryList: true, PerformancePaintTiming: true, PerformanceResourceTiming: true, PerformanceServerTiming: true, PerformanceTiming: true, Permissions: true, PhotoCapabilities: true, PositionError: true, GeolocationPositionError: true, Presentation: true, PresentationReceiver: true, PublicKeyCredential: true, PushManager: true, PushMessageData: true, PushSubscription: true, PushSubscriptionOptions: true, Range: true, RelatedApplication: true, ReportBody: true, ReportingObserver: true, ResizeObserver: true, ResizeObserverEntry: true, RTCCertificate: true, RTCIceCandidate: true, mozRTCIceCandidate: true, RTCLegacyStatsReport: true, RTCRtpContributingSource: true, RTCRtpReceiver: true, RTCRtpSender: true, RTCSessionDescription: true, mozRTCSessionDescription: true, RTCStatsResponse: true, Screen: true, ScrollState: true, ScrollTimeline: true, Selection: true, SharedArrayBuffer: true, SpeechRecognitionAlternative: true, SpeechSynthesisVoice: true, StaticRange: true, StorageManager: true, StyleMedia: true, StylePropertyMap: true, StylePropertyMapReadonly: true, SyncManager: true, TaskAttributionTiming: true, TextDetector: true, TextMetrics: true, TrackDefault: true, TreeWalker: true, TrustedHTML: true, TrustedScriptURL: true, TrustedURL: true, UnderlyingSourceBase: true, URLSearchParams: true, VRCoordinateSystem: true, VRDisplayCapabilities: true, VREyeParameters: true, VRFrameData: true, VRFrameOfReference: true, VRPose: true, VRStageBounds: true, VRStageBoundsPoint: true, VRStageParameters: true, ValidityState: true, VideoPlaybackQuality: true, VideoTrack: true, VTTRegion: true, WindowClient: true, WorkletAnimation: true, WorkletGlobalScope: true, XPathEvaluator: true, XPathExpression: true, XPathNSResolver: true, XPathResult: true, XMLSerializer: true, XSLTProcessor: true, Bluetooth: true, BluetoothCharacteristicProperties: true, BluetoothRemoteGATTServer: true, BluetoothRemoteGATTService: true, BluetoothUUID: true, BudgetService: true, Cache: true, DOMFileSystemSync: true, DirectoryEntrySync: true, DirectoryReaderSync: true, EntrySync: true, FileEntrySync: true, FileReaderSync: true, FileWriterSync: true, HTMLAllCollection: true, Mojo: true, MojoHandle: true, MojoWatcher: true, NFC: true, PagePopupController: true, Report: true, Request: true, Response: true, SubtleCrypto: true, USBAlternateInterface: true, USBConfiguration: true, USBDevice: true, USBEndpoint: true, USBInTransferResult: true, USBInterface: true, USBIsochronousInTransferPacket: true, USBIsochronousInTransferResult: true, USBIsochronousOutTransferPacket: true, USBIsochronousOutTransferResult: true, USBOutTransferResult: true, WorkerLocation: true, WorkerNavigator: true, Worklet: true, IDBCursor: true, IDBCursorWithValue: true, IDBFactory: true, IDBIndex: true, IDBKeyRange: true, IDBObjectStore: true, IDBObservation: true, IDBObserver: true, IDBObserverChanges: true, SVGAngle: true, SVGAnimatedAngle: true, SVGAnimatedBoolean: true, SVGAnimatedEnumeration: true, SVGAnimatedInteger: true, SVGAnimatedLength: true, SVGAnimatedLengthList: true, SVGAnimatedNumber: true, SVGAnimatedNumberList: true, SVGAnimatedPreserveAspectRatio: true, SVGAnimatedRect: true, SVGAnimatedString: true, SVGAnimatedTransformList: true, SVGMatrix: true, SVGPoint: true, SVGPreserveAspectRatio: true, SVGRect: true, SVGUnitTypes: true, AudioListener: true, AudioParam: true, AudioTrack: true, AudioWorkletGlobalScope: true, AudioWorkletProcessor: true, PeriodicWave: true, WebGLActiveInfo: true, ANGLEInstancedArrays: true, ANGLE_instanced_arrays: true, WebGLBuffer: true, WebGLCanvas: true, WebGLColorBufferFloat: true, WebGLCompressedTextureASTC: true, WebGLCompressedTextureATC: true, WEBGL_compressed_texture_atc: true, WebGLCompressedTextureETC1: true, WEBGL_compressed_texture_etc1: true, WebGLCompressedTextureETC: true, WebGLCompressedTexturePVRTC: true, WEBGL_compressed_texture_pvrtc: true, WebGLCompressedTextureS3TC: true, WEBGL_compressed_texture_s3tc: true, WebGLCompressedTextureS3TCsRGB: true, WebGLDebugRendererInfo: true, WEBGL_debug_renderer_info: true, WebGLDebugShaders: true, WEBGL_debug_shaders: true, WebGLDepthTexture: true, WEBGL_depth_texture: true, WebGLDrawBuffers: true, WEBGL_draw_buffers: true, EXTsRGB: true, EXT_sRGB: true, EXTBlendMinMax: true, EXT_blend_minmax: true, EXTColorBufferFloat: true, EXTColorBufferHalfFloat: true, EXTDisjointTimerQuery: true, EXTDisjointTimerQueryWebGL2: true, EXTFragDepth: true, EXT_frag_depth: true, EXTShaderTextureLOD: true, EXT_shader_texture_lod: true, EXTTextureFilterAnisotropic: true, EXT_texture_filter_anisotropic: true, WebGLFramebuffer: true, WebGLGetBufferSubDataAsync: true, WebGLLoseContext: true, WebGLExtensionLoseContext: true, WEBGL_lose_context: true, OESElementIndexUint: true, OES_element_index_uint: true, OESStandardDerivatives: true, OES_standard_derivatives: true, OESTextureFloat: true, OES_texture_float: true, OESTextureFloatLinear: true, OES_texture_float_linear: true, OESTextureHalfFloat: true, OES_texture_half_float: true, OESTextureHalfFloatLinear: true, OES_texture_half_float_linear: true, OESVertexArrayObject: true, OES_vertex_array_object: true, WebGLProgram: true, WebGLQuery: true, WebGLRenderbuffer: true, WebGLRenderingContext: true, WebGL2RenderingContext: true, WebGLSampler: true, WebGLShader: true, WebGLShaderPrecisionFormat: true, WebGLSync: true, WebGLTexture: true, WebGLTimerQueryEXT: true, WebGLTransformFeedback: true, WebGLUniformLocation: true, WebGLVertexArrayObject: true, WebGLVertexArrayObjectOES: true, WebGL2RenderingContextBase: true, ArrayBuffer: true, ArrayBufferView: false, DataView: true, Float32Array: true, Float64Array: true, Int16Array: true, Int32Array: true, Int8Array: true, Uint16Array: true, Uint32Array: true, Uint8ClampedArray: true, CanvasPixelArray: true, Uint8Array: false, HTMLAudioElement: true, HTMLBRElement: true, HTMLButtonElement: true, HTMLCanvasElement: true, HTMLContentElement: true, HTMLDListElement: true, HTMLDataElement: true, HTMLDataListElement: true, HTMLDetailsElement: true, HTMLDialogElement: true, HTMLDivElement: true, HTMLEmbedElement: true, HTMLFieldSetElement: true, HTMLHRElement: true, HTMLHeadElement: true, HTMLHeadingElement: true, HTMLHtmlElement: true, HTMLIFrameElement: true, HTMLImageElement: true, HTMLInputElement: true, HTMLLIElement: true, HTMLLabelElement: true, HTMLLegendElement: true, HTMLLinkElement: true, HTMLMapElement: true, HTMLMediaElement: true, HTMLMenuElement: true, HTMLMetaElement: true, HTMLMeterElement: true, HTMLModElement: true, HTMLOListElement: true, HTMLObjectElement: true, HTMLOptGroupElement: true, HTMLOptionElement: true, HTMLOutputElement: true, HTMLParagraphElement: true, HTMLParamElement: true, HTMLPictureElement: true, HTMLPreElement: true, HTMLProgressElement: true, HTMLQuoteElement: true, HTMLScriptElement: true, HTMLShadowElement: true, HTMLSlotElement: true, HTMLSourceElement: true, HTMLSpanElement: true, HTMLStyleElement: true, HTMLTableCaptionElement: true, HTMLTableCellElement: true, HTMLTableDataCellElement: true, HTMLTableHeaderCellElement: true, HTMLTableColElement: true, HTMLTableElement: true, HTMLTableRowElement: true, HTMLTableSectionElement: true, HTMLTextAreaElement: true, HTMLTimeElement: true, HTMLTitleElement: true, HTMLTrackElement: true, HTMLUListElement: true, HTMLUnknownElement: true, HTMLVideoElement: true, HTMLDirectoryElement: true, HTMLFontElement: true, HTMLFrameElement: true, HTMLFrameSetElement: true, HTMLMarqueeElement: true, HTMLElement: false, AccessibleNodeList: true, HTMLAnchorElement: true, HTMLAreaElement: true, HTMLBaseElement: true, Blob: false, HTMLBodyElement: true, CDATASection: true, CharacterData: true, Comment: true, ProcessingInstruction: true, Text: true, CSSPerspective: true, CSSCharsetRule: true, CSSConditionRule: true, CSSFontFaceRule: true, CSSGroupingRule: true, CSSImportRule: true, CSSKeyframeRule: true, MozCSSKeyframeRule: true, WebKitCSSKeyframeRule: true, CSSKeyframesRule: true, MozCSSKeyframesRule: true, WebKitCSSKeyframesRule: true, CSSMediaRule: true, CSSNamespaceRule: true, CSSPageRule: true, CSSRule: true, CSSStyleRule: true, CSSSupportsRule: true, CSSViewportRule: true, CSSStyleDeclaration: true, MSStyleCSSProperties: true, CSS2Properties: true, CSSImageValue: true, CSSKeywordValue: true, CSSNumericValue: true, CSSPositionValue: true, CSSResourceValue: true, CSSUnitValue: true, CSSURLImageValue: true, CSSStyleValue: false, CSSMatrixComponent: true, CSSRotation: true, CSSScale: true, CSSSkew: true, CSSTranslation: true, CSSTransformComponent: false, CSSTransformValue: true, CSSUnparsedValue: true, DataTransferItemList: true, XMLDocument: true, Document: false, DOMException: true, DOMImplementation: true, ClientRectList: true, DOMRectList: true, DOMRectReadOnly: false, DOMStringList: true, DOMTokenList: true, MathMLElement: true, Element: false, AbortPaymentEvent: true, AnimationEvent: true, AnimationPlaybackEvent: true, ApplicationCacheErrorEvent: true, BackgroundFetchClickEvent: true, BackgroundFetchEvent: true, BackgroundFetchFailEvent: true, BackgroundFetchedEvent: true, BeforeInstallPromptEvent: true, BeforeUnloadEvent: true, BlobEvent: true, CanMakePaymentEvent: true, ClipboardEvent: true, CloseEvent: true, CustomEvent: true, DeviceMotionEvent: true, DeviceOrientationEvent: true, ErrorEvent: true, ExtendableEvent: true, ExtendableMessageEvent: true, FetchEvent: true, FontFaceSetLoadEvent: true, ForeignFetchEvent: true, GamepadEvent: true, HashChangeEvent: true, InstallEvent: true, MediaEncryptedEvent: true, MediaKeyMessageEvent: true, MediaQueryListEvent: true, MediaStreamEvent: true, MediaStreamTrackEvent: true, MessageEvent: true, MIDIConnectionEvent: true, MIDIMessageEvent: true, MutationEvent: true, NotificationEvent: true, PageTransitionEvent: true, PaymentRequestEvent: true, PaymentRequestUpdateEvent: true, PopStateEvent: true, PresentationConnectionAvailableEvent: true, PresentationConnectionCloseEvent: true, ProgressEvent: true, PromiseRejectionEvent: true, PushEvent: true, RTCDataChannelEvent: true, RTCDTMFToneChangeEvent: true, RTCPeerConnectionIceEvent: true, RTCTrackEvent: true, SecurityPolicyViolationEvent: true, SensorErrorEvent: true, SpeechRecognitionError: true, SpeechRecognitionEvent: true, SpeechSynthesisEvent: true, StorageEvent: true, SyncEvent: true, TrackEvent: true, TransitionEvent: true, WebKitTransitionEvent: true, VRDeviceEvent: true, VRDisplayEvent: true, VRSessionEvent: true, MojoInterfaceRequestEvent: true, ResourceProgressEvent: true, USBConnectionEvent: true, IDBVersionChangeEvent: true, AudioProcessingEvent: true, OfflineAudioCompletionEvent: true, WebGLContextEvent: true, Event: false, InputEvent: false, SubmitEvent: false, AbsoluteOrientationSensor: true, Accelerometer: true, AccessibleNode: true, AmbientLightSensor: true, Animation: true, ApplicationCache: true, DOMApplicationCache: true, OfflineResourceList: true, BackgroundFetchRegistration: true, BatteryManager: true, BroadcastChannel: true, CanvasCaptureMediaStreamTrack: true, DedicatedWorkerGlobalScope: true, EventSource: true, FileReader: true, Gyroscope: true, XMLHttpRequest: true, XMLHttpRequestEventTarget: true, XMLHttpRequestUpload: true, LinearAccelerationSensor: true, Magnetometer: true, MediaDevices: true, MediaKeySession: true, MediaQueryList: true, MediaRecorder: true, MediaSource: true, MediaStream: true, MediaStreamTrack: true, MessagePort: true, MIDIAccess: true, MIDIInput: true, MIDIOutput: true, MIDIPort: true, NetworkInformation: true, Notification: true, OffscreenCanvas: true, OrientationSensor: true, PaymentRequest: true, Performance: true, PermissionStatus: true, PresentationAvailability: true, PresentationConnection: true, PresentationConnectionList: true, PresentationRequest: true, RelativeOrientationSensor: true, RemotePlayback: true, RTCDataChannel: true, DataChannel: true, RTCDTMFSender: true, RTCPeerConnection: true, webkitRTCPeerConnection: true, mozRTCPeerConnection: true, ScreenOrientation: true, Sensor: true, ServiceWorker: true, ServiceWorkerContainer: true, ServiceWorkerGlobalScope: true, ServiceWorkerRegistration: true, SharedWorker: true, SharedWorkerGlobalScope: true, SpeechRecognition: true, webkitSpeechRecognition: true, SpeechSynthesis: true, SpeechSynthesisUtterance: true, VR: true, VRDevice: true, VRDisplay: true, VRSession: true, VisualViewport: true, WebSocket: true, Window: true, DOMWindow: true, Worker: true, WorkerGlobalScope: true, WorkerPerformance: true, BluetoothDevice: true, BluetoothRemoteGATTCharacteristic: true, Clipboard: true, MojoInterfaceInterceptor: true, USB: true, IDBDatabase: true, IDBOpenDBRequest: true, IDBVersionChangeRequest: true, IDBRequest: true, IDBTransaction: true, AnalyserNode: true, RealtimeAnalyserNode: true, AudioBufferSourceNode: true, AudioDestinationNode: true, AudioNode: true, AudioScheduledSourceNode: true, AudioWorkletNode: true, BiquadFilterNode: true, ChannelMergerNode: true, AudioChannelMerger: true, ChannelSplitterNode: true, AudioChannelSplitter: true, ConstantSourceNode: true, ConvolverNode: true, DelayNode: true, DynamicsCompressorNode: true, GainNode: true, AudioGainNode: true, IIRFilterNode: true, MediaElementAudioSourceNode: true, MediaStreamAudioDestinationNode: true, MediaStreamAudioSourceNode: true, OscillatorNode: true, Oscillator: true, PannerNode: true, AudioPannerNode: true, webkitAudioPannerNode: true, ScriptProcessorNode: true, JavaScriptAudioNode: true, StereoPannerNode: true, WaveShaperNode: true, EventTarget: false, File: true, FileList: true, FileWriter: true, FontFace: true, FontFaceSet: true, HTMLFormElement: true, Gamepad: true, History: true, HTMLCollection: true, HTMLFormControlsCollection: true, HTMLOptionsCollection: true, HTMLDocument: true, Location: true, MediaList: true, MIDIInputMap: true, MIDIOutputMap: true, MimeType: true, MimeTypeArray: true, MouseEvent: true, DragEvent: true, PointerEvent: true, WheelEvent: true, DocumentFragment: true, ShadowRoot: true, Attr: true, DocumentType: true, Node: false, NodeList: true, RadioNodeList: true, Plugin: true, PluginArray: true, RTCStatsReport: true, HTMLSelectElement: true, SourceBuffer: true, SourceBufferList: true, SpeechGrammar: true, SpeechGrammarList: true, SpeechRecognitionResult: true, Storage: true, CSSStyleSheet: true, StyleSheet: true, HTMLTemplateElement: true, TextTrack: true, TextTrackCue: true, VTTCue: true, TextTrackCueList: true, TextTrackList: true, TimeRanges: true, Touch: true, TouchList: true, TrackDefaultList: true, CompositionEvent: true, FocusEvent: true, KeyboardEvent: true, TextEvent: true, TouchEvent: true, UIEvent: false, URL: true, VideoTrackList: true, CSSRuleList: true, ClientRect: true, DOMRect: true, GamepadList: true, NamedNodeMap: true, MozNamedAttrMap: true, SpeechRecognitionResultList: true, StyleSheetList: true, SVGLength: true, SVGLengthList: true, SVGNumber: true, SVGNumberList: true, SVGPointList: true, SVGStringList: true, SVGAElement: true, SVGAnimateElement: true, SVGAnimateMotionElement: true, SVGAnimateTransformElement: true, SVGAnimationElement: true, SVGCircleElement: true, SVGClipPathElement: true, SVGDefsElement: true, SVGDescElement: true, SVGDiscardElement: true, SVGEllipseElement: true, SVGFEBlendElement: true, SVGFEColorMatrixElement: true, SVGFEComponentTransferElement: true, SVGFECompositeElement: true, SVGFEConvolveMatrixElement: true, SVGFEDiffuseLightingElement: true, SVGFEDisplacementMapElement: true, SVGFEDistantLightElement: true, SVGFEFloodElement: true, SVGFEFuncAElement: true, SVGFEFuncBElement: true, SVGFEFuncGElement: true, SVGFEFuncRElement: true, SVGFEGaussianBlurElement: true, SVGFEImageElement: true, SVGFEMergeElement: true, SVGFEMergeNodeElement: true, SVGFEMorphologyElement: true, SVGFEOffsetElement: true, SVGFEPointLightElement: true, SVGFESpecularLightingElement: true, SVGFESpotLightElement: true, SVGFETileElement: true, SVGFETurbulenceElement: true, SVGFilterElement: true, SVGForeignObjectElement: true, SVGGElement: true, SVGGeometryElement: true, SVGGraphicsElement: true, SVGImageElement: true, SVGLineElement: true, SVGLinearGradientElement: true, SVGMarkerElement: true, SVGMaskElement: true, SVGMetadataElement: true, SVGPathElement: true, SVGPatternElement: true, SVGPolygonElement: true, SVGPolylineElement: true, SVGRadialGradientElement: true, SVGRectElement: true, SVGScriptElement: true, SVGSetElement: true, SVGStopElement: true, SVGStyleElement: true, SVGElement: true, SVGSVGElement: true, SVGSwitchElement: true, SVGSymbolElement: true, SVGTSpanElement: true, SVGTextContentElement: true, SVGTextElement: true, SVGTextPathElement: true, SVGTextPositioningElement: true, SVGTitleElement: true, SVGUseElement: true, SVGViewElement: true, SVGGradientElement: true, SVGComponentTransferFunctionElement: true, SVGFEDropShadowElement: true, SVGMPathElement: true, SVGTransform: true, SVGTransformList: true, AudioBuffer: true, AudioParamMap: true, AudioTrackList: true, AudioContext: true, webkitAudioContext: true, BaseAudioContext: false, OfflineAudioContext: true});
     A.NativeTypedArray.$nativeSuperclassTag = "ArrayBufferView";
     A._NativeTypedArrayOfDouble_NativeTypedArray_ListMixin.$nativeSuperclassTag = "ArrayBufferView";
     A._NativeTypedArrayOfDouble_NativeTypedArray_ListMixin_FixedLengthListMixin.$nativeSuperclassTag = "ArrayBufferView";
@@ -17047,14 +17301,14 @@
     A._TextTrackList_EventTarget_ListMixin.$nativeSuperclassTag = "EventTarget";
     A._TextTrackList_EventTarget_ListMixin_ImmutableListMixin.$nativeSuperclassTag = "EventTarget";
   })();
-  Function.prototype.call$0 = function() {
-    return this();
+  Function.prototype.call$2 = function(a, b) {
+    return this(a, b);
   };
   Function.prototype.call$1 = function(a) {
     return this(a);
   };
-  Function.prototype.call$2 = function(a, b) {
-    return this(a, b);
+  Function.prototype.call$0 = function() {
+    return this();
   };
   Function.prototype.call$3 = function(a, b, c) {
     return this(a, b, c);

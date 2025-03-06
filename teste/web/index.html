@@ -1,69 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu Projeto Pokémon</title>
     <script defer src="main.dart.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Olá, seja bem-vindo ao Mundo Pokémon!</h1>
-    
-    <div class="form-container">
-      <label for="a">Tipo de Pokémon:</label>
-      <select name="pokemon-type" id="pokemon-type">
-        <option value="1">Normal</option>
-        <option value="2">Luta</option>
-        <option value="3">Voador</option>
-        <option value="4">Venenoso</option>
-        <option value="5">Terra</option>
-        <option value="6">Rocha</option>
-        <option value="7">Inseto</option>
-        <option value="8">Fantasma</option>
-        <option value="9">Aço</option>
-        <option value="10">Fogo</option>
-        <option value="11">Água</option>
-        <option value="12">Planta</option>
-        <option value="13">Elétrico</option>
-        <option value="14">Psíquico</option>
-        <option value="15">Gelo</option>
-        <option value="16">Dragão</option>
-        <option value="17">Sombrio</option>
-        <option value="18">Fada</option>
-        <option value="19">Estelar</option>
-      </select>
-      
-      <button id="submitBtn">Enviar</button>
+    <div class="title-container">
+      <h1>Tipos</h1>
+      <div class="type-box reset" data-value="40">Reset</div>
     </div>
-    
-    <div id="result">
-      <p id="greeting"></p>
+    <div class="container-tipos">
+      <div class="type-box normal" data-value="1">Normal</div>
+      <div class="type-box fighting" data-value="2">Luta</div>
+      <div class="type-box flying" data-value="3">Voador</div>
+      <div class="type-box poison" data-value="4">Venenoso</div>
+      <div class="type-box ground" data-value="5">Terrestre</div>
+      <div class="type-box rock" data-value="6">Pedra</div>
+      <div class="type-box bug" data-value="7">Inseto</div>
+      <div class="type-box ghost" data-value="8">Fantasma</div>
+      <div class="type-box steel" data-value="9">Aço</div>
+      <div class="type-box fire" data-value="10">Fogo</div>
+      <div class="type-box water" data-value="11">Água</div>
+      <div class="type-box grass" data-value="12">Planta</div>
+      <div class="type-box electric" data-value="13">Elétrico</div>
+      <div class="type-box psychic" data-value="14">Psíquico</div>
+      <div class="type-box ice" data-value="15">Gelo</div>
+      <div class="type-box dragon" data-value="16">Dragão</div>
+      <div class="type-box dark" data-value="17">Sombrio</div>
+      <div class="type-box fairy" data-value="18">Fada</div>
     </div>
-    
-    <h1 id="type"></h1>
-    <h1 id="text"></h1>
-
-    <div class="container">
-      <div class="type-box normal">Normal</div>
-      <div class="type-box fighting">Fighting</div>
-      <div class="type-box flying">Flying</div>
-      <div class="type-box poison">Poison</div>
-      <div class="type-box ground">Ground</div>
-      <div class="type-box rock">Rock</div>
-      <div class="type-box bug">Bug</div>
-      <div class="type-box ghost">Ghost</div>
-      <div class="type-box steel">Steel</div>
-      <div class="type-box fire">Fire</div>
-      <div class="type-box water">Water</div>
-      <div class="type-box grass">Grass</div>
-      <div class="type-box electric">Electric</div>
-      <div class="type-box psychic">Psychic</div>
-      <div class="type-box ice">Ice</div>
-      <div class="type-box dragon">Dragon</div>
-      <div class="type-box dark">Dark</div>
-      <div class="type-box fairy">Fairy</div>
-    </div>
-
+    <p id="output"></p>
   </body>
 </html>

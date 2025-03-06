@@ -12,11 +12,19 @@ body {
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  text-align: center;
 }
 
 h1 {
   color: #333;
-  text-align: center;
+  display: inline-block; /* Mantém o título em linha */
+  margin-right: 20px; /* Adiciona um espaço entre o título e o botão */
+}
+
+.title-container {
+  display: flex;
+  align-items: center; /* Alinha o título e o botão verticalmente */
+  margin-bottom: 20px;
 }
 
 .form-container {
@@ -40,24 +48,31 @@ label {
   cursor: pointer;
 }
 
-.container {
+.container-tipos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+  gap: 15px;
   padding: 20px;
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
+  overflow-x: auto; /* Adiciona uma barra de rolagem se necessário */
 }
 
 .type-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 110px;
   font-size: 1.2em;
+  font-weight: 600;
   color: #fff;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  padding: 0 10px; /* Adiciona padding horizontal para evitar que o texto ultrapasse */
+  text-align: center;
+  word-wrap: break-word; /* Faz o texto quebrar em várias linhas, se necessário */
+  white-space: normal; /* Permite que o texto se ajuste conforme necessário */
 }
 
 .type-box:hover {
@@ -81,18 +96,72 @@ label {
 .psychic { background-color: #F85888; }
 .ice { background-color: #98D8D8; }
 .dragon { background-color: #7038F8; }
-.dark { background-color: #705848; }
+.dark { background-color: #2c2c2c; }
 .fairy { background-color: #EE99AC; }
 
 @media screen and (max-width: 768px) {
-  .container {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .container-tipos {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
 
 @media screen and (max-width: 480px) {
   .type-box {
-      font-size: 1em;
-      height: 80px;
+    font-size: 1em;
+    height: 80px;
   }
+}
+
+.damage-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.damage-container h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.damage-types {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.damage-types .type-box {
+  padding: 10px 15px;
+  min-width: 100px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.type-box.reset {
+  margin-top: 20px;
+  background-color: #f44336;
+  color: #fff;
+  font-weight: 700;
+  border: 2px solid #d32f2f;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.type-box.reset:hover {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.type-box.reset:active {
+  transform: scale(0.95);
 }
