@@ -7408,7 +7408,7 @@
               $async$exception = $async$errorStack.pop();
               t1 = document.querySelector("#output");
               t1.toString;
-              J.set$text$x(t1, "Erro ao buscar dados da API");
+              J.set$text$x(t1, "Campo de texto est\xe1 vazio.");
               // goto after finally
               $async$goto = 5;
               break;
@@ -16177,10 +16177,7 @@
   A.main_closure.prototype = {
     call$1($event) {
       var nomePoke = this.pokemonInput.value;
-      if (nomePoke == null)
-        nomePoke = "";
-      if (nomePoke.length !== 0)
-        A.buscarTipoPokemon(nomePoke);
+      A.buscarTipoPokemon(nomePoke == null ? "" : nomePoke);
     },
     $signature: 13
   };

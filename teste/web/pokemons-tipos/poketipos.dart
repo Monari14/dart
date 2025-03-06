@@ -9,10 +9,8 @@ void main() {
   // Adiciona o evento de digitação no input
   pokemonInput.onInput.listen((event) {
     String nomePoke = pokemonInput.value ?? '';
-
-    if (nomePoke.isNotEmpty) {
       buscarTipoPokemon(nomePoke);
-    }
+
   });
 }
 
@@ -54,7 +52,7 @@ Future<void> buscarTipoPokemon(String nomePoke) async {
     }
   } catch (e) {
     // Se houver um erro na requisição, exibe uma mensagem de erro
-    querySelector('#output')!.text = 'Erro ao buscar dados da API';
+    querySelector('#output')!.text = 'Campo de texto está vazio.';
   }
 }
 
